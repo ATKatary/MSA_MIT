@@ -1,5 +1,4 @@
-# MIT Muslim Student Association
-https://www.mitmsa.com    
+# MIT Muslim Student Association  
 ## Getting Started 
 - Download Python3 
   - https://www.python.org/downloads/ 
