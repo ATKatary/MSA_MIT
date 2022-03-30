@@ -2,7 +2,7 @@
 @media only screen {
   html {
     color: #fff;
-    background: #F4F4F4;
+    background: url("./media/img/landing-background.png");
   }
 
   body {
@@ -33,9 +33,6 @@
 }
 /***** > 700px *****/
 @media only screen and (min-width: 700px) {
-  html, body, #appRoot {
-    /* min-width: 900px; */
-  }
 }
 
 /***** <= 700px *****/
