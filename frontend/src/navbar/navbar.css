@@ -1,0 +1,58 @@
+/***** Always True *****/
+@media only screen {
+    /*** General Purpose Display Styles ***/
+    .flex {display: flex;}
+    .column {flex-direction: column;}
+    .width-100 {width: 100%;}
+    .absolute {position: absolute;}
+    .align-center {align-items: center;}
+    .justify-center {justify-content: center;}
+    .align-self-center {align-self: center;}
+    
+    /*** Margins ***/
+    .margin-0 {margin: 0;}
+    .margin-5px {margin: 5px;}
+    .margin-10px {margin: 10px;}
+    .margin-right-20px {margin: 20px}
+
+    /*** Color Gradients ***/
+    .green  {background: linear-gradient(180deg, #39CBB9 0%, #5BFE9E 100%);}
+    .purple {background: linear-gradient(269.15deg, #C183F2 4.11%, #E5B2FF 96.97%);}
+    .orange {background: linear-gradient(225deg, #D69334 0%, #FD8F3C 88.84%);}
+
+    /*** Shadows ***/
+    .box-shadow {box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);}
+
+    /*** Rotations ***/
+    .rotate-45 {transform: rotate(45deg);}
+    
+    /*** Element Styles ***/
+    nav {
+        z-index: 1;
+        width: 100%;
+    }
+
+    /*** Class Styles ***/
+    .navCont {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-p {
+        margin: 10px !important;
+    }
+
+    /*** ID Styles ***/
+
+}
+
+/***** > 600px *****/
+@media only screen and (min-width: 700px) {
+
+}
+
+/***** <= 600px *****/
+@media only screen and (max-width: 700px) {
+
+}
