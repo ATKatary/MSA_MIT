@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from mail_utils.view_helpers import _is_subset, _send_email
+from .mail_utils.view_helpers import _is_subset, _send_email
 
 @api_view(['POST'])
 def contact(request, *args, **kwargs) -> HttpResponse:
@@ -44,6 +44,6 @@ def contact(request, *args, **kwargs) -> HttpResponse:
         text_content      = message
         html_content      = ""
 
-        return _send_email(from_email, from_password, reciepient_emails, smtp_server, smtp_port, subject, text_content, html_content)
+        user_status = _send_email(from_email, from_password, reciepient_emails, smtp_server, smtp_port, subject, text_content, html_content)
 
     return Response(status = user_status)
