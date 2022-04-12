@@ -1,7 +1,7 @@
 """
 backend settings
 """
-
+import json
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -12,7 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^g=93zsjp&s75+h3s_we*7n=99mc$y5tqiypkmry&-r%4h-quo'
+with open("/Users/king_ahmed1421/Simba/keys.json", "rb") as secret_keys:
+    SECRET_KEY = json.loads(secret_keys.read())['msa']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
