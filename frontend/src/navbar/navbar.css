@@ -9,12 +9,16 @@
     .justify-center {justify-content: center;}
     .align-self-center {align-self: center;}
     
+    /*** Shapes ***/
+    .square-75px {width: 75px; height: 75px;}
+    .circle {border-radius: 50%;}
+
     /*** Margins ***/
     .margin-0 {margin: 0;}
     .margin-5px {margin: 5px;}
     .margin-10px {margin: 10px;}
     .margin-right-20px {margin: 20px}
-
+    
     /*** Color Gradients ***/
     .green  {background: linear-gradient(180deg, #39CBB9 0%, #5BFE9E 100%);}
     .purple {background: linear-gradient(269.15deg, #C183F2 4.11%, #E5B2FF 96.97%);}
@@ -40,6 +44,14 @@
     }
 
     .nav-p {
+        margin: 10px !important;
+    }
+
+    .home-icon {
+        background-image: url("../media/img/msa-alchemist.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
         margin: 10px !important;
     }
 

@@ -10,6 +10,13 @@
   .justify-center {justify-content: center;}
   .align-self-center {align-self: center;}
 
+  /*** Sizes ***/
+  .width-90 {width: 90%;}
+  .width-80 {width: 80%;}
+  .width-75 {width: 75%;}
+  .width-50 {width: 50%;}
+  .height-15vw {height: 15vw;}
+
   /*** Color Gradients ***/
   .green  {background: linear-gradient(180deg, #39CBB9 0%, #5BFE9E 100%);}
   .purple {background: linear-gradient(269.15deg, #C183F2 4.11%, #E5B2FF 96.97%);}
