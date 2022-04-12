@@ -47,7 +47,6 @@ source env/Scripts/activate                              # activate the virtual 
 ```     
 pip3 install django                                      # install all the required files for django
 pip3 install djangorestframework                         # install all the required files for the rest api framework
-python3 manage.py makemigrations                         # migrating changes
 python3 manage.py runserver                              # testing that you did everything correctly and backend works
 ```
       
