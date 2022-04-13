@@ -70,5 +70,6 @@ def _send_email(from_email, from_password, reciepient_emails, smtp_server, smtp_
         return status.HTTP_403_FORBIDDEN
 
     finally:
+        print("Message successfully sent to %s" % reciepient_emails)
         server.quit() 
         return status.HTTP_200_OK
