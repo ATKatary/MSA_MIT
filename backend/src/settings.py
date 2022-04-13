@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open("/Users/king_ahmed1421/Simba/keys.json", "rb") as secret_keys:
+with open(BASE_DIR.parent.parent + "/keys.json", "rb") as secret_keys:
     SECRET_KEY = json.loads(secret_keys.read())['msa']
 
 # SECURITY WARNING: don't run with debug turned on in production!
