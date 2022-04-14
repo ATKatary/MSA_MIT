@@ -32,17 +32,17 @@ def contact(request, *args, **kwargs) -> HttpResponse:
         email   = request.GET['email']
         subject = request.GET['subject']
         message = request.GET['message']
-    
+
         # sender and reciepient information
         from_email        = "noreply@msa.com"
         from_password     = None
-        reciepient_emails = [email, "jdummy7898@gmail.com"]
+        reciepient_emails = [email, "msa-ec-current@mit.edu"]
         # server and port sending the message
         smtp_server       = None 
         smtp_port         = None
         # message content
         subject           = subject
-        text_content      = "Name:\t%s\nEmail:\t%s\nMessage:\n\t%s" % (name, email, message)
+        text_content      = "Name:\t%s\nEmail:\t%s\nMessage:\n%s" % (name, email, message.replace("\\n", "\n"))
         html_content      = ""
 
         user_status = _send_email(from_email, from_password, reciepient_emails, smtp_server, smtp_port, subject, text_content, html_content)

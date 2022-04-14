@@ -1,12 +1,12 @@
 import './navbar.css';
-import Button from '@mui/material/Button';
+import {Button} from '@mui/material';
 
 function NavBar() {
   return (
     <nav>
       <div className="navCont align-center">
           <div className="flex">
-            <Button id="contact" className="nav-p" sx = {{fontSize : "14px", fontWeight: "900", color: "#000"}}>Contact</Button>
+            <Button id="contact" className="nav-p" sx = {{fontSize : "14px", fontWeight: "900", color: "#000"}} href="#mailBox">Contact</Button>
             <Button id="resources" className="nav-p" sx = {{fontSize : "14px", fontWeight: "900", color: "#000"}}>Resources</Button>
             <Button id="library" className="nav-p" sx = {{fontSize : "14px", fontWeight: "900", color: "#000"}}>Library</Button>
           </div>

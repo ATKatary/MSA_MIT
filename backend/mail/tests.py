@@ -27,14 +27,14 @@ class MailTests(APITestCase):
               ... on verify: valid verification code 
         """
         email                = "jdummy7898@gmail.com"
-        subject              = "testing"
+        subject              = "verification code"
         password             = "haoihhxsctaemsuf"
         smtp_server          = "imap.gmail.com"
         smtp_port            = 933
         mail_box             = "inbox"
         criteria             = '(SUBJECT "%s")' % subject
           
-        request_1_data       = {"name" : "Ahmed Katary", "email" : "akatary@mit.edu", "subject" : subject, "message" : "Hello World"}
+        request_1_data       = {"name" : "Ahmed Katary", "email" : "akatary@mit.edu", "subject" : subject, "message" : "P-12192000"}
         response_1           = self.client.get(url['contact'], request_1_data)
         
         print("Sleeping for 15 seconds while verification email sends...")

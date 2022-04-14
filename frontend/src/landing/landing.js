@@ -15,7 +15,7 @@ function Landing() {
                     event("Event 2", "description", "purple", "/"),
                     event("Event 3", "description", "orange", "/"),
                     event("Event 4", "description", "red", "/"),
-                    event("Iftar", "For the duration of Ramadan the MSA holds daily iftars in Lobdell hall", "blue", "/")];
+                    event("Iftar", "For the duration of Ramadan the MSA holds daily iftars in Lobdell hall", "blue", "/ramadan")];
 
   slideshowImages.push(images(`./ramadan/2022/pic0.jpg`));
   slideshowImages.push(images(`./retreat/2021/pic0.png`));
@@ -31,11 +31,11 @@ function Landing() {
     <div id="root" className="width-100 flex column align-center">
         <NavBar />
         <img src={images("./verses/bismAllah.png").default} className="height-15vw" alt=""/>
-        <SlideShow images={slideshowImages}/>
+        <SlideShow images={slideshowImages} id="msa"/>
         <img src={images("./msa-logo.png").default} className="height-15vw" alt=""/>
-        <TextImage title={about['title']} body={about['body']} imageSrc={images("./mit-logo.png").default}/>
+        <TextImage title={about['title']} body={about['body']} imageSrc={images("./mit-logo.png").default} id="about"/>
         <Typography variant="h1" className="text-black font-6vw margin-10px">Events</Typography>
-        <Rotate images={events}/>
+        <Rotate images={events} id="events"/>
         <Footer/>
     </div>
     </>
