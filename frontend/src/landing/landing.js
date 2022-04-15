@@ -1,7 +1,7 @@
 import './landing.css';
 import NavBar from  "../navbar/navbar.js";
 import Footer from "../footer/footer.js";
-import {SlideShow, Rotate} from "../gallery/gallery.js";
+import {SlideShow, Shuffle, Rotate} from "../gallery/gallery.js";
 import {TextImage} from "../block/block.js";
 import {Typography} from '@mui/material';
 /*** GLobal Constants ***/
@@ -10,7 +10,6 @@ const event = (title, description, color, link, img=undefined) => {return {'titl
 function Landing() {
   const images = require.context('../media/img', true);
   const slideshowImages = [];
-
   const events = [event("Event 1", "description", "green", "/"),
                     event("Event 2", "description", "purple", "/"),
                     event("Event 3", "description", "orange", "/"),
@@ -19,6 +18,7 @@ function Landing() {
 
   slideshowImages.push(images(`./ramadan/2022/pic0.jpg`));
   slideshowImages.push(images(`./retreat/2021/pic0.png`));
+  slideshowImages.push(images(`./retreat/2021/pic1.jpg`));
   slideshowImages.push(images(`./events/tajweed/pic0.jpg`));
   slideshowImages.push(images(`./events/art/pic0.jpg`));
   

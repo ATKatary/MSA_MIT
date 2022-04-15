@@ -106,7 +106,7 @@
   /*** ID Styles ***/
 
   /*** Animations ***/
-  .pause:hover > button {animation-play-state: paused;}
+  .pause:hover > div {animation-play-state: paused;}
 
   @keyframes slide {
       0% {
