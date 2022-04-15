@@ -20,6 +20,7 @@
 
     /*** Sizes ***/
     .width-90 {width: 90%;}
+    .width-85 {width: 85%;}
     .width-80 {width: 80%;}
     .width-75 {width: 75%;}
     .width-50 {width: 50%;}
@@ -27,6 +28,8 @@
     .height-100vw {height: 100vw;}
     .height-50vw {height: 50vw;}
     .height-45vw {height: 45vw;}
+    .height-40vw {height: 40vw;}
+    .height-30vw {height: 30vw;}
     .height-20vw {height: 20vw;}
 
     /*** Margins ***/
@@ -60,8 +63,11 @@
     }
 
     /*** Class Styles ***/
+    .show-block-0 {animation: appear-0 36s ease infinite;}
+    .show-block-1 {animation: appear-1 36s ease infinite;}
+    .show-block-2 {animation: appear-2 36s ease infinite;}
 
-
+    .pause:hover > div {animation-play-state: paused;}
     /*** ID Styles ***/
 
     /*** Animations ***/
@@ -76,6 +82,69 @@
           margin-left: -90vw;
         }
       }
+      
+    @keyframes appear-0 {
+      0% {
+        opacity: 100%;
+      }
+      20% {
+        opacity: 0;
+      }
+      40% {
+        opacity: 0;
+      }
+      60% {
+        opacity: 0;
+      }
+      80% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 100%;
+      }
+    }
+
+    @keyframes appear-1 {
+      0% {
+        opacity: 0;
+      }
+      20% {
+        opacity: 100%;
+      }
+      40% {
+        opacity: 0;
+      }
+      60% {
+        opacity: 0;
+      }
+      80% {
+        opacity: 100%;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes appear-2 {
+      0% {
+        opacity: 0;
+      }
+      20% {
+        opacity: 0;
+      }
+      40% {
+        opacity: 100%;
+      }
+      60% {
+        opacity: 100%;
+      }
+      80% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
 }
 
 /***** > 600px *****/

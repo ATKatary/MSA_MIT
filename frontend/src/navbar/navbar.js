@@ -13,7 +13,7 @@ function NavBar(props) {
             <Button id="contact" className="nav-p" sx = {{fontSize : "14px", fontWeight: "900", color: props.color}} href="#mailBox">Contact</Button>
             <Button id="resources" className="nav-p" sx = {{fontSize : "14px", fontWeight: "900", color: props.color}}>Resources</Button>
             <Button id="library" className="nav-p" sx = {{fontSize : "14px", fontWeight: "900", color: props.color}}>Library</Button>
-            {props.mode === undefined ? <></> : <IconButton sx={{ml: 1, color: `${props.mode['backColor']}`}} onClick={switchMode}>
+            {props.mode === undefined ? <></> : <IconButton sx={{ml: 1, color: `${props.mode['navColor']}`}} onClick={switchMode}>
               {props.mode['theme'] === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>}
           </div>

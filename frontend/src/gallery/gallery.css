@@ -13,13 +13,14 @@
   /*** Sizes ***/
   .width-40 {width: 40%;}
   .width-50 {width: 50%;}
+  .width-90 {width: 90%;}
   .width-100 {width: 100%;}
   .height-75vw {height: 75vw;}
   .height-100 {height: 100%;}
 
   /*** Opacities ***/
   .opacity-95 {opacity: 100%;}
-  .opacity-95:hover {opacity: 95%; z-index: 5 !important;}
+  .opacity-95:hover {opacity: 95%; z-index: 5 !important; transform: translate3d(0, 0, 200px);}
 
   /*** Margins ***/
   .margin-0 {margin: 0;}
@@ -102,11 +103,17 @@
     animation: slide infinite 10s alternate;
   }
 
-  .cycle-start0-animation {animation: cycle-start0 infinite 25s alternate-reverse;}
-  .cycle-start1-animation {animation: cycle-start1 infinite 25s alternate-reverse;}
-  .cycle-start2-animation {animation: cycle-start2 infinite 25s alternate-reverse;}
-  .cycle-start3-animation {animation: cycle-start3 infinite 25s alternate-reverse;}
-  .cycle-start4-animation {animation: cycle-start4 infinite 25s alternate-reverse;}
+  .cycle-start0-animation-safari  {animation: cycle-start0-safari  infinite 25s alternate-reverse;}
+  .cycle-start1-animation-safari  {animation: cycle-start1-safari  infinite 25s alternate-reverse;}
+  .cycle-start2-animation-safari  {animation: cycle-start2-safari  infinite 25s alternate-reverse;}
+  .cycle-start3-animation-safari  {animation: cycle-start3-safari  infinite 25s alternate-reverse;}
+  .cycle-start4-animation-safari  {animation: cycle-start4-safari  infinite 25s alternate-reverse;}
+
+  .cycle-start0-animation-chrome  {animation: cycle-start0-chrome  infinite 25s alternate-reverse;}
+  .cycle-start1-animation-chrome  {animation: cycle-start1-chrome  infinite 25s alternate-reverse;}
+  .cycle-start2-animation-chrome  {animation: cycle-start2-chrome  infinite 25s alternate-reverse;}
+  .cycle-start3-animation-chrome  {animation: cycle-start3-chrome  infinite 25s alternate-reverse;}
+  .cycle-start4-animation-chrome  {animation: cycle-start4-chrome  infinite 25s alternate-reverse;}
 
   /*** ID Styles ***/
 
@@ -125,17 +132,17 @@
       }
     }
 
-  @keyframes cycle-start2 {
+  @keyframes cycle-start2-safari  {
       0% {
         margin: 0;
-        margin-top: 35%;
-        margin-left: 20%;
+        margin-top: 35vw;
+        margin-left: 10vw;
         z-index: -2;
       }
       20% {
         margin: 0;
-        margin-top: 10%;
-        margin-left: 50%;
+        margin-top: 10vw;
+        margin-left: 25vw;
         z-index: -1;
       }
       40% {
@@ -144,29 +151,29 @@
       }
       60% {
         margin: 0;
-        margin-top: 15%;
-        margin-right: 50%;
+        margin-top: 15vw;
+        margin-left: -25vw;
         z-index: 1;
       }
       80% {
         margin: 0;
-        margin-top: 40%;
-        margin-right: 25%;
+        margin-top: 40vw;
+        margin-left: -12.5vw;
         z-index: 2;
       }
       100% {
         margin: 0;
-        margin-top: 35%;
-        margin-left: 20%;
+        margin-top: 35vw;
+        margin-left: 10vw;
         z-index: 3;
       }
   }
 
-  @keyframes cycle-start1 {
+  @keyframes cycle-start1-safari  {
     0% {
       margin: 0;
-      margin-top: 10%;
-      margin-left: 50%;
+      margin-top: 10vw;
+      margin-left: 25vw;
       z-index: -1;
     }
     20% {
@@ -175,57 +182,57 @@
     }
     40% {
       margin: 0;
-      margin-top: 15%;
-      margin-right: 50%;
+      margin-top: 15vw;
+      margin-left: -25vw;
       z-index: 1;
     }
     60% {
       margin: 0;
-      margin-top: 40%;
-      margin-right: 25%;
+      margin-top: 40vw;
+      margin-left: -12.5vw;
       z-index: 2;
     }
     80% {
       margin: 0;
-      margin-top: 35%;
-      margin-left: 20%;
+      margin-top: 35vw;
+      margin-left: 10vw;
       z-index: 3;
     }
     100% {
         margin: 0;
-        margin-top: 10%;
-        margin-left: 50%;
+        margin-top: 10vw;
+        margin-left: 25vw;
         z-index: -2;
       }
   }
 
-  @keyframes cycle-start0 {
+  @keyframes cycle-start0-safari  {
     0% {
       margin: 0;
       z-index: 0;
     }
     20% {
       margin: 0;
-      margin-top: 15%;
-      margin-right: 50%;
+      margin-top: 15vw;
+      margin-left: -25vw;
       z-index: 1;
     }
     40% {
       margin: 0;
-      margin-top: 40%;
-      margin-right: 25%;
+      margin-top: 40vw;
+      margin-left: -12.5vw;
       z-index: 2;
     }
     60% {
       margin: 0;
-      margin-top: 35%;
-      margin-left: 20%;
+      margin-top: 35vw;
+      margin-left: 10vw;
       z-index: 3;
     }
     80% {
         margin: 0;
-        margin-top: 10%;
-        margin-left: 50%;
+        margin-top: 10vw;
+        margin-left: 25vw;
         z-index: -2;
       }
     100% {
@@ -234,29 +241,29 @@
     }
   }
 
-  @keyframes cycle-start4 {
+  @keyframes cycle-start4-safari  {
     0% {
       margin: 0;
-      margin-top: 15%;
-      margin-right: 50%;
+      margin-top: 15vw;
+      margin-left: -25vw;
       z-index: 1;
     }
     20% {
       margin: 0;
-      margin-top: 40%;
-      margin-right: 25%;
+      margin-top: 40vw;
+      margin-left: -12.5vw;
       z-index: 2;
     }
     40% {
       margin: 0;
-      margin-top: 35%;
-      margin-left: 20%;
+      margin-top: 35vw;
+      margin-left: 10vw;
       z-index: 3;
     }
     60% {
         margin: 0;
-        margin-top: 10%;
-        margin-left: 50%;
+        margin-top: 10vw;
+        margin-left: 25vw;
         z-index: -2;
       }
     80% {
@@ -265,29 +272,29 @@
     }
     100% {
         margin: 0;
-        margin-top: 15%;
-        margin-right: 50%;
+        margin-top: 15vw;
+        margin-left: -25vw;
         z-index: 0;
       }
   }
 
-  @keyframes cycle-start3 {
+  @keyframes cycle-start3-safari {
     0% {
       margin: 0;
-      margin-top: 40%;
-      margin-right: 25%;
+      margin-top: 40vw;
+      margin-left: -12.5vw;
       z-index: 2;
     }
     20% {
       margin: 0;
-      margin-top: 35%;
-      margin-left: 20%;
+      margin-top: 35vw;
+      margin-left: 10vw;
       z-index: 3;
     }
     40% {
         margin: 0;
-        margin-top: 10%;
-        margin-left: 50%;
+        margin-top: 10vw;
+        margin-left: 25vw;
         z-index: -2;
       }
     60% {
@@ -296,18 +303,201 @@
     }
     80% {
         margin: 0;
-        margin-top: 15%;
-        margin-right: 50%;
+        margin-top: 15vw;
+        margin-left: -25vw;
         z-index: 0;
       }
     100% {
         margin: 0;
-        margin-top: 40%;
-        margin-right: 25%;
+        margin-top: 40vw;
+        margin-left: -12.5vw;
         z-index: 1;
       }
   }
+
+  @keyframes cycle-start2-chrome {
+    0% {
+      margin: 0;
+      margin-top: 35vw;
+      margin-left: 20vw;
+      z-index: -2;
+    }
+    20% {
+      margin: 0;
+      margin-top: 10vw;
+      margin-left: 50vw;
+      z-index: -1;
+    }
+    40% {
+      margin: 0;
+      z-index: 0;
+    }
+    60% {
+      margin: 0;
+      margin-top: 15vw;
+      margin-left: -50vw;
+      z-index: 1;
+    }
+    80% {
+      margin: 0;
+      margin-top: 40vw;
+      margin-left: -25vw;
+      z-index: 2;
+    }
+    100% {
+      margin: 0;
+      margin-top: 35vw;
+      margin-left: 20vw;
+      z-index: 3;
+    }
 }
+
+  @keyframes cycle-start1-chrome {
+    0% {
+      margin: 0;
+      margin-top: 10vw;
+      margin-left: 50vw;
+      z-index: -1;
+    }
+    20% {
+      margin: 0;
+      z-index: 0;
+    }
+    40% {
+      margin: 0;
+      margin-top: 15vw;
+      margin-left: -50vw;
+      z-index: 1;
+    }
+    60% {
+      margin: 0;
+      margin-top: 40vw;
+      margin-left: -25vw;
+      z-index: 2;
+    }
+    80% {
+      margin: 0;
+      margin-top: 35vw;
+      margin-left: 20vw;
+      z-index: 3;
+    }
+    100% {
+        margin: 0;
+        margin-top: 10vw;
+        margin-left: 50vw;
+        z-index: -2;
+      }
+  }
+
+  @keyframes cycle-start0-chrome {
+    0% {
+      margin: 0;
+      z-index: 0;
+    }
+    20% {
+      margin: 0;
+      margin-top: 15vw;
+      margin-left: -50vw;
+      z-index: 1;
+    }
+    40% {
+      margin: 0;
+      margin-top: 40vw;
+      margin-left: -25vw;
+      z-index: 2;
+    }
+    60% {
+      margin: 0;
+      margin-top: 35vw;
+      margin-left: 20vw;
+      z-index: 3;
+    }
+    80% {
+        margin: 0;
+        margin-top: 10vw;
+        margin-left: 50vw;
+        z-index: -2;
+      }
+    100% {
+      margin: 0;
+      z-index: -1;
+    }
+  }
+
+  @keyframes cycle-start4-chrome {
+    0% {
+      margin: 0;
+      margin-top: 15vw;
+      margin-left: -50vw;
+      z-index: 1;
+    }
+    20% {
+      margin: 0;
+      margin-top: 40vw;
+      margin-left: -25vw;
+      z-index: 2;
+    }
+    40% {
+      margin: 0;
+      margin-top: 35vw;
+      margin-left: 20vw;
+      z-index: 3;
+    }
+    60% {
+        margin: 0;
+        margin-top: 10vw;
+        margin-left: 50vw;
+        z-index: -2;
+      }
+    80% {
+      margin: 0;
+      z-index: -1;
+    }
+    100% {
+        margin: 0;
+        margin-top: 15vw;
+        margin-left: -50vw;
+        z-index: 0;
+      }
+  }
+
+  @keyframes cycle-start3-chrome {
+    0% {
+      margin: 0;
+      margin-top: 40vw;
+      margin-left: -25vw;
+      z-index: 2;
+    }
+    20% {
+      margin: 0;
+      margin-top: 35vw;
+      margin-left: 20vw;
+      z-index: 3;
+    }
+    40% {
+        margin: 0;
+        margin-top: 10vw;
+        margin-left: 50vw;
+        z-index: -2;
+      }
+    60% {
+      margin: 0;
+      z-index: -1;
+    }
+    80% {
+        margin: 0;
+        margin-top: 15vw;
+        margin-left: -50vw;
+        z-index: 0;
+      }
+    100% {
+        margin: 0;
+        margin-top: 40vw;
+        margin-left: -25vw;
+        z-index: 1;
+      }
+  }
+  }
 
 /***** > 600px *****/
 @media only screen and (min-width: 700px) {
