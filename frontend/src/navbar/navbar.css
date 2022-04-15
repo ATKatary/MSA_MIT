@@ -47,8 +47,16 @@
         margin: 10px !important;
     }
 
-    .home-icon {
+    .home-icon-0 {
         background-image: url("../media/img/msa-alchemist.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 10px !important;
+    }
+
+    .home-icon-1 {
+        background-image: url("../media/img/ramadan/ramadan-alchemist.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;

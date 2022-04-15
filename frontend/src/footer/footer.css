@@ -47,14 +47,30 @@
     footer {
         display: flex;
         justify-content: space-between;
-        background-image: url("../media/img/footer/background-1.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center ;
         width: 100%;
         flex-direction: column;
         align-items: center;
     }
+
+    /*** Backgrounds ***/
+    .background-1 {
+        background-image: url("../media/img/footer/background-1.jpg");
+        background-position: center ;
+    }
+    .background-2 {
+        background-image: url("../media/img/footer/background-2.jpg");
+    }
+    .background-3 {
+        background-image: url("../media/img/footer/background-3.jpg");
+        background-position: center ;
+    }
+    .background-4 {
+        background-image: url("../media/img/footer/background-4.jpg");
+        background-position: center ;
+    }
+    
     /*** Class Styles ***/
     
     /*** ID Styles ***/

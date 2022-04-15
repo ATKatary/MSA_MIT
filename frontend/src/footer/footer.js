@@ -4,13 +4,13 @@ import Button from '@mui/material/Button';
 import {Typography, TextField, TextareaAutosize, Snackbar, IconButton} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-function Footer() {
+function Footer(props) {
   const [notifyStatus, setNotifyStatus] = React.useState(false);
   const [mailStatus, setMailStatus] = React.useState("");
-  const handleClose = () => {setNotifyStatus(false)}
+  const handleClose = () => {setNotifyStatus(false)};
 
   return (
-    <footer>
+    <footer className={`background-${props.background}`}>
       <div></div>
       <div className="flex column align-center width-50 margin-10px align-self-end">
       <Typography variant="h3" className="font-7vw" id="mailBox">Contact Us</Typography>
