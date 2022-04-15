@@ -27,7 +27,7 @@ export function ImageText(props) {
 
 export function BlockSlideShow(props) {
     return (
-        <div className="width-85 flex align-center justify-center height-40vw pause margin-bottom-10px">
+        <div className="width-100 flex align-center justify-center height-40vw pause margin-bottom-10px">
         {props.blocks.map((block, index) => {
             return props.blocks['type'] === "textImage" ?
             <TextImage title={block['title']} body={block['body']} textColor={block['textColor']} backColor={block['backColor']} imageSrc={block['imgSrc']} additionalClasses={`absolute show-block-${index}`} key={`block${index}`}/>
