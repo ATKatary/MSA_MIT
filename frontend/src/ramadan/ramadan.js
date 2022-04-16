@@ -29,7 +29,7 @@ function Ramadan() {
     "imgSrc": images(`./ramadan/2022/pic2-${mode['theme']}.png`).default
   }
   const fast = {
-    "type" : "imageText",
+    "type" : "textImage",
     "title" : "Fasting",
     "body"  : "Fasting is the act of abstaining from food and drink from sunrise until sunset. It was carried out by all of Allah’s prophets and is one of the five pillars of Islam.",
     "textColor": mode['textColor'],

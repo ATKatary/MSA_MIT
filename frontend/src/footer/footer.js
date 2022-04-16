@@ -12,7 +12,7 @@ function Footer(props) {
   return (
     <footer className={`background-${props.background}`}>
       <div></div>
-      <div className="flex column align-center width-50 margin-10px align-self-end">
+      <div className="flex column align-center margin-10px contact-us">
       <Typography variant="h3" className="font-7vw" id="mailBox">Contact Us</Typography>
         <div className="flex width-90 column align-self-start margin-left-10px">
           <TextField required id="name" label="Name" variant="standard" className="width-50 height-1 border-white" inputProps={{className: "text-black"}}></TextField>
@@ -43,6 +43,7 @@ function Footer(props) {
         >Send</Button>
         <Typography variant="h5" className="font-1vw margin-top-10px">MIT MSA</Typography>
         <Typography variant="h5" className="font-1vw">2022 © All Rights Reserved</Typography>
+        <Typography variant="h5" className="font-1vw">A Katary Production</Typography>
         <Snackbar open={notifyStatus} autoHideDuration={6000} onClose={handleClose} message={mailStatus} 
         action={<React.Fragment>
                   <IconButton

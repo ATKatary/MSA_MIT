@@ -1,13 +1,18 @@
 import './landing.css';
+import * as React from "react";
+import 'react-calendar/dist/Calendar.css';
 import NavBar from  "../navbar/navbar.js";
 import Footer from "../footer/footer.js";
-import {SlideShow, Shuffle, Rotate} from "../gallery/gallery.js";
+import {SlideShow, Rotate} from "../gallery/gallery.js";
 import {TextImage} from "../block/block.js";
 import {Typography} from '@mui/material';
+import Calendar from 'react-calendar';
+
 /*** GLobal Constants ***/
 const event = (title, description, color, link, img=undefined) => {return {'title': title, 'description': description, 'color': color, 'link': link, 'img': img}}
 
 function Landing() {
+  const [date, setDate] = React.useState(new Date());
   const images = require.context('../media/img', true);
   const slideshowImages = [];
   const events = [event("Jummah", "Friday prayers are held every week at 1:15 pm in W11", "green", "/jummah", images(`./events/jummah/pic0.png`)),
@@ -38,6 +43,8 @@ function Landing() {
         <TextImage title={about['title']} body={about['body']} textColor={about['textColor']} backColor={about['backColor']} imageSrc={images("./mit-logo.png").default} id="about"/>
         <Typography variant="h1" className="text-black font-6vw margin-10px">Events</Typography>
         <Rotate images={events} id="events"/>
+        <Typography id="calendar" variant="h1" className="text-black font-6vw margin-10px">Calender</Typography>
+        <Calendar onChange={setDate} value={date} className="text-black margin-30px width-80 height-50vw no-border box-shadow font-1-5vw padding-10px"/>
         <Footer background={1}/>
     </div>
     </>

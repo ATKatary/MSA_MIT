@@ -31,6 +31,14 @@
   /*** Element Styles ***/
 
   /*** Class Styles ***/
+  .react-calendar__navigation button {
+    font-size: 2vw;
+  } 
+
+  .react-calendar__tile {
+    font-size: 1.5vw;
+    height: 7vw;
+  }
 
   /*** ID Styles ***/
 
