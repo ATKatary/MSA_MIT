@@ -30,7 +30,7 @@ export function Shuffle(props) {
 export function Rotate(props) {
     const images = props.images;
     const browser = navigator.userAgent.toLowerCase().includes("chrome")? "chrome" : "safari";
-    console.log(navigator.userAgent.toLowerCase())
+    
     return (
         <div id={props.id} className="width-100 height-75vw margin-20px flex justify-center">
             {images.map((image, index) => {

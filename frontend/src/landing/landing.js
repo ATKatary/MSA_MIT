@@ -40,11 +40,11 @@ function Landing() {
         <img src={images("./verses/bismAllah.png").default} className="height-15vw" alt=""/>
         <SlideShow images={slideshowImages} id="msa"/>
         <img src={images("./msa-logo.png").default} className="height-15vw" alt=""/>
-        <TextImage title={about['title']} body={about['body']} textColor={about['textColor']} backColor={about['backColor']} imageSrc={images("./mit-logo.png").default} id="about"/>
+        <TextImage title={about['title']} body={about['body']} textColor={about['textColor']} backColor={about['backColor']} imageSrc={images("./mit-logo.png").default} id="about" additionalClasses="padding-30px margin-30px"/>
         <Typography variant="h1" className="text-black font-6vw margin-10px">Events</Typography>
         <Rotate images={events} id="events"/>
         <Typography id="calendar" variant="h1" className="text-black font-6vw margin-10px">Calender</Typography>
-        <Calendar onChange={setDate} value={date} className="text-black margin-30px width-80 height-50vw no-border box-shadow font-1-5vw padding-10px"/>
+        <Calendar onChange={setDate} value={date} className="text-black margin-30px width-80 no-border box-shadow font-1-5vw padding-10px"/>
         <Footer background={1}/>
     </div>
     </>
