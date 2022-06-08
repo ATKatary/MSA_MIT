@@ -15,7 +15,7 @@
      - Go to **Start** and search _git_ -> select the **Git Bash**
 #### General
 ```
-git clone https://github.com/AKatary/MSA_MIT.git         # getting the code files 
+git clone https://github.com/ATKatary/MSA_MIT.git         # getting the code files 
 ```
 ## Frontend 
 http://127.0.0.1:3000 (_gives you access to local development frontend_)
