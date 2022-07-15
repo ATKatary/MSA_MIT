@@ -3,8 +3,8 @@ import * as React from "react";
 import 'react-calendar/dist/Calendar.css';
 import NavBar from  "../navbar/navbar.js";
 import Footer from "../footer/footer.js";
-import {SlideShow, Rotate} from "../gallery/gallery.js";
-import {TextImage} from "../block/block.js";
+import {SlideShow, Rotate, Image} from "../gallery/gallery.js";
+import {TextImage, PrayerModal} from "../block/block.js";
 import {Typography} from '@mui/material';
 import Calendar from 'react-calendar';
 
@@ -13,6 +13,9 @@ const event = (title, description, color, link, img=undefined) => {return {'titl
 
 function Landing() {
   const [date, setDate] = React.useState(new Date());
+  const [prayerModal, setPrayerModal] = React.useState(false);
+  const openPrayerModal = (date) => {setDate(date); setPrayerModal(true);}
+
   const images = require.context('../media/img', true);
   const slideshowImages = [];
   const events = [event("Jummah", "Friday prayers are held every week at 1:15 pm in W11", "green", "/jummah", images(`./events/jummah/pic0.png`)),
@@ -30,23 +33,42 @@ function Landing() {
   const about = {
     "title" : "About",
     "body"  : "Representing nearly one hundred Muslims, MIT Muslim Students Association is a close-knit and friendly community assisting MIT Muslims with thier practice of Islam and endeavors to promote understanding between Muslims and people of other faiths on campus.",
-    "textColor": "#000",
-    "backColor": "#E5E3DB"
+    "textColor": "#fff",
+    "backColor": "none"
   }
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
   return (
     <>
-    <div id="root" className="width-100 flex column align-center">
-        <NavBar logo={0} color="#000"/>
-        <img src={images("./verses/bismAllah.png").default} className="height-15vw" alt=""/>
-        <SlideShow images={slideshowImages} id="msa"/>
-        <img src={images("./msa-logo.png").default} className="height-15vw" alt=""/>
-        <TextImage title={about['title']} body={about['body']} textColor={about['textColor']} backColor={about['backColor']} imageSrc={images("./mit-logo.png").default} id="about" additionalClasses="padding-30px margin-30px"/>
-        <Typography variant="h1" className="text-black font-6vw margin-10px">Events</Typography>
-        <Rotate images={events} id="events"/>
-        <Typography id="calendar" variant="h1" className="text-black font-6vw margin-10px">Calender</Typography>
-        <Calendar onChange={setDate} value={date} className="text-black margin-30px width-80 no-border box-shadow font-1-5vw padding-10px"/>
-        <Footer background={1}/>
-    </div>
+      <div id="root" className="width-100 flex column align-center">
+          <NavBar logo={0} color="#000"/>
+          <div className="flex align-center width-100" style={{marginTop: "4vw"}}>
+            <div className="flex column align-center box-shadow" style={{width: "35vw", borderRadius: "5px", backgroundColor: "#fff", height: "32vw", marginLeft: "6vw"}}>
+              <img src={images("./msa-logo.png").default} style={{width: "50%", margin: "10px"}} alt=""/>
+            </div>
+            <div className="flex column align-center justify-around" style={{width: "40%", marginLeft: "10vw", textAlign: "center", height: "30vw"}}>
+              <img alt="" src={images("./verses/bismAllah.png").default} style={{width: "55%"}}/>
+              <Typography sx={{color: about['textColor'], fontSize: "17px", fontFamily: "'McLaren', cursive"}}>{about['body']}</Typography>
+            </div>
+          </div>
+      </div>
+
+      <SlideShow images={slideshowImages} id="slideshow" style={{marginTop: "40px"}}/>
+
+      <div className="flex column align-center width-100%" style={{marginBottom: "20px"}}>
+        <Typography style={{fontSize: "36px", fontFamily: "'McLaren', cursive", color: "#000"}}>Events</Typography>
+        <div id="events" className="box-shadow flex column">
+        <Typography style={{fontSize: "28px", fontFamily: "'McLaren', cursive", margin: "20px"}}>All Year</Typography>
+          <div className="flex align-center align-self-center" style={{width: "90%", margin: "10px"}}>
+            <Image image={images(`./events/connect/pic0.png`)} angle="-3deg" height="13vw"/>
+            <Image image={images(`./events/jummah/pic0.png`)} angle="0deg" height="13vw"/>
+          </div>
+          <Typography style={{fontSize: "28px", fontFamily: "'McLaren', cursive", margin: "20px"}}>{months[date.getMonth()]}</Typography>
+          <Typography style={{fontSize: "28px", fontFamily: "'McLaren', cursive", margin: "20px"}}>{months[(date.getMonth() + 1) % 12]}</Typography>
+        </div>
+      </div>
+
+      <Footer background={1}/>
     </>
   )
 }

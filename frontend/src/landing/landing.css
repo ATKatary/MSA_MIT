@@ -9,6 +9,8 @@
   .align-center {align-items: center;}
   .justify-center {justify-content: center;}
   .align-self-center {align-self: center;}
+  .justify-between {justify-content: space-between;}
+  .justify-around {justify-content: space-around;}
 
   /*** Sizes ***/
   .width-90 {width: 90%;}
@@ -41,7 +43,20 @@
   }
 
   /*** ID Styles ***/
+  #root {
+    background-image: url('../media/img/landing_svg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 57vw;
+  }
 
+  #events {
+    background-image: url('../media/img/events/events-board.png');
+    width: 90%;
+    background-size: 101%;
+    background-repeat: no-repeat;
+    min-height: 10vw;
+  }
 }
 
 /***** > 600px *****/

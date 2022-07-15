@@ -53,6 +53,14 @@
   .orange {background: linear-gradient(225deg, #D69334 0%, #FD8F3C 88.84%);}
   .yellow {background: linear-gradient(225deg, #FBFF3C 0%, #DCD531 88.84%)}
 
+  /*** Solid Backgrounds ***/
+  .yellow-solid {background-color: #EEF078;}
+  .red-solid {background-color: #DA6767;}
+  .blue-solid {background-color: #87E9FF;}
+  .purple-solid {background-color: #C183F2;}
+  .orange-solid {background-color: #FD8F3C;}
+  .green-solid {background-color: #39CBB9;}
+  
   /*** Shadows ***/
   .box-shadow {box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);}
 
@@ -60,22 +68,8 @@
   .rotate-45 {transform: rotate(45deg);}
   
   /*** Element Styles ***/
-  nav {
-      z-index: 1;
-      width: 100%;
-  }
 
   /*** Class Styles ***/
-  .navCont {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-  }
-
-  .nav-p {
-      margin: 10px !important;
-  }
-
   .enlarge:hover {
       z-index: 1;
       margin-top: 20px;
@@ -83,7 +77,7 @@
   }
 
   .image {
-      height: 35vw;
+      height: 20vw;
   }
 
   .slideshow > div {
@@ -125,10 +119,10 @@
         margin-left: 0px;
       }
       50% {
-        margin-left: -45%;
+        margin-left: -25%;
       }
       100% {
-        margin-left: -100%;
+        margin-left: -50%;
       }
     }
 

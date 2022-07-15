@@ -1,10 +1,10 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import Ramadan from './ramadan/ramadan';
 import Landing from './landing/landing.js';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Ramadan from './ramadan/ramadan';
 
 ReactDOM.render(
   <React.StrictMode>

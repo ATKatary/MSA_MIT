@@ -13,13 +13,13 @@ function Footer(props) {
     <footer className={`background-${props.background}`}>
       <div></div>
       <div className="flex column align-center margin-10px contact-us">
-      <Typography variant="h3" className="font-7vw" id="mailBox">Contact Us</Typography>
-        <div className="flex width-90 column align-self-start margin-left-10px">
-          <TextField required id="name" label="Name" variant="standard" className="width-50 height-1 border-white" inputProps={{className: "text-black"}}></TextField>
-          <TextField required id="email" label="Email" variant="standard" className="width-50" inputProps={{className: "text-black"}}></TextField>
-          <TextField required id="subject" label="Subject" variant="standard" inputProps={{className: "text-black"}}></TextField>
+      <Typography variant="h3" sx={{fontSize: "36px", fontFamily: "'McLaren', cursive"}} id="mailBox">Contact Us</Typography>
+        <div className="flex column" style={{width: "65%"}}>
+          <TextField required id="name" label="Name" variant="standard" className="width-50 height-1 border-white" style={{width: "45%", fontFamily: "'McLaren', cursive"}}></TextField>
+          <TextField required id="email" label="Email" variant="standard" className="width-50" style={{width: "45%", fontFamily: "'McLaren', cursive"}}></TextField>
+          <TextField required id="subject" label="Subject" variant="standard" style={{width: "45%", fontFamily: "'McLaren', cursive"}}></TextField>
         </div>
-        <TextareaAutosize id="message" aria-label="minimum height" minRows={20} placeholder="Write your message here ..." className="width-90 margin-10px box-shadow no-border padding-10px no-outline"></TextareaAutosize>
+        <TextareaAutosize id="message" aria-label="minimum height" minRows={20} placeholder="Write your message here ..." className="margin-10px box-shadow no-border padding-10px no-outline" style={{width: "65%", height: "200px", fontFamily: "'McLaren', cursive"}}></TextareaAutosize>
         <Button variant="contained" className="width-100px text-black white"
         onClick={() => {
           const name = document.getElementById("name");
@@ -41,9 +41,9 @@ function Footer(props) {
             })
         }}
         >Send</Button>
-        <Typography variant="h5" className="font-1vw margin-top-10px">MIT MSA</Typography>
-        <Typography variant="h5" className="font-1vw">2022 © All Rights Reserved</Typography>
-        <Typography variant="h5" className="font-1vw">A Katary Production</Typography>
+        <Typography variant="h5" sx={{fontSize: "11px", fontFamily: "'McLaren', cursive"}} className="margin-top-10px">MIT MSA</Typography>
+        <Typography variant="h5" sx={{fontSize: "11px", fontFamily: "'McLaren', cursive"}}>2022 © All Rights Reserved</Typography>
+        <Typography variant="h5" sx={{fontSize: "11px", fontFamily: "'McLaren', cursive"}}>A Katary Production</Typography>
         <Snackbar open={notifyStatus} autoHideDuration={6000} onClose={handleClose} message={mailStatus} 
         action={<React.Fragment>
                   <IconButton

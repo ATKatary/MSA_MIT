@@ -2,11 +2,10 @@
 @media only screen {
   html {
     color: #fff;
-    background: url("./media/img/landing-background.png");
   }
 
   body {
-    font-family: proxima-nova, sans-serif;
+    font-family: 'McLaren', cursive;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

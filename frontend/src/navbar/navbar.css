@@ -10,7 +10,7 @@
     .align-self-center {align-self: center;}
     
     /*** Shapes ***/
-    .square-75px {width: 75px; height: 75px;}
+    .square-65px {width: 65px; height: 65px;}
     .circle {border-radius: 50%;}
 
     /*** Margins ***/
@@ -44,7 +44,9 @@
     }
 
     .nav-p {
-        margin: 10px !important;
+        margin: 20px !important;
+        font-family: 'McLaren', cursive !important;
+        color: white !important;
     }
 
     .home-icon-0 {

@@ -4,7 +4,7 @@ import {Stack, Button, Typography} from '@mui/material';
 export function SlideShow(props) {
     const images = props.images;
     return (
-        <Stack id={props.id} direction="row" className="pause width-100 slideshow scroll margin-10px">
+        <Stack id={props.id} direction="row" className="pause width-100 slideshow scroll" style={props.style}>
             <div className="flex align-center">
             {images.length > 0 ?
                 images.map((item, index) => {
@@ -40,6 +40,34 @@ export function Rotate(props) {
                         <img src={`${image['img'].default}`} alt="" className="width-40 margin-top-20px"/>
                      </Button>
             })}
+        </div>
+    )
+}
+
+export function Pin(props) {
+    const colors = ["yellow", "red", "purple", "orange", "green", "blue"];
+    const color = colors[Math.floor(Math.random()*(colors.length - 1))]
+
+    return (
+      <div 
+      className={`box-shadow circle ${color}-solid box-shadow`} 
+      style={{width: "1vw", height: "1vw", margin: props.margin}}>
+      </div>
+    )
+}
+
+
+export function Image(props) {
+const angle = props.angle;
+const image = props.image;
+
+return (
+        <div 
+        style={{width: "25%", height: props.height, 
+                transform: `rotate(${angle})`, backgroundSize: "100% 100%", 
+                backgroundImage: `url('${image.default}')`, margin: "10px"}} 
+        className={`flex justify-center box-shadow`}>
+        <Pin margin="-5px 0px 0px"/>
         </div>
     )
 }
