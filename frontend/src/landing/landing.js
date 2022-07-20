@@ -3,26 +3,20 @@ import * as React from "react";
 import 'react-calendar/dist/Calendar.css';
 import NavBar from  "../navbar/navbar.js";
 import Footer from "../footer/footer.js";
-import {SlideShow, Rotate, Image} from "../gallery/gallery.js";
-import {TextImage, PrayerModal} from "../block/block.js";
+import Events from "../events/events.js";
+import {SlideShow} from "../gallery/gallery.js";
 import {Typography} from '@mui/material';
-import Calendar from 'react-calendar';
 
 /*** GLobal Constants ***/
-const event = (title, description, color, link, img=undefined) => {return {'title': title, 'description': description, 'color': color, 'link': link, 'img': img}}
 
 function Landing() {
-  const [date, setDate] = React.useState(new Date());
-  const [prayerModal, setPrayerModal] = React.useState(false);
-  const openPrayerModal = (date) => {setDate(date); setPrayerModal(true);}
-
-  const images = require.context('../media/img', true);
+  const endDate = "3002-01-01";
+  const startDate = "2000-01-01";
   const slideshowImages = [];
-  const events = [event("Jummah", "Friday prayers are held every week at 1:15 pm in W11", "green", "/jummah", images(`./events/jummah/pic0.png`)),
-                    event("Tajweed Class", "The MSA hold weekly tajweed classes in W11 on Thursdays at 8:30 pm", "purple", "/tajweed", images(`./events/tajweed/pic1.png`)),
-                    event("Tarweeh", "Tarweeh prayers are held daily at 9:30 pm in W11", "orange", "/tarweeh", images(`./events/tarweeh/pic0.png`)),
-                    event("Connect", "The MSA holds community building sessions every Friday at 5:00 pm in W11", "red", "/connect", images(`./events/connect/pic0.png`)),
-                    event("Iftar", "For the duration of Ramadan the MSA holds daily iftars in Lobdell hall", "blue", "/ramadan", images(`./ramadan/2022/pic1.png`))];
+  const [events, setEvents] = React.useState([]);
+  const images = require.context('../media/img', true);
+  const [eventsFetched, setEventsFetched] = React.useState(false);
+  
 
   slideshowImages.push(images(`./ramadan/2022/pic0.jpg`));
   slideshowImages.push(images(`./retreat/2021/pic0.png`));
@@ -36,7 +30,40 @@ function Landing() {
     "textColor": "#fff",
     "backColor": "none"
   }
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  const event = (title, description, color, link, onClick, start, end, img=undefined) => {return {'title': title, 'description': description, 'color': color, 'link': link, 'img': img, 'onClick': onClick, 'start': start, 'end': end}}
+
+  if (!eventsFetched) {
+    fetch(`http://0.0.0.0:8000/event/fetch?startDate=${startDate}&endDate=${endDate}`, {
+      mode: 'no-cors',
+      method: 'GET'
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log("Events Recieved ");
+          res.text().then((text) => {
+            const fetchedEvenets = []
+            for (const data of JSON.parse(text)["events"]) {
+              const end = data['endDate'];
+              const start = data['startDate'];
+              console.log(`Recieved event: ${data["name"]} from ${start} - ${end}`)
+              
+              fetchedEvenets.push(event(data['name'], 
+                data['description'], 
+                "", 
+                "", 
+                () => {},
+                start, 
+                end,
+                images(`./events/${data["name"].toLowerCase()}/pic0.png`)));
+            }
+            setEvents(fetchedEvenets);
+          })
+        } else console.log("Events failed to load");
+        setEventsFetched(true);
+      })
+  } 
+    
 
   return (
     <>
@@ -55,18 +82,7 @@ function Landing() {
 
       <SlideShow images={slideshowImages} id="slideshow" style={{marginTop: "40px"}}/>
 
-      <div className="flex column align-center width-100%" style={{marginBottom: "20px"}}>
-        <Typography style={{fontSize: "36px", fontFamily: "'McLaren', cursive", color: "#000"}}>Events</Typography>
-        <div id="events" className="box-shadow flex column">
-        <Typography style={{fontSize: "28px", fontFamily: "'McLaren', cursive", margin: "20px"}}>All Year</Typography>
-          <div className="flex align-center align-self-center" style={{width: "90%", margin: "10px"}}>
-            <Image image={images(`./events/connect/pic0.png`)} angle="-3deg" height="13vw"/>
-            <Image image={images(`./events/jummah/pic0.png`)} angle="0deg" height="13vw"/>
-          </div>
-          <Typography style={{fontSize: "28px", fontFamily: "'McLaren', cursive", margin: "20px"}}>{months[date.getMonth()]}</Typography>
-          <Typography style={{fontSize: "28px", fontFamily: "'McLaren', cursive", margin: "20px"}}>{months[(date.getMonth() + 1) % 12]}</Typography>
-        </div>
-      </div>
+      <Events events={events} />
 
       <Footer background={1}/>
     </>
@@ -74,3 +90,5 @@ function Landing() {
 }
 
 export default Landing;
+
+/*** Helper Functions ***/

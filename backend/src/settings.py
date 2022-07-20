@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 with open(str(BASE_DIR.parent.parent) + "/keys.json", "rb") as secret_keys:
-    SECRET_KEY = json.loads(secret_keys.read())['msa']
+    SECRET_KEY = json.loads(secret_keys.read())['msa']['src']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'mail',
+    'event',
 ]
 
 MIDDLEWARE = [

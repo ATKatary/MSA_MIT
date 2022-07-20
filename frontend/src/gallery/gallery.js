@@ -58,16 +58,17 @@ export function Pin(props) {
 
 
 export function Image(props) {
-const angle = props.angle;
-const image = props.image;
+    const angle = props.angle;
+    const image = props.image;
 
-return (
-        <div 
-        style={{width: "25%", height: props.height, 
-                transform: `rotate(${angle})`, backgroundSize: "100% 100%", 
-                backgroundImage: `url('${image.default}')`, margin: "10px"}} 
-        className={`flex justify-center box-shadow`}>
-        <Pin margin="-5px 0px 0px"/>
-        </div>
-    )
+    return (
+            <Button 
+            onClick={props.onClick}
+            sx={{width: "25%", height: props.height, alignItems: "flex-start",
+                    transform: `rotate(${angle})`, backgroundSize: "100% 100%", 
+                    backgroundImage: `url('${image.default}')`, margin: "10px"}} 
+            className={`flex justify-center box-shadow pointer`}>
+            <Pin margin="-5px 0px 0px"/>
+            </Button>
+        )
 }
