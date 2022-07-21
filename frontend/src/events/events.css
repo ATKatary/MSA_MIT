@@ -31,7 +31,10 @@
     /*** Rotations ***/
     
     /*** Element Styles ***/
-  
+    p::first-letter {
+      text-transform:capitalize;
+    }
+    
     /*** Class Styles ***/
   
     /*** ID Styles ***/

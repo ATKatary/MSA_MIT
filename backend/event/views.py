@@ -83,6 +83,7 @@ def fetch(request, *args, **kwargs) -> HttpResponse:
             events_to_fetch.append({
                 "name": event.title,
                 "description": event.description,
+                "location": event.location,
                 "startDate": event.start_date,
                 "endData": event.end_date
             })
@@ -91,6 +92,7 @@ def fetch(request, *args, **kwargs) -> HttpResponse:
             events_to_fetch.append({
                 "name": event.title,
                 "description": event.description,
+                "location": event.location,
                 "startDate": event.start_date,
                 "endData": event.end_date
             })

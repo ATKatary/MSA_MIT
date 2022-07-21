@@ -3,7 +3,7 @@ import * as React from "react";
 import 'react-calendar/dist/Calendar.css';
 import NavBar from  "../navbar/navbar.js";
 import Footer from "../footer/footer.js";
-import Events from "../events/events.js";
+import {Events} from "../events/events.js";
 import {SlideShow} from "../gallery/gallery.js";
 import {Typography} from '@mui/material';
 
@@ -31,7 +31,7 @@ function Landing() {
     "backColor": "none"
   }
 
-  const event = (title, description, color, link, onClick, start, end, img=undefined) => {return {'title': title, 'description': description, 'color': color, 'link': link, 'img': img, 'onClick': onClick, 'start': start, 'end': end}}
+  const event = (title, location, description, color, link, onClick, start, end, img=undefined) => {return {'title': title, 'description': description, 'color': color, 'link': link, 'img': img, 'onClick': onClick, 'start': start, 'end': end, 'location': location}}
 
   if (!eventsFetched) {
     fetch(`http://0.0.0.0:8000/event/fetch?startDate=${startDate}&endDate=${endDate}`, {
@@ -49,6 +49,7 @@ function Landing() {
               console.log(`Recieved event: ${data["name"]} from ${start} - ${end}`)
               
               fetchedEvenets.push(event(data['name'], 
+                data['location'],
                 data['description'], 
                 "", 
                 "", 
