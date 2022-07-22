@@ -70,7 +70,7 @@
   /*** Element Styles ***/
 
   /*** Class Styles ***/
-  .pointer:hover {cursor: pointer; opacity: 90%;}
+  .pointer:hover {cursor: pointer}
 
   .enlarge:hover {
       z-index: 1;

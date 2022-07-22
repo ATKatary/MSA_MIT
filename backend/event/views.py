@@ -98,6 +98,7 @@ def fetch(request, *args, **kwargs) -> HttpResponse:
             })
         
         data['events'] = events_to_fetch
+        print("Fetch events response being sent...")
     
     return Response(status = event_status, data = data)
 

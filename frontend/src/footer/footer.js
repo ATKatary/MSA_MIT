@@ -27,7 +27,7 @@ function Footer(props) {
           const subject = document.getElementById("subject");
           const message = document.getElementById("message");
 
-          fetch(`http://198.58.107.78/api/mail/contact?name=${name.value}&email=${email.value}&subject=${subject.value}&message=${message.value.replace(/\n/g, '\\n')}`, {
+          fetch(`https://www.mit-msa.com:8443/mail/contact?name=${name.value}&email=${email.value}&subject=${subject.value}&message=${message.value.replace(/\n/g, '\\n')}`, {
             mode: 'no-cors',
             method: 'GET'
           })

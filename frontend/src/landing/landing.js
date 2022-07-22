@@ -34,11 +34,12 @@ function Landing() {
   const event = (title, location, description, color, link, onClick, start, end, img=undefined) => {return {'title': title, 'description': description, 'color': color, 'link': link, 'img': img, 'onClick': onClick, 'start': start, 'end': end, 'location': location}}
 
   if (!eventsFetched) {
-    fetch(`http://0.0.0.0:8000/event/fetch?startDate=${startDate}&endDate=${endDate}`, {
-      mode: 'no-cors',
+    fetch(`https://www.mit-msa.com:8443/event/fetch?startDate=${startDate}&endDate=${endDate}`, {
+      // mode: 'no-cors',
       method: 'GET'
     })
       .then((res) => {
+        console.log(`Event fetching response: `, res)
         if (res.status === 200) {
           console.log("Events Recieved ");
           res.text().then((text) => {
@@ -59,9 +60,9 @@ function Landing() {
                 images(`./events/${data["name"].toLowerCase()}/pic0.png`)));
             }
             setEvents(fetchedEvenets);
+            setEventsFetched(true);
           })
         } else console.log("Events failed to load");
-        setEventsFetched(true);
       })
   } 
     
