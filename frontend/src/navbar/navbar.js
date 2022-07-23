@@ -11,7 +11,7 @@ function NavBar(props) {
   return (
     <nav style={{height: "max(5vw, 50px)"}}>
       <div className="navCont align-center">
-          <div className="flex hide-700px">
+          <div className="flex">
             <Button id="contact" className="nav-p" sx = {{fontSize : "12px", fontWeight: "900", color: props.color}} href="#mailBox">Contact</Button>
             <Button id="contact" className="nav-p" sx = {{fontSize : "12px", fontWeight: "900", color: props.color}} href="#calendar">Calendar</Button>
             <Button id="resources" className="nav-p" sx = {{fontSize : "12px", fontWeight: "900", color: props.color}}>Resources</Button>
