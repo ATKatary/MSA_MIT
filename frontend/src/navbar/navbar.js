@@ -21,7 +21,6 @@ function NavBar(props) {
               {props.mode['theme'] === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>}
           </div>
-          <MenuIcon sx={{color: props.color}} fontSize="large" className="nav-p show-700px"/>
           <Button className={`circle square-65px home-icon-${props.logo}`} onClick={() => {window.location = "/"}}></Button>
       </div>
     </nav>
