@@ -71,11 +71,11 @@ function Landing() {
     <>
       <div id="root" className="width-100 flex column align-center">
           <NavBar logo={0} color="#000"/>
-          <div className="flex align-center width-100" style={{marginTop: "4vw"}}>
-            <div className="flex column align-center box-shadow" style={{width: "35vw", borderRadius: "5px", backgroundColor: "#fff", height: "32vw", marginLeft: "6vw"}}>
+          <div className="flex align-center width-100" style={{marginTop: "max(4vw, 40px)"}}>
+            <div className="flex column align-center box-shadow" style={{width: "max(35vw, 350px)", borderRadius: "5px", backgroundColor: "#fff", height: "max(32vw, 320px)", marginLeft: "max(6vw, 60px)"}}>
               <img src={images("./msa-logo.png").default} style={{width: "50%", margin: "10px"}} alt=""/>
             </div>
-            <div className="flex column align-center justify-around" style={{width: "40%", marginLeft: "10vw", textAlign: "center", height: "30vw"}}>
+            <div className="flex column align-center justify-around" style={{width: "40%", marginLeft: "max(10vw, 100px)", textAlign: "center", height: "max(30vw, 300px)"}}>
               <img alt="" src={images("./verses/bismAllah.png").default} style={{width: "55%"}}/>
               <Typography sx={{color: about['textColor'], fontSize: "17px", fontFamily: "'McLaren', cursive"}}>{about['body']}</Typography>
             </div>

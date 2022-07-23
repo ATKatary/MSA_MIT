@@ -51,7 +51,7 @@ export function Pin(props) {
     return (
       <div 
       className={`box-shadow circle ${color}-solid box-shadow`} 
-      style={{width: "1vw", height: "1vw", margin: props.margin}}>
+      style={{width: "max(1vw, 10px)", height: "max(1vw, 10px)", margin: props.margin}}>
       </div>
     )
 }

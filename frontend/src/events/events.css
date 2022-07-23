@@ -18,7 +18,6 @@
     .width-80 {width: 80%;}
     .width-75 {width: 75%;}
     .width-50 {width: 50%;}
-    .height-15vw {height: 15vw;}
   
     /*** Color Gradients ***/
     .green  {background: linear-gradient(180deg, #39CBB9 0%, #5BFE9E 100%);}
@@ -44,7 +43,7 @@
       width: 90%;
       background-size: 101%;
       background-repeat: no-repeat;
-      min-height: 10vw;
+      min-height: max(10vw, 100px);
     }
   }
   

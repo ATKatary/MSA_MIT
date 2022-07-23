@@ -23,6 +23,7 @@
     width: -webkit-fill-available;
     -ms-overflow-style: none; 
     scrollbar-width: none;
+    min-width: 1000px;
   }
 
   ::-webkit-scrollbar {

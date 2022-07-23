@@ -47,8 +47,8 @@ function Ramadan() {
   return (
     <div id="root" className={`width-100 flex column align-center ${(mode['theme'] === "dark")? "ramadan-back" : ""}`}>
       <NavBar logo={mode['logo']} color={mode['navColor']} mode={mode} setMode={setMode} lightMode={lightMode} darkMode={darkMode}/>
-      <img src={images(`./ramadan/ramadan-karem-${mode['theme']}.png`).default} className="height-15vw" alt=""/>
-      <img src={images(`./ramadan/2022/pic3-${mode['theme']}.png`).default} className="height-50vw margin-30px" alt=""/>
+      <img src={images(`./ramadan/ramadan-karem-${mode['theme']}.png`).default} className="" alt="" style={{height: "max(15vw, 150px)"}}/>
+      <img src={images(`./ramadan/2022/pic3-${mode['theme']}.png`).default} className="margin-30px" style={{height: "max(50vw, 500px)"}} alt=""/>
       <BlockSlideShow blocks={[ramadan, fast, tarweeh]}/><Footer background={mode['footerBack']}/>
     </div>
   )

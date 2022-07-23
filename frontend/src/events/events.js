@@ -40,7 +40,7 @@ export function Events(props) {
                                     const copiedOpen = Array(events.length).fill(false)
                                     copiedOpen[i] = true;
                                     setOpen(copiedOpen);
-                                }} image={event['img']} angle={`${Math.round(10 * Math.random() - 5)}deg`} height="13vw"/>
+                                }} image={event['img']} angle={`${Math.round(10 * Math.random() - 5)}deg`} height="max(13vw, 130px)"/>
                                 <Modal open={open[i]} onClose={() => setOpen(allClosed)}>
                                     <Box sx={modalStyle}>
                                         <p style={{fontSize: "24px"}}><b>{event['title']}</b></p>

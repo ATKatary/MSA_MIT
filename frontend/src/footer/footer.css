@@ -72,22 +72,18 @@
     }
     
     /*** Class Styles ***/
-    
+    .contact-us {
+        width: 50%;
+        align-self: flex-end;
+    }
     /*** ID Styles ***/
 
 }
 
 /***** > 600px *****/
 @media only screen and (min-width: 700px) {
-    .contact-us {
-        width: 50%;
-        align-self: flex-end;
-    }
 }
 
 /***** <= 600px *****/
 @media only screen and (max-width: 700px) {
-    .contact-us {
-        width: 90%;
-    }
 }

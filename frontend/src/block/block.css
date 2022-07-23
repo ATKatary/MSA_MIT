@@ -11,9 +11,6 @@
     .scroll {overflow: scroll;}
 
     /*** Font Sizes ***/
-    .font-7vw {font-size: 7vw !important;}
-    .font-2vw {font-size: 2vw !important;}
-    .font-6vw {font-size: 6vw !important;}
 
     /*** Padding ***/
     .padding-30px {padding: 30px;}
@@ -25,13 +22,6 @@
     .width-80 {width: 80%;}
     .width-75 {width: 75%;}
     .width-50 {width: 50%;}
-    .height-25vw {height: 25vw;}
-    .height-100vw {height: 100vw;}
-    .height-50vw {height: 50vw;}
-    .height-45vw {height: 45vw;}
-    .height-40vw {height: 40vw;}
-    .height-30vw {height: 30vw;}
-    .height-20vw {height: 20vw;}
 
     /*** Margins ***/
     .margin-0 {margin: 0 !important;}

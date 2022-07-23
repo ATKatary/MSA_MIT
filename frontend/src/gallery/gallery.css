@@ -15,7 +15,6 @@
   .width-50 {width: 50%;}
   .width-90 {width: 90%;}
   .width-100 {width: 100%;}
-  .height-75vw {height: 75vw;}
   .height-100 {height: 100%;}
 
   /*** Opacities ***/
@@ -38,12 +37,6 @@
   .font-32px {font-size: 32px;}
   .font-26px {font-size: 26px;}
   .font-22px {font-size: 22px;}
-  .font-3vw {font-size: 3vw !important;}
-  .font-3-5vw {font-size: 3.5vw !important;}
-  .font-2vw {font-size: 2vw !important;}
-  .font-2-5vw {font-size: 2.5vw !important;}
-  .font-1vw {font-size: 1vw !important;}
-  .font-1-5vw {font-size: 1.5vw !important;}
 
   /*** Color Gradients ***/
   .red    {background: linear-gradient(225deg, #F78888 0%, #DA6767 88.84%);}
@@ -79,7 +72,7 @@
   }
 
   .image {
-      height: 20vw;
+      height: max(20vw, 200px);
   }
 
   .slideshow > div {
@@ -89,7 +82,7 @@
 
   .project-box {
     width: 40%;
-    height: 30vw;
+    height: max(30vw, 300px);
     position: absolute !important;
     background-size: cover;
   }
