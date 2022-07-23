@@ -17,7 +17,7 @@ with open(str(BASE_DIR.parent.parent) + "/keys.json", "rb") as secret_keys:
     SECRET_KEY = json.loads(secret_keys.read())['msa']['src']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0', '198.58.107.78', 'localhost', 'www.mit-msa.com']
 
