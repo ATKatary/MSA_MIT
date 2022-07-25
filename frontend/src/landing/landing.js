@@ -8,7 +8,6 @@ import {SlideShow} from "../gallery/gallery.js";
 import {Typography} from '@mui/material';
 
 /*** GLobal Constants ***/
-
 function Landing() {
   const endDate = "3002-01-01";
   const startDate = "2000-01-01";
@@ -48,6 +47,8 @@ function Landing() {
               const end = data['endDate'];
               const start = data['startDate'];
               console.log(`Recieved event: ${data["name"]} from ${start} - ${end}`)
+              
+              
               let description = <div>{data['description']}</div>;
               if (data['description'].includes("http")) {
                 description = <div>
@@ -58,6 +59,19 @@ function Landing() {
                   })}
                 </div>
               }
+
+              let img = ""
+              let imgPath = `events/${data["name"].toLowerCase()}/pic0.png`;
+              try {
+                img = images(`./${imgPath}`);
+                console.log("Event img exists")
+              }
+              catch (error) {
+                imgPath = `events/default.png`;
+                img = images(`./${imgPath}`);
+                console.log("No image for event")
+              }
+
               fetchedEvenets.push(event(data['name'], 
                 data['location'],
                 description, 
@@ -66,7 +80,7 @@ function Landing() {
                 () => {},
                 start, 
                 end,
-                images(`./events/${data["name"].toLowerCase()}/pic0.png`)));
+                img));
             }
             setEvents(fetchedEvenets);
             setEventsFetched(true);
