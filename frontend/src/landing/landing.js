@@ -48,10 +48,19 @@ function Landing() {
               const end = data['endDate'];
               const start = data['startDate'];
               console.log(`Recieved event: ${data["name"]} from ${start} - ${end}`)
-              
+              let description = <div>{data['description']}</div>;
+              if (data['description'].includes("http")) {
+                description = <div>
+                  {data['description'].split(" ").map((word, i) => {
+                    return (
+                      <>{word.includes("http")? <a href={word}>{word}</a>: word}</>
+                    )
+                  })}
+                </div>
+              }
               fetchedEvenets.push(event(data['name'], 
                 data['location'],
-                data['description'], 
+                description, 
                 "", 
                 "", 
                 () => {},
