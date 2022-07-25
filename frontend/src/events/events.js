@@ -44,7 +44,7 @@ export function Events(props) {
                                 <Modal open={open[i]} onClose={() => setOpen(allClosed)}>
                                     <Box sx={modalStyle}>
                                         <p style={{fontSize: "24px"}}><b>{event['title']}</b></p>
-                                        {event['start'] && event['end']? <p>Time: {event['start'].slice(0, 10)} {event['start'].slice(12, 19)} - {event['end'].slice(0, 10)} {event['end'].slice(12, 19)}</p> : <></>}
+                                        {event['start']? <p>Time: {event['start'].slice(0, 10)} {event['start'].slice(12, 19)}</p> : <></>} {event['end']? <p> - {event['end'].slice(0, 10)} {event['end'].slice(12, 19)}</p> : <></>}
                                         <p>Location: {event['location']}</p>
                                         <br></br>
                                         <p>Details:</p>
