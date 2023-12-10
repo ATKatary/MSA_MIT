@@ -1,0 +1,36 @@
+/***** Always True *****/
+@media only screen {
+}
+
+/***** > 1000px *****/
+@media only screen and (min-width: 1000px) {
+    .respond-min {
+        display: none !important;
+    }
+    .respond-contact {
+        width: 540px
+    }
+    .respond-card {
+        width: 90%;
+    }
+}
+
+/***** <= 1000px *****/
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .respond-max {
+        display: none;
+    }
+
+    .respond-card {
+        width: 80%;
+        height: 300px;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+}
