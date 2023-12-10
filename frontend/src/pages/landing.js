@@ -2,161 +2,29 @@ import * as React from 'react';
 import "../assets/css/utils.css";
 
 import Nav1 from '../components/nav1';
-import { IconCard, PersonCard } from '../components/card';
 import Header from '../components/header';
 import Section from '../components/section';
+import { Slideshow } from '../components/gallery';
 import { NAV_GC } from '../components/content/nav';
 import { Notification } from '../components/support';
 import { COLORS, SECTIONS, THEME } from '../constants';
+import { IconCard, PersonCard } from '../components/card';
+import MailingList from '../components/forms/mailingList';
+import { LANDING_GC } from '../components/content/landing';
 import { HEADER_GC } from '../components/content/headers/landing';
 import { getNextPrayer, useCustomState } from '../components/utils';
 
-import SchoolIcon from '@mui/icons-material/School';
-import PeopleIcon from '@mui/icons-material/People';
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-
 import { Col, Row } from 'reactstrap';
-import MailingList from '../components/forms/mailingList';
-import { Slideshow } from '../components/gallery';
 
 function Landing() {
+    const images = require.context('../assets/media', true);
+    
     const [openNav, setOpenNav] = React.useState(false);
     const {verse, translation, buttons} = HEADER_GC({});
     const [nextPrayer, setNextPrayer] = React.useState(undefined);
-    const images = require.context('../assets/media', true);
-    const [notification, setNotification] = useCustomState({value: null, notify: false});
     const {NAV_LEFT, NAV_RIGHT, ...NAV_GC_REST} = NAV_GC({setOpen: setOpenNav,});
-
-    const mission = {
-        cards: [
-            {
-                icon: PeopleIcon,
-                title: "Community",
-                description: "We build community",
-                style: {
-                    color: COLORS.WHITE
-                }
-            },
-            {
-                icon: SchoolIcon,
-                title: "Academia",
-                description: "We have academia",
-                style: {
-                    color: COLORS.WHITE
-                }
-            },
-            {
-                icon: VolunteerActivismIcon,
-                title: "Service",
-                description: "We do service",
-                style: {
-                    color: COLORS.WHITE
-                }
-            }
-        ]
-    }
-
-    const team = {
-        cards: [
-            {
-                title: "President",
-                name: "Abdurahman Sherif",
-                picSrc: images("./ec/2023/sherif.jpeg")
-            },
-            {
-                name: "Mohamed Samb",
-                title: "Events Coordinator",
-                picSrc: images("./ec/2023/samb.jpeg"),
-                media: [
-                    {href: "", icon: "fa-twitter"},
-                    {href: "", icon: "fa-linkedin"} 
-                ]
-            },
-            
-            {
-                name: "Abdul Kareem ",
-                title: "Academic Chair",
-                picSrc: images("./ec/2023/abdulkareem_ahmed.jpeg"),
-                media: [
-                    {href: "", icon: "fa-twitter"},
-                    {href: "", icon: "fa-linkedin"} 
-                ]
-            }, 
-            
-            {
-                name: "Ahmed Zain",
-                title: "Academic Chair",
-                picSrc: images("./ec/2023/abdulkareem_ahmed.jpeg"),
-                media: [
-                    {href: "", icon: "fa-twitter"},
-                    {href: "", icon: "fa-linkedin"} 
-                ]
-                },
-            
-            {
-                name: "Noura Attili",
-                title: "External Relations Chair",
-                picSrc: images("./ec/2023/noura.jpeg"),
-                media: [
-                    {href: "", icon: "fa-twitter"},
-                    {href: "", icon: "fa-linkedin"} 
-                ]
-            }, 
-            {
-                name: "Fedaa Alsoufi",
-                title: "Community Service Chair",
-                picSrc: images("./ec/2023/fedaa.jpeg"),
-                media: [
-                    {href: "", icon: "fa-twitter"},
-                    {href: "", icon: "fa-linkedin"} 
-                ]
-            },
-            
-            {
-                name: "Rumaisa Abdulhai",
-                title: "Community Service Chair",
-                picSrc: images("./ec/2023/rumisa.jpeg"),
-                media: [
-                    {href: "", icon: "fa-twitter"},
-                    {href: "", icon: "fa-linkedin"} 
-                ]
-            }, {
-                name: "Yasmeen A Shabazz",
-                title: "Social Media Chair",
-                picSrc: images("./ec/2023/yasmeen.jpeg"),
-                media: [
-                    {href: "", icon: "fa-twitter"},
-                    {href: "", icon: "fa-linkedin"} 
-                ]
-            },
-            
-            {
-                name: "Laiba Shahid",
-                title: "Publicity Chair",
-                picSrc: images("./ec/2023/laiba.jpeg"),
-                media: [
-                    {href: "", icon: "fa-twitter"},
-                    {href: "", icon: "fa-linkedin"} 
-                ]
-            }, 
-            {
-                name: "Amina Abdalla",
-                title: "Social Chair",
-                picSrc: images("./ec/2023/amina.jpeg"),
-                media: [
-                    {href: "", icon: "fa-twitter"},
-                    {href: "", icon: "fa-linkedin"} 
-                ]
-            },
-        ]
-    }
-
-    const sisterNada = {
-        name: "Nada Miqdadi El-Alami",
-        title: "MSA Advisor and Chaplain",
-        picSrc: images("./ec/2022/nada.jpg"),
-    }
+    const {MISSION, TEAM, SISTER_NADA, ...LANDING_REST} = LANDING_GC({images: images});
+    const [notification, setNotification] = useCustomState({value: null, notify: false});
 
     navigator.geolocation.getCurrentPosition((position) => {
         const {nextPrayer, nextPrayerTime, nextPrayerHour} = getNextPrayer(position);
@@ -206,17 +74,13 @@ function Landing() {
             
             {/*** Mission ***/}
             <Section 
-                style={{backgroundColor: COLORS.GRAY}}
+                title={MISSION.title}
+                description={MISSION.description}
                 titleStyle={{color: COLORS.WHITE}}
-                title="Mission"
-                description={`
-                    Representing hundreds of Muslims, MIT Muslim Student Association is a close-knit and friendly community assisting the 
-                    diverse Muslims at MIT with their practice of Islam. 
-                    We offer social, spiritual, and academic programs and aim at building a strong community for all Muslims on campus.
-                `}
+                style={{backgroundColor: COLORS.GRAY}}
             >
                 <Row style={{margin: "60px 0 0 0"}} className="flex justify-around width-100">
-                    {mission.cards.map((card, i) =>
+                    {MISSION.cards.map((card, i) =>
                         <IconCard 
                             {...card}
                             key={`mission-card-${i}`}
@@ -226,12 +90,12 @@ function Landing() {
             </Section>
                         
             <Section
-                title="Team"
+                title={TEAM.title}
                 style={{backgroundColor: COLORS.BLACK, color: COLORS.WHITE}}
             >
                 <Row className="width-100 flex justify-around align-center">
                     <PersonCard 
-                        {...sisterNada}
+                        {...SISTER_NADA.card}
                         className="text-center"
                         style={{color: COLORS.WHITE, height: "300px", maxWidth: "350px"}}
                     />
@@ -239,7 +103,7 @@ function Landing() {
                         style={{width: "350px"}}
                         controls
                         items={
-                            team.cards.map((card, i) =>
+                            TEAM.cards.map((card, i) =>
                                 <PersonCard 
                                     {...card}
                                     className="text-center"

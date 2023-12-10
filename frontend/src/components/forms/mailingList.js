@@ -121,7 +121,6 @@ function MailingList({setNotification, ...props}) {
                         }}
                     />
                     <SelectField 
-                        // label="Class Type"
                         {...fieldStyle}
                         value={bodyValues.type}
                         displayStyle={{color: COLORS.WHITE}}

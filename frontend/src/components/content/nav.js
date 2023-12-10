@@ -1,14 +1,9 @@
 import logo from "../../assets/svg/logo_dark.svg"
 
-import HomeIcon from '@mui/icons-material/Home';
-import EmailIcon from '@mui/icons-material/Email';
-import PortraitIcon from '@mui/icons-material/Portrait';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import LandscapeIcon from '@mui/icons-material/Landscape';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import CelebrationIcon from '@mui/icons-material/Celebration';
 
-import { Button, IconButton, Link } from "@mui/material";
+import { Link } from "@mui/material";
 import { SECTIONS, THEME } from "../../constants";
 
 /*** Global Constants ***/
@@ -19,6 +14,7 @@ export const NAV_GC = (props) => {
     const sections = [
         {
             name: SECTIONS.DONATE.TITLE,
+            href: "https://giving.mit.edu/form/#/"
         },
         {
             name: SECTIONS.LIFE.TITLE,
@@ -41,7 +37,7 @@ export const NAV_GC = (props) => {
                 content: {
                     title: 
                     <Link
-                        href={`/${section.inPage? "#" : ""}${section.name}`}
+                        href={section.href? section.href : `/${section.inPage? "#" : ""}${section.name}`}
                         id={`nav-${section.name}`}
                         style={{
                             ...THEME.NAV.STYLE.BTN, 
