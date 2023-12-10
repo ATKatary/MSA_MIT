@@ -1,4 +1,5 @@
 # MIT Muslim Student Association  
+
 ## Deploying Frontend
 ```
   cd frontend
