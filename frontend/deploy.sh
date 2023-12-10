@@ -1,3 +1,4 @@
+#!/bin/bash
 read -p 'Use /home/msa/web/frontend as path of the react app? ([y],n): ' useDefault
 if [ useDefault == "n" ]
 then
