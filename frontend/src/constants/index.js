@@ -16,7 +16,7 @@ export const API = {
     GET: "get",
     POST: "post",
     DOMAIN: {
-        CONTACT: "https://www.mit-msa.com:8443"
+        CONTACT: "https://akatary.com/api"
     },
 }
 
