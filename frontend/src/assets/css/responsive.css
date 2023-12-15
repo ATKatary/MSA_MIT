@@ -13,6 +13,9 @@
     .respond-card {
         width: 90%;
     }
+    .respond-resource {
+        width: "45%"
+    }
 }
 
 /***** <= 1000px *****/
@@ -32,5 +35,11 @@
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
+    }
+    .respond-resource {
+        width: "100%"
+    }
+    .respond-row-column {
+        flex-direction: column;
     }
 }

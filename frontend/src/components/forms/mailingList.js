@@ -52,14 +52,14 @@ function MailingList({setNotification, ...props}) {
         {
             id: ID.NAME,
             label: "Name",
-            placeholder: "Abdullah",
+            placeholder: "Name",
             value: headerValues.name,
             meta: {icon: PersonOutlineIcon}
         },
         {
             id: ID.EMAIL,
             label: "Email",
-            placeholder: "abdullah@mit.edu",
+            placeholder: "name@mit.edu",
             value: headerValues.email,
             meta: {icon: MailOutlineIcon}
         }

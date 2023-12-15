@@ -9,7 +9,7 @@ export const LANDING_GC = ({images, ...props}) => {
         MISSION: {
             title: "Mission",
             description: `
-                Representing hundreds of Muslims, MIT Muslim Student Association is a close-knit and friendly community assisting the 
+                Representing hundreds of Muslims, MIT Muslim Students Association is a close-knit and friendly community assisting the 
                 diverse Muslims at MIT with their practice of Islam. 
                 We offer social, spiritual, and academic programs and aim at building a strong community for all Muslims on campus.
             `,
@@ -17,7 +17,7 @@ export const LANDING_GC = ({images, ...props}) => {
                 {
                     icon: PeopleIcon,
                     title: "Community",
-                    description: "We build community",
+                    description: "Fostering a vibrant Muslim community at MIT through social events, cultural activities, and interfaith dialogues, promoting unity and understanding.",
                     style: {
                         color: COLORS.WHITE
                     }
@@ -25,7 +25,7 @@ export const LANDING_GC = ({images, ...props}) => {
                 {
                     icon: SchoolIcon,
                     title: "Academia",
-                    description: "We have academia",
+                    description: "Supporting academic excellence among Muslim students with mentoring, study breaks, and discussions on integrating faith and knowledge in diverse fields.",
                     style: {
                         color: COLORS.WHITE
                     }
@@ -33,7 +33,7 @@ export const LANDING_GC = ({images, ...props}) => {
                 {
                     icon: VolunteerActivismIcon,
                     title: "Service",
-                    description: "We do service",
+                    description: "Dedicated to serving the broader community through volunteer initiatives, charity events, and outreach programs, embodying the spirit of giving in Islam.",
                     style: {
                         color: COLORS.WHITE
                     }
@@ -47,12 +47,12 @@ export const LANDING_GC = ({images, ...props}) => {
                 {
                     title: "President",
                     name: "Abdurahman Sherif",
-                    picSrc: images("./ec/2023/sherif.jpeg")
+                    // picSrc: images("./ec/2023/sherif.jpeg")
                 },
                 {
                     name: "Mohamed Samb",
                     title: "Events Coordinator",
-                    picSrc: images("./ec/2023/samb.jpeg"),
+                    // picSrc: images("./ec/2023/samb.jpeg"),
                     media: [
                         {href: "", icon: "fa-twitter"},
                         {href: "", icon: "fa-linkedin"} 
@@ -62,7 +62,7 @@ export const LANDING_GC = ({images, ...props}) => {
                 {
                     name: "Abdul Kareem ",
                     title: "Academic Chair",
-                    picSrc: images("./ec/2023/abdulkareem_ahmed.jpeg"),
+                    // picSrc: images("./ec/2023/abdulkareem_ahmed.jpeg"),
                     media: [
                         {href: "", icon: "fa-twitter"},
                         {href: "", icon: "fa-linkedin"} 
@@ -72,68 +72,13 @@ export const LANDING_GC = ({images, ...props}) => {
                 {
                     name: "Ahmed Zain",
                     title: "Academic Chair",
-                    picSrc: images("./ec/2023/abdulkareem_ahmed.jpeg"),
-                    media: [
-                        {href: "", icon: "fa-twitter"},
-                        {href: "", icon: "fa-linkedin"} 
-                    ]
-                    },
-                
-                {
-                    name: "Noura Attili",
-                    title: "External Relations Chair",
-                    picSrc: images("./ec/2023/noura.jpeg"),
-                    media: [
-                        {href: "", icon: "fa-twitter"},
-                        {href: "", icon: "fa-linkedin"} 
-                    ]
-                }, 
-                {
-                    name: "Fedaa Alsoufi",
-                    title: "Community Service Chair",
-                    picSrc: images("./ec/2023/fedaa.jpeg"),
+                    // picSrc: images("./ec/2023/abdulkareem_ahmed.jpeg"),
                     media: [
                         {href: "", icon: "fa-twitter"},
                         {href: "", icon: "fa-linkedin"} 
                     ]
                 },
                 
-                {
-                    name: "Rumaisa Abdulhai",
-                    title: "Community Service Chair",
-                    picSrc: images("./ec/2023/rumisa.jpeg"),
-                    media: [
-                        {href: "", icon: "fa-twitter"},
-                        {href: "", icon: "fa-linkedin"} 
-                    ]
-                }, {
-                    name: "Yasmeen A Shabazz",
-                    title: "Social Media Chair",
-                    picSrc: images("./ec/2023/yasmeen.jpeg"),
-                    media: [
-                        {href: "", icon: "fa-twitter"},
-                        {href: "", icon: "fa-linkedin"} 
-                    ]
-                },
-                
-                {
-                    name: "Laiba Shahid",
-                    title: "Publicity Chair",
-                    picSrc: images("./ec/2023/laiba.jpeg"),
-                    media: [
-                        {href: "", icon: "fa-twitter"},
-                        {href: "", icon: "fa-linkedin"} 
-                    ]
-                }, 
-                {
-                    name: "Amina Abdalla",
-                    title: "Social Chair",
-                    picSrc: images("./ec/2023/amina.jpeg"),
-                    media: [
-                        {href: "", icon: "fa-twitter"},
-                        {href: "", icon: "fa-linkedin"} 
-                    ]
-                },
             ]
         },
 

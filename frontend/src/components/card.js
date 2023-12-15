@@ -29,18 +29,20 @@ export function IconCard({title, description, href, style, ...props}) {
                     backgroundColor: COLORS.TRANSPARENT
                 }}
             >
-                Learn More
+                {/* Learn More */}
             </Link>
         </Col>
     )
 }
 
 export function PersonCard({name, title, social, picSrc, style, ...props}) {
+    const images = require.context('../assets/media', true);
+
     return (
         <Col 
             className="flex align-center column text-center justify-around"
             style={{
-                margin: "20px",
+                // margin: "20px",
                 padding: "20px",
                 width: "200px",
                 ...style
@@ -48,7 +50,7 @@ export function PersonCard({name, title, social, picSrc, style, ...props}) {
             {...props}
         >
             <img 
-                src={picSrc}
+                src={picSrc? picSrc : images("./person.png")}
                 style={{
                     width: "150px",
                     height: "150px",
@@ -98,12 +100,12 @@ export function PrayerCard({href, name, rooms, picSrc, style, className, ...prop
 
 export function ResourceCard({resources, title, ...props}) {
     return (
-        <Col style={{width: "45%"}} className="text-center" {...props}>
-            <h4 className="title">{title}</h4>
+        <Col className="text-center respond-resource" {...props}>
+            <h4 style={{color: COLORS.GRAY, fontSize: "30px"}}>{title}</h4>
             {resources.map((resource, i) => 
                 <Link href={resource.href} className={`flex align-center ${props.linkClassName}`} style={{textDecoration: "none"}} target="_blank">
                     <resource.icon style={{fontSize: "24px", margin: "0 0 5px 5px", color: COLORS.ORANGE}}/>
-                    <h4 style={{color: COLORS.GRAY, fontWeight: "400", margin: "10px 5px 10px 5px"}}>{resource.name}</h4>
+                    <h4 style={{color: COLORS.GRAY, fontWeight: "400", fontSize: "1em", margin: "10px 5px 10px 5px", width: "80%", textAlign: "end"}}>{resource.name}</h4>
                     <FmdGoodOutlinedIcon style={{fontSize: "24px", margin: "0 0 5px 5px", color: COLORS.GREEN}}/>
                 </Link>
             )}

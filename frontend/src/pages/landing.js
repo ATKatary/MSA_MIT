@@ -21,16 +21,18 @@ function Landing() {
     
     const [openNav, setOpenNav] = React.useState(false);
     const {verse, translation, buttons} = HEADER_GC({});
+    const [prayerSet, setPrayerSet] = React.useState(false);
     const [nextPrayer, setNextPrayer] = React.useState(undefined);
     const {NAV_LEFT, NAV_RIGHT, ...NAV_GC_REST} = NAV_GC({setOpen: setOpenNav,});
     const {MISSION, TEAM, SISTER_NADA, ...LANDING_REST} = LANDING_GC({images: images});
     const [notification, setNotification] = useCustomState({value: null, notify: false});
 
-    navigator.geolocation.getCurrentPosition((position) => {
-        const {nextPrayer, nextPrayerTime, nextPrayerHour} = getNextPrayer(position);
-
+    if (!prayerSet) {
+        const {nextPrayer, nextPrayerTime, nextPrayerHour} = getNextPrayer();
         setNextPrayer(`Next prayer is ${nextPrayer.charAt(0).toUpperCase() + nextPrayer.slice(1)} at ${nextPrayerHour > 12 ? (nextPrayerHour - 12) + ":" + (nextPrayerTime.getMinutes() >= 10 ? nextPrayerTime.getMinutes() : "0" + nextPrayerTime.getMinutes()) + "pm" : nextPrayerHour + ":" + nextPrayerTime.getMinutes() + "am"} (${Math.round(Math.abs(new Date() - nextPrayerTime) / 60000)} min)`);
-    }) 
+        setPrayerSet(true)
+    }
+
     return (
         <>
         <Nav1 

@@ -46,10 +46,13 @@ export function get(url, args, handleRes) {
     }).then(handleRes)
 }
 
-export function getNextPrayer(position) {
+export function getNextPrayer() {
     const today = new Date();
+    const latitude = 42.4297596;
+    const longitude = -71.070174;
+
     prayTimes.setMethod('ISNA'); 
-    const times = prayTimes.getTimes(today, [position.coords.latitude, position.coords.longitude]);
+    const times = prayTimes.getTimes(today, [latitude,longitude]);
 
     
     let todayDateTime = today.toISOString();
