@@ -34,20 +34,20 @@ The components directory includes a lot of files. I highlight a few here which a
     this component creates a section with a pre-stylized title, description and also accepts children. I reccomend using this component as a starting point when making new sections
 
 - Gallery
-    this file contains several components, notable amongst them is the SlideShow which allows you to create a slide show of images or elements
+    this file contains several components, notable amongst them is the `SlideShow` which allows you to create a slide show of images or elements
 
 - Animated 
     this file contains several animation components for scroll based animations. More details about using Animated components further down.
 
 - Support 
-    this file contains support components, like the Notification and useCustomState components. These two are especially useful
+    this file contains support components, like the `Notification` and `useCustomState` components. These two are especially useful
     - The Notification component requires you to create a state called notification and a state handler called setNotification 
     ````
     const [notification, setNotification] = useCustomState({value: "", notify: false});
     ```` 
     When notify is set to `true` the notification will appear for 6s (you can change the duration of the notification using the duration prop). 
     <br>
-    - The useCustomState component allows you to store objects and update them reactively. This is very powerful as React does not do this by default. Instead of creating multiple variables, you can just create one object with several related fields.
+    - The `useCustomState` component allows you to store objects and update them reactively. This is very powerful as React does not do this by default. Instead of creating multiple variables, you can just create one object with several related fields.
 
 - Utils
     this file is reserved for js functions that help with other components like the `getNextPrayer` function and the `post` and `get` functions. 
