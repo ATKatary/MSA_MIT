@@ -62,7 +62,7 @@ The components directory includes a lot of files. I highlight a few here which a
 
 ##### Directories ##### 
 - forms
-    this is a directory of form components. The fields.js file contains pre-made fields like FormField, PassFormField and DateFormField. The contact1 is a pre-made contact form for messages, the mailingList component is the mailingList join form used in the landing page. 
+    this is a directory of form components. The fields.js file contains pre-made fields like `FormField`, `PassFormField` and `DateFormField`. The contact1 is a pre-made contact form for messages, the mailingList component is the mailingList join form used in the landing page. 
 - content 
     this is a directory of files, each of which contains all necessary information to populate the page or component with the same name. All files in here are to be imported ONLY FROM PAGES and not components. The reason for this choice is to isolate the content of the page from its skeletal structure. Therefore, we can easily modify the skeleton without damaging the content and vise versa. 
 - api
