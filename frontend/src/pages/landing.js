@@ -90,7 +90,8 @@ function Landing() {
                     )}
                 </Row>
             </Section>
-                        
+
+            {/*** Team ***/} 
             <Section
                 title={TEAM.title}
                 style={{backgroundColor: COLORS.BLACK, color: COLORS.WHITE}}
