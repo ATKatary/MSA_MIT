@@ -50,7 +50,7 @@ The components directory includes a lot of files. I highlight a few here which a
     - The useCustomState component allows you to store objects and update them reactively. This is very powerful as React does not do this by default. Instead of creating multiple variables, you can just create one object with several related fields.
 
 - Utils
-    this file is reserved for js functions that help with other components like the getNextPrayer function and the post and get functions. 
+    this file is reserved for js functions that help with other components like the `getNextPrayer` function and the `post` and `get` functions. 
 - Nav1
     this file contains the navbar component. This component is one of the more complex ones as it supports responsiveness and different orientations. It accepts several props (we highlight few): 
     1. `vertical` (if true, indicates the navbar is vertical along left side)
