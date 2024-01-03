@@ -83,6 +83,6 @@ The object has 2 attributes:
 Each card has the following attributes:
 - title (the person's position title)
 - name 
-- (optional) pic,
+- (optional) pic
 - (optional) media (a list of objects, each of which represents a social media link with a href and icon)
 Sister Nada has her own object with one card
