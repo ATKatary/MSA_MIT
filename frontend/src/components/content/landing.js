@@ -60,7 +60,7 @@ export const LANDING_GC = ({images, ...props}) => {
                 },
                 
                 {
-                    name: "Abdul Kareem ",
+                    name: "Abdul-Kareem ",
                     title: "Academic Chair",
                     // picSrc: images("./ec/2023/abdulkareem_ahmed.jpeg"),
                     media: [
