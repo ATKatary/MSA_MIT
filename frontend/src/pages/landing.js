@@ -91,33 +91,20 @@ function Landing() {
                 </Row>
             </Section>
 
-            {/*** Team ***/} 
+            {/* Sister Nada */}
             <Section
-                title={TEAM.title}
+                title="Chaplain"
                 style={{backgroundColor: COLORS.BLACK, color: COLORS.WHITE}}
             >
-                <Row className="width-100 flex justify-around align-center">
+                <Row className="width-100 flex justify-center align-center">
                     <PersonCard 
                         {...SISTER_NADA.card}
                         className="text-center"
-                        style={{color: COLORS.WHITE, height: "300px", maxWidth: "350px"}}
-                    />
-                    <Slideshow
-                        style={{width: "350px"}}
-                        controls
-                        items={
-                            TEAM.cards.map((card, i) =>
-                                <PersonCard 
-                                    {...card}
-                                    className="text-center"
-                                    style={{color: COLORS.WHITE, width: "200px", height: "300px"}}
-                                    key={`team-card-${i}`}
-                                />
-                            )
-                        }
+                        style={{color: COLORS.WHITE, height: "300px", maxWidth: "350px", margin: "auto"}}
                     />
                 </Row>
             </Section>
+
 
             {/*** Mailing List ***/}
             <Section

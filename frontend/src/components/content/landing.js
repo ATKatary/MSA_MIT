@@ -41,52 +41,14 @@ export const LANDING_GC = ({images, ...props}) => {
             ]
         },
 
-        TEAM: {
-            title: "Team",
-            cards: [
-                {
-                    title: "President",
-                    name: "Abdurahman Sherif",
-                    // picSrc: images("./ec/2023/sherif.jpeg")
-                },
-                {
-                    name: "Mohamed Samb",
-                    title: "Events Coordinator",
-                    // picSrc: images("./ec/2023/samb.jpeg"),
-                    media: [
-                        {href: "", icon: "fa-twitter"},
-                        {href: "", icon: "fa-linkedin"} 
-                    ]
-                },
-                
-                {
-                    name: "Abdul-Kareem ",
-                    title: "Academic Chair",
-                    // picSrc: images("./ec/2023/abdulkareem_ahmed.jpeg"),
-                    media: [
-                        {href: "", icon: "fa-twitter"},
-                        {href: "", icon: "fa-linkedin"} 
-                    ]
-                }, 
-                
-                {
-                    name: "Ahmed Zain",
-                    title: "Academic Chair",
-                    // picSrc: images("./ec/2023/abdulkareem_ahmed.jpeg"),
-                    media: [
-                        {href: "", icon: "fa-twitter"},
-                        {href: "", icon: "fa-linkedin"} 
-                    ]
-                },
-                
-            ]
-        },
-
         SISTER_NADA: {
             card: {
                 name: "Nada Miqdadi El-Alami",
                 title: "MSA Advisor and Chaplain",
                 picSrc: images("./ec/2022/nada.jpg"),
+                style: {
+                    textAlign: "center",
+                }
             }
         }
     }
