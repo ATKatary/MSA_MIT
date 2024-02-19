@@ -16,7 +16,7 @@ export const API = {
     GET: "get",
     POST: "post",
     DOMAIN: {
-        CONTACT: ""
+        CONTACT: "https://akatary.com/api"
     },
 }
 
@@ -35,15 +35,6 @@ export const SECTIONS = {
 
     MAILING_LIST: {
         TITLE: "mailing-list"
-    },
-
-    CAREER: {
-        TITLE: "career",
-        SUB_SECTIONS: [
-            {title: "referral-listings", component: "ReferralPage"}, 
-            {title: "job-postings", component: ""}, 
-            {title: "resume-book", href: "https://forms.gle/11Dxz3mB3U3CiRPC6"}
-        ],
     },
 }
 
