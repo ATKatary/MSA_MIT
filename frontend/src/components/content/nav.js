@@ -4,6 +4,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 import { Link } from "@mui/material";
+import { Dropdown  } from 'bootstrap';
 import { SECTIONS, THEME } from "../../constants";
 
 /*** Global Constants ***/
@@ -23,10 +24,11 @@ export const NAV_GC = (props) => {
             inPage: true,
             name: SECTIONS.MAILING_LIST.TITLE,
         },
-        // {
-        //     name: SECTIONS.PROGRAMS.TITLE,
-        //     dropdown: true,
-        // },  
+        {
+            name: SECTIONS.CAREER.TITLE,
+            dropdown: true,
+            subSections: SECTIONS.CAREER.SUB_SECTIONS,
+        },  
     ];
     for (const section of sections) {
         right.push(
@@ -35,7 +37,44 @@ export const NAV_GC = (props) => {
                     className: `public-sans`,
                 },
                 content: {
-                    title: 
+                    title: section.dropdown ? (
+                        <div class="dropdown">
+                        <a 
+                            class="dropdown-toggle" 
+                            href="#" 
+                            id={`nav-${section.name}`}
+                            data-bs-toggle="dropdown"
+                            style={{
+                                ...THEME.NAV.STYLE.BTN, 
+                                color: THEME.SECONDARY,
+                                borderRadius: "5px",
+                                margin: "0 20px 0 20px", 
+                            }}>
+                                {section.name.toUpperCase().replace("-", " ")}
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            {section.subSections.map((subsection) => {
+                            return <li><Link
+                                href={subsection.href? subsection.href : `/${section.name}/${subsection.title}`}
+                                id={`nav-${section.name}`}
+                                style={{
+                                    ...THEME.NAV.STYLE.BTN, 
+                                    color: THEME.SECONDARY,
+                                    borderRadius: "5px",
+                                    margin: "0 20px 0 20px", 
+                                    width: "auto"
+                                }}
+                                className="dropdown-item"
+                            >
+                               {subsection.title.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} 
+                            </Link>
+                            </li>
+                            })}
+                        </ul>
+
+                        </div>
+                    ) : 
                     <Link
                         href={section.href? section.href : `/${section.inPage? "#" : ""}${section.name}`}
                         id={`nav-${section.name}`}

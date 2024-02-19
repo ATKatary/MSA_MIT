@@ -7,6 +7,8 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import Life from './pages/life';
 import Landing from './pages/landing';
+import JobPostings from './pages/career/job-postings';
+import ReferralListings from './pages/career/referral-listings';
 import { SECTIONS } from './constants';
 
 const root = ReactDOM.createRoot(document.getElementById("appRoot"));
@@ -18,6 +20,8 @@ root.render(
         <Route path="/" element={<Landing />} />
         <Route path={`/${SECTIONS.LIFE.TITLE}`} element={<Life />} />
         <Route path={`/${SECTIONS.DONATE.TITLE}`} element={<Landing />} />
+        <Route path={`/${SECTIONS.CAREER.TITLE}/job-postings`} element={<JobPostings />} />
+        <Route path={`/${SECTIONS.CAREER.TITLE}/referral-listings`} element={<ReferralListings />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
