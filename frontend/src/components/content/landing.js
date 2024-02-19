@@ -44,7 +44,7 @@ export const LANDING_GC = ({images, ...props}) => {
         SISTER_NADA: {
             card: {
                 name: "Nada Miqdadi El-Alami",
-                title: "MSA Advisor and Chaplain",
+                // title: "MSA Advisor and Chaplain",
                 picSrc: images("./ec/2022/nada.jpg"),
                 style: {
                     textAlign: "center",
