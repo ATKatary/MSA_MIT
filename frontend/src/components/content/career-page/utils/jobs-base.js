@@ -13,6 +13,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig, 'jobs-base');
-console.log("jobs");
-console.log(process.env.REACT_APP_FIREBASE_JOBS_Project_ID);
 export default getDatabase(app);

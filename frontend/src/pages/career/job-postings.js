@@ -2,8 +2,6 @@ import * as React from 'react';
 import "../../assets/css/utils.css";
 
 import Nav1 from '../../components/nav1';
-import Section from '../../components/section';
-import JobPosts from '../../components/content/career-page/components/JobPosts';
 import { NAV_GC } from '../../components/content/nav';
 import { COLORS, SECTIONS, THEME } from '../../constants';
 import { CAREER_GC } from '../../components/content/career-page/career';

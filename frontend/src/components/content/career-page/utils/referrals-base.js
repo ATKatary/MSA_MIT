@@ -13,5 +13,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig, 'referrals-base');
-console.log(process.env.REACT_APP_FIREBASE_REFERRAL_Project_ID);
 export default getDatabase(app);

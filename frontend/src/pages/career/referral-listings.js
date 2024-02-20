@@ -9,7 +9,6 @@ import {CAREER_GC} from '../../components/content/career-page/career'
 import { getNextPrayer, useCustomState } from '../../components/utils';
 
 function ReferralListings() {
-    const images = require.context('../../assets/media', true);
     
     const [openNav, setOpenNav] = React.useState(false);
     const [prayerSet, setPrayerSet] = React.useState(false);

@@ -4,19 +4,12 @@ import "../../assets/css/utils.css";
 import Nav1 from '../../components/nav1';
 import Header from '../../components/header';
 import Section from '../../components/section';
-import { Slideshow } from '../../components/gallery';
 import { NAV_GC } from '../../components/content/nav';
-import { Notification } from '../../components/support';
-import { COLORS, SECTIONS, THEME } from '../../constants';
-import { IconCard, PersonCard } from '../../components/card';
-import MailingList from '../../components/forms/mailingList';
+import { COLORS, THEME } from '../../constants';
 import { LANDING_GC } from '../../components/content/landing';
 import {CAREER_GC} from '../../components/content/career-page/career'
-// import { HEADER_GC } from '../components/content/headers/career';
 import {HEADER_GC} from '../../components/content/headers/landing';
 import { getNextPrayer, useCustomState } from '../../components/utils';
-
-import { Col, Row } from 'reactstrap';
 
 function Career() {
     const images = require.context('../assets/media', true);

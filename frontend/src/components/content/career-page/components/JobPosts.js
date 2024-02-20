@@ -22,8 +22,6 @@ const JobPosting = (row, constraints) => {
 
     const tags = new Set([loc, type, sponsorship])
     const constraintsArray = Array.from(constraints)
-    console.log(constraints)
-    console.log(tags)
     if (!constraintsArray.every(element => tags.has(element))){
         return null
     }
@@ -33,7 +31,6 @@ const JobPosting = (row, constraints) => {
     if (!end) {
         dateDetails = "Start Date: " + start;
     } else {
-        console.log(start)
         dateDetails = "Start Date: " + start + "\n End Date: " + end;
     }
 
@@ -76,7 +73,6 @@ const FilterGroups = (constraints, setConstraints) => {
             newConstraints.add(val)
         }
         setConstraints(newConstraints)
-        console.log(newConstraints)
     };
     return (
         <div className="filter-groups">
@@ -121,7 +117,6 @@ export default function JobPosts() {
         const handleSnapshot = (snapshot) => {
           var data = snapshot.val();
           data = data.filter(elements => (elements !== null));
-          console.log(data)
           setJobPostings(data);
         };
     
