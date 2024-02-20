@@ -29,8 +29,25 @@ function Landing() {
 
     if (!prayerSet) {
         const {nextPrayer, nextPrayerTime, nextPrayerHour} = getNextPrayer();
-        setNextPrayer(`Next prayer is ${nextPrayer.charAt(0).toUpperCase() + nextPrayer.slice(1)} at ${nextPrayerHour > 12 ? (nextPrayerHour - 12) + ":" + (nextPrayerTime.getMinutes() >= 10 ? nextPrayerTime.getMinutes() : "0" + nextPrayerTime.getMinutes()) + "pm" : nextPrayerHour + ":" + nextPrayerTime.getMinutes() + "am"} (${Math.round(Math.abs(new Date() - nextPrayerTime) / 60000)} min)`);
-        setPrayerSet(true)
+        const timeDifference = Math.abs(new Date() - nextPrayerTime); // Difference in milliseconds
+        const hours = Math.floor(timeDifference / 3600000); // Convert milliseconds to hours
+        const minutes = Math.round((timeDifference % 3600000) / 60000); // Convert remaining milliseconds to minutes
+    
+        // Format the next prayer time
+        const nextPrayerFormattedTime = `${nextPrayerHour > 12 ? 
+            (nextPrayerHour - 12) + ":" + (nextPrayerTime.getMinutes() >= 10 ?
+            nextPrayerTime.getMinutes() :
+             "0" + nextPrayerTime.getMinutes()) + "pm" :
+            nextPrayerHour + ":" + (nextPrayerTime.getMinutes() >= 10 ? 
+            nextPrayerTime.getMinutes() : "0" + nextPrayerTime.getMinutes()) + "am"}`;
+    
+        // Format the time difference message to include both hours and minutes
+        const timeDifferenceMessage = `${hours > 0 ? hours + " hour" + (hours > 1 ? "s" : "") + " and " : ""}${minutes} min`;
+    
+        // Set the next prayer message with the updated time difference format
+        setNextPrayer(`Next prayer is ${nextPrayer.charAt(0).toUpperCase() + 
+            nextPrayer.slice(1)} at ${nextPrayerFormattedTime} (${timeDifferenceMessage})`);
+        setPrayerSet(true);
     }
 
     return (
@@ -91,33 +108,20 @@ function Landing() {
                 </Row>
             </Section>
 
-            {/*** Team ***/} 
+            {/* Sister Nada */}
             <Section
-                title={TEAM.title}
+                title="Chaplain"
                 style={{backgroundColor: COLORS.BLACK, color: COLORS.WHITE}}
             >
-                <Row className="width-100 flex justify-around align-center">
+                <Row className="width-100 flex justify-center align-center">
                     <PersonCard 
                         {...SISTER_NADA.card}
                         className="text-center"
-                        style={{color: COLORS.WHITE, height: "300px", maxWidth: "350px"}}
-                    />
-                    <Slideshow
-                        style={{width: "350px"}}
-                        controls
-                        items={
-                            TEAM.cards.map((card, i) =>
-                                <PersonCard 
-                                    {...card}
-                                    className="text-center"
-                                    style={{color: COLORS.WHITE, width: "200px", height: "300px"}}
-                                    key={`team-card-${i}`}
-                                />
-                            )
-                        }
+                        style={{color: COLORS.WHITE, height: "300px", maxWidth: "350px", margin: "auto"}}
                     />
                 </Row>
             </Section>
+
 
             {/*** Mailing List ***/}
             <Section
