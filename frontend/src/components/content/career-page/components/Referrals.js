@@ -17,7 +17,7 @@ export default function ReferralListings() {
         {headerName: 'Company Name', field: 'Company Name', flex: 1, filter: true, floatingFilter: true}
     ]
 
-    useEffect(() => {
+    useEffect(() => { //prevents infinite loop of refreshes and firebase fetches
         const referralDB = ref(db);
     
         const handleSnapshot = (snapshot) => {
@@ -42,15 +42,15 @@ export default function ReferralListings() {
       };
     
     return (<>
-        <div className="more-info-screen" 
+        <div className="more-info-screen" //screen that appears when row of table is clicked
         style={{ 
           visibility: selectedRow ? "visible" : "hidden", 
           zIndex: 1000, position: "fixed" }}>
           {selectedRow && (
             <>
               <h1>{selectedRow["Company Name"]} - {selectedRow["Name"]}</h1>
-              {Object.entries(selectedRow).map(([key, value]) => {
-                if (value !== null && key == "Email") {
+              {Object.entries(selectedRow).map(([key, value]) => { //populating screen with more information about the referral posting
+                if (value !== null && key == "Email") { 
                     return <p key={key}><strong>{key}:</strong> {<a href={"mailto:" + value}> {value} </a> }</p>;
                 }else if (value !== null && !["Name", "Company Name", "Timestamp"].includes(key)) {
                     return <p key={key}><strong>{key}:</strong> {value}</p>;

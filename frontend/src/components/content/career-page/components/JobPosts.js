@@ -63,7 +63,7 @@ function getRequirementsList(reqs) {
 }
 
 const FilterGroups = (constraints, setConstraints) => {
-    const handleCheck = (e) => {
+    const handleCheck = (e) => { // filtering logic
         
         const val = e.target.value
         const newConstraints = new Set(constraints)
@@ -109,9 +109,9 @@ const FilterGroups = (constraints, setConstraints) => {
 
 export default function JobPosts() {
     const [jobPostings, setJobPostings] = useState([]);
-    const [constraints, setConstraints] = useState(new Set());
+    const [constraints, setConstraints] = useState(new Set()); //constrains displayed job postings
 
-    useEffect(() => {
+    useEffect(() => { //prevents infinite loop of refreshes and firebase fetches
         const jobDB = ref(db);
     
         const handleSnapshot = (snapshot) => {
