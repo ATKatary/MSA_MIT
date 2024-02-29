@@ -10,6 +10,7 @@ import Landing from './pages/landing';
 import JobPostings from './pages/career/job-postings';
 import ReferralListings from './pages/career/referral-listings';
 import { SECTIONS } from './constants';
+import Ramadan from './pages/ramadan';
 
 const root = ReactDOM.createRoot(document.getElementById("appRoot"));
 
@@ -22,6 +23,7 @@ root.render(
         <Route path={`/${SECTIONS.DONATE.TITLE}`} element={<Landing />} />
         <Route path={`/${SECTIONS.CAREER.TITLE}/job-postings`} element={<JobPostings />} />
         <Route path={`/${SECTIONS.CAREER.TITLE}/referral-listings`} element={<ReferralListings />} />
+        <Route path={`/${SECTIONS.RAMADAN.TITLE}`} element={<Ramadan />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

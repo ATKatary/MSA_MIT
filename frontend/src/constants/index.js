@@ -45,6 +45,10 @@ export const SECTIONS = {
             {title: "resume-book", href: "https://forms.gle/11Dxz3mB3U3CiRPC6"}
         ],
     },
+
+    RAMADAN: {
+        TITLE: "ramadan"
+    },
 }
 
 export const THEME = {

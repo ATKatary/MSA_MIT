@@ -49,6 +49,7 @@ function Landing() {
             nextPrayer.slice(1)} at ${nextPrayerFormattedTime} (${timeDifferenceMessage})`);
         setPrayerSet(true);
     }
+    
 
     return (
         <>
