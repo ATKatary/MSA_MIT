@@ -22,8 +22,9 @@ export const getSpecificDay = async (date) => {
     return makeApiCall({ "t": "get_specific_day", "date": date });
 };
 
-export const submitSignUp = async (date, name) => {
-    return makeApiCall({ "t": "submission", "date": date, "name": name });
+export const submitSignUp = async (date, name, email, mitId, guestName) => {
+    return makeApiCall({ "t": "submission", "date": date, "mit_name": name , "email": email, 
+    "mit_id": mitId, "guest_name": guestName});
 };
 
 // export const listNonAvailableDays = async () => { // not used tbh

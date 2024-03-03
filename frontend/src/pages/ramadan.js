@@ -42,7 +42,9 @@ const Ramadan = () => {
     const [open, setOpen] = useState(false);
     const [userName, setUserName] = useState("");
     const [selectedDate, setSelectedDate] = useState("");
-    //   const [userEmail, setUserEmail] = useState(''); // If want to use email
+    const [userEmail, setUserEmail] = useState(''); // If want to use email
+    const [guestName, setGuestName] = useState(''); // If want to use guest Name
+    const [mitID, setMitID] = useState(''); // If want to use ID
     const [openSnackbar, setOpenSnackbar] = useState(false);
     
     const [openNav, setOpenNav] = React.useState(false);
@@ -53,8 +55,8 @@ const Ramadan = () => {
     if (!prayerSet) {
         const {nextPrayer, nextPrayerTime, nextPrayerHour} = getNextPrayer();
         const timeDifference = Math.abs(new Date() - nextPrayerTime); // Difference in milliseconds
-        const hours = Math.floor(timeDifference / 3600000); // Convert milliseconds to hours
-        const minutes = Math.round((timeDifference % 3600000) / 60000); // Convert remaining milliseconds to minutes
+        const hours = Math.floor(timeDifference / 3600000); // milliseconds to hours
+        const minutes = Math.round((timeDifference % 3600000) / 60000); // milliseconds to minutes
     
         // Format the next prayer time
         const nextPrayerFormattedTime = `${nextPrayerHour > 12 ? 
@@ -65,7 +67,8 @@ const Ramadan = () => {
             nextPrayerTime.getMinutes() : "0" + nextPrayerTime.getMinutes()) + "am"}`;
     
         // Format the time difference message to include both hours and minutes
-        const timeDifferenceMessage = `${hours > 0 ? hours + " hour" + (hours > 1 ? "s" : "") + " and " : ""}${minutes} min`;
+        const timeDifferenceMessage = `${hours > 0 ? hours + " hour" + (hours > 1 ? "s" : "") + 
+        " and " : ""}${minutes} min`;
     
         // Set the next prayer message with the updated time difference format
         setNextPrayer(`Next prayer is ${nextPrayer.charAt(0).toUpperCase() + 
@@ -101,11 +104,13 @@ const Ramadan = () => {
 
     const submitForm = async () => {
         try {
-            await submitSignUp(selectedDate, { name: userName }); // can add email as param
+            await submitSignUp(selectedDate, userName, userEmail, mitID, guestName);
             console.log("Sign-up successful");
             setOpen(false);
             setUserName("");
-            //   setUserEmail(''); // uncomment if using email
+            setUserEmail("");
+            setMitID("")
+            setGuestName('');
             await fetchDaysData();
             setOpenSnackbar(true);
         } catch (error) {
@@ -144,9 +149,9 @@ const Ramadan = () => {
                 height: "max-content"
             }}
         >
-            {/* <Typography variant="h3" gutterBottom>
+            <Typography variant="h3" gutterBottom>
                 Sign-up for Iftar!
-            </Typography> */}
+            </Typography>
             <TableContainer component={Paper} style={{ width: '80%', maxWidth: '800px' }}>
                 <Table>
                     <TableHead>
@@ -164,7 +169,7 @@ const Ramadan = () => {
                                 </TableCell>
                                 <TableCell align="right">
                                     {day.availableSlots !== "Error"
-                                        ? day.availableSlots
+                                        ? Math.max(day.availableSlots, 0)
                                         : "Error fetching slots"}
                                 </TableCell>
                                 <TableCell align="right">
@@ -188,7 +193,7 @@ const Ramadan = () => {
                     <DialogTitle>Sign Up</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            To sign up, please enter your name:
+                            To sign up a guest, please fill out below:
                         </DialogContentText>
                         <TextField
                             autoFocus
@@ -203,8 +208,7 @@ const Ramadan = () => {
                                 setUserName(event.target.value)
                             }
                         />
-                        {/* New TextField for Email */}
-                        {/* <TextField
+                        <TextField
                         margin="dense"
                         id="email"
                         label="Email Address"
@@ -213,7 +217,28 @@ const Ramadan = () => {
                         variant="standard"
                         value={userEmail}
                         onChange={(event) => setUserEmail(event.target.value)}
-                        /> Add more fields the same way */}
+                        /> 
+                        <TextField
+                        margin="dense"
+                        id="id"
+                        label="MIT ID"
+                        type="id"
+                        fullWidth
+                        variant="standard"
+                        value={mitID}
+                        onChange={(event) => setMitID(event.target.value)}
+                        /> 
+                        <TextField
+                        margin="dense"
+                        id="guest name"
+                        label="Guest Name"
+                        type="guest name"
+                        fullWidth
+                        variant="standard"
+                        value={guestName}
+                        onChange={(event) => setGuestName(event.target.value)}
+                        /> 
+                        {/* Add MIT ID*/} 
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => setOpen(false)}>Cancel</Button>
@@ -243,3 +268,4 @@ const Ramadan = () => {
 };
 
 export default Ramadan;
+// '
