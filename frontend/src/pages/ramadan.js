@@ -151,7 +151,13 @@ const Ramadan = () => {
             }}
         >
             <Typography variant="h3" gutterBottom>
-                Sign-up for Iftar!
+                Iftar Guest Sign-up
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+                Celebrate Iftar with us!
+            </Typography>
+            <Typography variant="body2">
+                Exclusive to the MIT community, members may also sign up guests based on availability. Reserve your spot and share the experience.
             </Typography>
             <TableContainer component={Paper} style={{ width: '80%', maxWidth: '800px' }}>
                 <Table>
@@ -239,7 +245,6 @@ const Ramadan = () => {
                         value={guestName}
                         onChange={(event) => setGuestName(event.target.value)}
                         /> 
-                        {/* Add MIT ID*/} 
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => setOpen(false)}>Cancel</Button>
@@ -269,4 +274,3 @@ const Ramadan = () => {
 };
 
 export default Ramadan;
-// '
