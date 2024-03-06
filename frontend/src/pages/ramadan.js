@@ -47,6 +47,10 @@ const Ramadan = () => {
     const [mitID, setMitID] = useState(''); // If want to use ID
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [confirmationOpen, setConfirmationOpen] = useState(false);
+    const [userNameError, setUserNameError] = useState("");
+    const [userEmailError, setUserEmailError] = useState("");
+    const [mitIDError, setMitIDError] = useState("");
+    const [guestNameError, setGuestNameError] = useState("");
 
     const [openNav, setOpenNav] = React.useState(false);
     const [prayerSet, setPrayerSet] = React.useState(false);
@@ -104,6 +108,17 @@ const Ramadan = () => {
     };
 
     const submitForm = async () => {
+        // Validate all fields again before submitting
+        const isUserNameValid = validateUserName(userName);
+        const isGuestNameValid = validateGuestName(guestName);
+        const isEmailValid = validateEmail(userEmail);
+        const isMitIDValid = validateMitID(mitID);
+        
+        if (!isUserNameValid || !isGuestNameValid || !isEmailValid || !isMitIDValid) {
+            console.error("Validation failed");
+            return; // Prevent form submission
+        }
+
         try {
             await submitSignUp(selectedDate, userName, userEmail, mitID, guestName);
             console.log("Sign-up successful");
@@ -124,6 +139,43 @@ const Ramadan = () => {
         setConfirmationOpen(true);
     };
 
+    const validateUserName = (name) => {
+        if (!name.trim()) { // Checks if the name is empty or just whitespace
+          setUserNameError("Name is required");
+          return false;
+        }
+        setUserNameError(""); // Clear error message
+        return true;
+    };
+      
+    const validateEmail = (email) => {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\\.,;:\s@"]+\.)+[^<>()[\]\\.,;:\s@"]{2,})$/i;
+        if (!email || !re.test(String(email).toLowerCase())) {
+          setUserEmailError("Invalid email address");
+          return false;
+        }
+        setUserEmailError("");
+        return true;
+    };
+    
+    const validateMitID = (id) => {
+        if (!/^\d{9}$/.test(id)) {
+            setMitIDError("MIT ID must be 9 digits");
+            return false;
+        }
+        setMitIDError("");
+        return true;
+    };
+    
+    const validateGuestName = (name) => {
+        if (!name.trim()) {
+          setGuestNameError("Guest name is required");
+          return false;
+        }
+        setGuestNameError("");
+        return true;
+    };
+      
     return (
         <>
         <Nav1 
@@ -209,7 +261,6 @@ const Ramadan = () => {
                             To sign up a guest, please fill out below:
                         </DialogContentText>
                         <TextField
-                            autoFocus
                             margin="dense"
                             id="name"
                             label="Name"
@@ -217,40 +268,60 @@ const Ramadan = () => {
                             fullWidth
                             variant="standard"
                             value={userName}
-                            onChange={(event) =>
-                                setUserName(event.target.value)
-                            }
+                            onChange={(event) => {
+                                const { value } = event.target;
+                                setUserName(value); // Update the state
+                                validateUserName(value); // Validate in real-time
+                            }}
+                            error={!!userNameError} // Apply error styling if there's an error message
+                            helperText={userNameError} // Show the error message
                         />
                         <TextField
-                        margin="dense"
-                        id="email"
-                        label="Email Address"
-                        type="email"
-                        fullWidth
-                        variant="standard"
-                        value={userEmail}
-                        onChange={(event) => setUserEmail(event.target.value)}
-                        /> 
+                            id="email"
+                            label="Email Address"
+                            type="email"
+                            fullWidth
+                            variant="standard"
+                            value={userEmail}
+                            onChange={(event) => {
+                                setUserEmail(event.target.value);
+                                validateEmail(event.target.value); // Validate email in real-time
+                            }}
+                            error={!!userEmailError} // Show error state
+                            helperText={userEmailError} // Show error message
+                        />
                         <TextField
-                        margin="dense"
-                        id="id"
-                        label="MIT ID"
-                        type="id"
-                        fullWidth
-                        variant="standard"
-                        value={mitID}
-                        onChange={(event) => setMitID(event.target.value)}
-                        /> 
+                            margin="dense"
+                            id="mit-id"
+                            label="MIT ID"
+                            type="text"
+                            fullWidth
+                            variant="standard"
+                            value={mitID}
+                            onChange={(event) => {
+                                const { value } = event.target;
+                                setMitID(value); // Update the state
+                                validateMitID(value); // Validate in real-time
+                            }}
+                            error={!!mitIDError} // Apply error styling if there's an error message
+                            helperText={mitIDError} // Show the error message
+                        />
                         <TextField
-                        margin="dense"
-                        id="guest name"
-                        label="Guest Name"
-                        type="guest name"
-                        fullWidth
-                        variant="standard"
-                        value={guestName}
-                        onChange={(event) => setGuestName(event.target.value)}
-                        /> 
+                            margin="dense"
+                            id="guest-name"
+                            label="Guest Name"
+                            type="text"
+                            fullWidth
+                            variant="standard"
+                            value={guestName}
+                            onChange={(event) => {
+                                const { value } = event.target;
+                                setGuestName(value); // Update the state
+                                validateGuestName(value); // Validate in real-time
+                            }}
+                            error={!!guestNameError} // Apply error styling if there's an error message
+                            helperText={guestNameError} // Show the error message
+                        />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => setOpen(false)}>Cancel</Button>
