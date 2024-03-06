@@ -144,9 +144,10 @@ const Ramadan = () => {
             closedStyle={{width: "50px", color: COLORS.BLACK, right: "calc(0% + 50px)"}}
         />
         <div 
-            className="flex column width-100"
+            className="flex column width-100 justify-content-center align-items-center"
             style={{
-                height: "max-content"
+                height: "max-content",
+                marginTop: "200px",
             }}
         >
             <Typography variant="h3" gutterBottom>
