@@ -46,7 +46,8 @@ const Ramadan = () => {
     const [guestName, setGuestName] = useState(''); // If want to use guest Name
     const [mitID, setMitID] = useState(''); // If want to use ID
     const [openSnackbar, setOpenSnackbar] = useState(false);
-    
+    const [confirmationOpen, setConfirmationOpen] = useState(false);
+
     const [openNav, setOpenNav] = React.useState(false);
     const [prayerSet, setPrayerSet] = React.useState(false);
     const [nextPrayer, setNextPrayer] = React.useState(undefined);
@@ -113,9 +114,14 @@ const Ramadan = () => {
             setGuestName('');
             await fetchDaysData();
             setOpenSnackbar(true);
+            showConfirmationDialog();
         } catch (error) {
             console.error("Failed to sign up:", error);
         }
+    };
+
+    const showConfirmationDialog = () => {
+        setConfirmationOpen(true);
     };
 
     return (
@@ -252,7 +258,7 @@ const Ramadan = () => {
                     </DialogActions>
                 </Dialog>
 
-                <Snackbar
+                {/* <Snackbar
                     open={openSnackbar}
                     autoHideDuration={6000}
                     onClose={() => setOpenSnackbar(false)}
@@ -266,7 +272,25 @@ const Ramadan = () => {
                             Close
                         </Button>
                     }
-                />
+                /> */}
+                <Dialog
+                    open={confirmationOpen}
+                    onClose={() => setConfirmationOpen(false)}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">{"Sign Up Successful"}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            Your guest has been successfully signed up. Thank you for joining us!
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => setConfirmationOpen(false)} color="primary" autoFocus>
+                            Close
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </TableContainer>
         </div>
         </>
