@@ -215,7 +215,8 @@ const Ramadan = () => {
                 Celebrate Iftar with us!
             </Typography>
             <Typography variant="body2">
-                Exclusive to the MIT community, members may also sign up guests based on availability. Reserve your spot and share the experience.
+                While this year's iftars are exclusive to the MIT community and affilates, 
+                members may also sign up guests based on availability. Reserve a spot and share the experience.
             </Typography>
             <TableContainer component={Paper} style={{ width: '80%', maxWidth: '800px' }}>
                 <Table>
