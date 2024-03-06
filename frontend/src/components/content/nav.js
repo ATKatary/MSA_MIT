@@ -24,11 +24,11 @@ export const NAV_GC = (props) => {
             inPage: true,
             name: SECTIONS.MAILING_LIST.TITLE,
         },
-        {
-            name: SECTIONS.CAREER.TITLE,
-            dropdown: true,
-            subSections: SECTIONS.CAREER.SUB_SECTIONS,
-        },  
+        // {
+        //     name: SECTIONS.CAREER.TITLE,
+        //     dropdown: true,
+        //     subSections: SECTIONS.CAREER.SUB_SECTIONS,
+        // },  
         {
             name: SECTIONS.RAMADAN.TITLE,
         },
