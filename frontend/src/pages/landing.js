@@ -13,6 +13,7 @@ import MailingList from '../components/forms/mailingList';
 import { LANDING_GC } from '../components/content/landing';
 import { HEADER_GC } from '../components/content/headers/landing';
 import { getNextPrayer, useCustomState } from '../components/utils';
+import { Typography } from '@mui/material';
 
 import { Col, Row } from 'reactstrap';
 
@@ -82,6 +83,7 @@ function Landing() {
                 height: "max-content"
             }}
         >
+            
             <Header 
                 verse={verse}
                 buttons={buttons}
@@ -91,7 +93,18 @@ function Landing() {
                     marginTop: `${THEME.NAV.HEIGHT}px`
                 }}
             />
-            
+            <Typography variant="h6" style={{ textAlign: 'center', margin: '20px 0', fontWeight: 'bold' }}>
+                <a href={`#${SECTIONS.MAILING_LIST.TITLE}`} style={{
+                    textDecoration: 'none',
+                    color: '#1565c0',
+                    backgroundColor: '#f0f0f0',
+                    padding: '8px 12px',
+                    borderRadius: '4px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                }}>
+                    Join mailing list here
+                </a>
+            </Typography>
             {/*** Mission ***/}
             <Section 
                 title={MISSION.title}
