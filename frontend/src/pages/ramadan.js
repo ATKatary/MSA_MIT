@@ -220,7 +220,7 @@ const Ramadan = () => {
                 <Typography variant="body2">
                     While this year's iftars are exclusive to the MIT community and affilates, 
                     members may also sign up guests based on availability. Reserve a spot and share the experience.
-                    For more information, please contact us at <a href="mailto:msa-ramadan@mit.edu">msa-ramadan@mit.edu</a>
+                    For more information or questions, please contact us at <a href="mailto:msa-ramadan@mit.edu">msa-ramadan@mit.edu</a>
                 </Typography>
             </Container>
             <TableContainer component={Paper} style={{ width: '80%', maxWidth: '800px' }}>
