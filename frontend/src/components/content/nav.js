@@ -14,24 +14,26 @@ export const NAV_GC = (props) => {
     const right = [];
     const sections = [
         {
+            name: SECTIONS.RAMADAN.TITLE,
+        },
+
+        {
             name: SECTIONS.DONATE.TITLE,
             href: "https://giving.mit.edu/form/#/"
         },
         {
             name: SECTIONS.LIFE.TITLE,
         },
-        {
-            inPage: true,
-            name: SECTIONS.MAILING_LIST.TITLE,
-        },
+        // {
+        //     inPage: true,
+        //     name: SECTIONS.MAILING_LIST.TITLE,
+        // },
         // {
         //     name: SECTIONS.CAREER.TITLE,
         //     dropdown: true,
         //     subSections: SECTIONS.CAREER.SUB_SECTIONS,
         // },  
-        {
-            name: SECTIONS.RAMADAN.TITLE,
-        },
+
     ];
     for (const section of sections) {
         right.push(

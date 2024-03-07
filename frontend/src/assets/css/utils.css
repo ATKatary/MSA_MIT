@@ -127,3 +127,22 @@
 @media only screen and (max-width: 1000px) {
     
 }
+
+.dvs-header__trigger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .dvs-header__menuItems {
+        display: none;
+    }
+
+    .dvs-header__trigger {
+        display: block;
+    }
+
+    .dvs-header a {
+        display: block;
+        width: 100%;
+    }
+}
