@@ -18,6 +18,7 @@ import {
     DialogActions,
     Snackbar,
     Typography,
+    Container
 } from "@mui/material";
 import { submitSignUp, getSpecificDay } from "../components/api/ramadan";
 
@@ -210,18 +211,21 @@ const Ramadan = () => {
                 marginTop: "200px",
             }}
         >
-            <Typography variant="h3" gutterBottom>
-                Iftar Guest Sign-up
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-                Celebrate Iftar with us!
-            </Typography>
-            <Typography variant="body2">
-                While this year's iftars are exclusive to the MIT community and affilates, 
-                members may also sign up guests based on availability. Reserve a spot and share the experience.
-                For more info, contact msa-ramadan@mit.edu
-            </Typography>
-            <TableContainer component={Paper} style={{ width: '80%', maxWidth: '800px', marginTop: '30px' }}>
+
+            <Container maxWidth="md"> {/* You can adjust 'sm', 'md', 'lg', 'xl' based on your needs */}
+                <Typography variant="h3" gutterBottom>
+                    Iftar Guest Sign-up
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                    Celebrate Iftar with us!
+                </Typography>
+                <Typography variant="body2">
+                    While this year's iftars are exclusive to the MIT community and affilates, 
+                    members may also sign up guests based on availability. Reserve a spot and share the experience.
+                    For more information or questions, please contact us at <a href="mailto:msa-ramadan@mit.edu">msa-ramadan@mit.edu</a>
+                </Typography>
+            </Container>
+            <TableContainer component={Paper} style={{ width: '80%', maxWidth: '800px' }}>
                 <Table>
                     <TableHead>
                         <TableRow>
