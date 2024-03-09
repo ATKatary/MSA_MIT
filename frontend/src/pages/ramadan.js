@@ -1,3 +1,5 @@
+// TODO: Fix mobile view. Nav Bar doesn't fully show, and Ramadan form text is cut off a bit.
+
 import React, { useState, useEffect } from "react";
 import {
     Table,
@@ -217,8 +219,9 @@ const Ramadan = () => {
             <Typography variant="body2">
                 While this year's iftars are exclusive to the MIT community and affilates, 
                 members may also sign up guests based on availability. Reserve a spot and share the experience.
+                For more info, contact msa-ramadan@mit.edu
             </Typography>
-            <TableContainer component={Paper} style={{ width: '80%', maxWidth: '800px' }}>
+            <TableContainer component={Paper} style={{ width: '80%', maxWidth: '800px', marginTop: '30px' }}>
                 <Table>
                     <TableHead>
                         <TableRow>

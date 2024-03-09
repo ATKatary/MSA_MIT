@@ -29,9 +29,9 @@ export const NAV_GC = (props) => {
         //     dropdown: true,
         //     subSections: SECTIONS.CAREER.SUB_SECTIONS,
         // },  
-        {
-            name: SECTIONS.RAMADAN.TITLE,
-        },
+        // {
+        //     name: SECTIONS.RAMADAN.TITLE,
+        // },
     ];
     for (const section of sections) {
         right.push(
