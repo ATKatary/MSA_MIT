@@ -1,4 +1,4 @@
-// TODO: Fix mobile view. Nav Bar doesn't fully show, and Ramadan form text is cut off a bit.
+// TODO: Mozilla view messed up, need to fix
 
 import React, { useState, useEffect } from "react";
 import {
@@ -245,7 +245,9 @@ const Ramadan = () => {
                 <Typography variant="body2">
                     While this year's iftars are exclusive to the MIT community and affilates, 
                     members may also sign up guests based on availability. Reserve a spot and share the experience.
-                    For more information or questions, please contact us at <a href="mailto:msa-ramadan@mit.edu">msa-ramadan@mit.edu</a>
+                    For more information or questions, please refer to the <a href="
+                    https://docs.google.com/document/d/1f2sd-2sftbtfwYC-mUFavVmflp-4uPE6kOXHMPCoUkU/edit">FAQ</a> or the <a href="
+                    https://docs.google.com/presentation/d/1SH6Trt6UM4QScj_Arn9gWoYSDhkbyzEqmnXPO_uYLp0/edit?usp=sharing">slides</a>.
                 </Typography>
                 <Typography variant="body2" gutterBottom>
                     {/* new line */}
