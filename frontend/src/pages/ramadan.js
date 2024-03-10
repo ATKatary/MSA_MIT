@@ -251,7 +251,7 @@ const Ramadan = () => {
                     {/* new line */}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                    <strong>Weekly Sign-Up Schedule:</strong> Our sign-up form resets every Sunday at 12:00 AM Eastern Time. Upon reset, it will display availability for the upcoming Monday through Sunday, allowing you to plan and reserve spots for iftar for the week ahead.
+                    <strong>Weekly Sign-Up Schedule:</strong> Our sign-up form resets every Sunday at 12:00 AM Eastern Time. Upon reset, it will allow sign-ups for the upcoming Monday through Sunday.
                 </Typography>
             </Container>
             <TableContainer component={Paper} style={{ width: '80%', maxWidth: '800px' }}>

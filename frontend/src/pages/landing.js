@@ -102,7 +102,7 @@ function Landing() {
                     borderRadius: '4px',
                     boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
                 }}>
-                    Join mailing list here
+                    Join mailing list
                 </a>
             </Typography>
             {/*** Mission ***/}
