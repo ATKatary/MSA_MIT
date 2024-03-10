@@ -29,19 +29,42 @@ import { NAV_GC } from '../components/content/nav';
 import { COLORS, THEME } from '../constants';
 import { getNextPrayer } from '../components/utils';
 
+const millisecondsInDay = (24 * 60 * 60 * 1000);
 const getNextSevenDays = () => {
     const dates = [];
     for (let i = 0; i < 7; i++) {
-        const date = new Date();
-        date.setDate(date.getDate() + i);
+        const today = new Date();
+        const date = new Date(today.getTime() + millisecondsInDay*i);
         const dateString = date.toISOString().split("T")[0]; // Format as 'YYYY-MM-DD'
         dates.push(dateString);
     }
     return dates;
 };
 
+const getMondayToSundayForWeek = () => {
+    const dates = [];
+    const offsetInMilliseconds = new Date().getTimezoneOffset() * 60 * 1000;
+    const today = new Date();
+    const dayOfWeek = today.getDay();
+    // Calculate days until previous Monday, or next Monday if today is Sunday
+    let daysUntilMonday = -(dayOfWeek - 1); 
+    
+    // Convert UTC time to Eastern time and shift to Monday
+    const startDay = new Date(today.getTime() - offsetInMilliseconds + millisecondsInDay * daysUntilMonday);
+
+    // Add dates from Monday to Sunday
+    for (let i = 0; i < 7; i++) {
+        const date = new Date(startDay.getTime() + millisecondsInDay * i);
+        const dateString = date.toISOString().split("T")[0];
+        dates.push(dateString);
+    }
+
+    return dates;
+};
+
+
 const Ramadan = () => {
-    const [days, setDays] = useState(getNextSevenDays());
+    const [days, setDays] = useState(getMondayToSundayForWeek());
     const [open, setOpen] = useState(false);
     const [userName, setUserName] = useState("");
     const [selectedDate, setSelectedDate] = useState("");
@@ -85,7 +108,7 @@ const Ramadan = () => {
     }
     
     const fetchDaysData = async () => {
-        const dates = getNextSevenDays();
+        const dates = getMondayToSundayForWeek();
         const daysDataPromises = dates.map(async (date) => {
             try {
                 const response = await getSpecificDay(date);
@@ -224,13 +247,19 @@ const Ramadan = () => {
                     members may also sign up guests based on availability. Reserve a spot and share the experience.
                     For more information or questions, please contact us at <a href="mailto:msa-ramadan@mit.edu">msa-ramadan@mit.edu</a>
                 </Typography>
+                <Typography variant="body2" gutterBottom>
+                    {/* new line */}
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                    <strong>Weekly Sign-Up Schedule:</strong> Our sign-up form resets every Sunday at 12:00 AM Eastern Time. Upon reset, it will display availability for the upcoming Monday through Sunday, allowing you to plan and reserve spots for iftar for the week ahead.
+                </Typography>
             </Container>
             <TableContainer component={Paper} style={{ width: '80%', maxWidth: '800px' }}>
                 <Table>
                     <TableHead>
                         <TableRow>
                             <TableCell>Date</TableCell>
-                            <TableCell align="right">Available Slots</TableCell>
+                            {/* <TableCell align="right">Available Slots</TableCell> */}
                             <TableCell align="right">Sign Up</TableCell>
                         </TableRow>
                     </TableHead>
@@ -240,11 +269,11 @@ const Ramadan = () => {
                                 <TableCell component="th" scope="row">
                                     {day.date}
                                 </TableCell>
-                                <TableCell align="right">
+                                {/* <TableCell align="right">
                                     {day.availableSlots !== "Error"
                                         ? Math.max(day.availableSlots, 0)
                                         : "Error fetching slots"}
-                                </TableCell>
+                                </TableCell> */}
                                 <TableCell align="right">
                                     <Button
                                         variant="contained"
