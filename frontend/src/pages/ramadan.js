@@ -45,9 +45,11 @@ const getMondayToSundayForWeek = () => {
     const dates = [];
     const offsetInMilliseconds = new Date().getTimezoneOffset() * 60 * 1000;
     const today = new Date();
-    const dayOfWeek = today.getDay();
-    // Calculate days until previous Monday, or next Monday if today is Sunday
-    let daysUntilMonday = -(dayOfWeek - 1);
+    const dayOfWeek = today.getDay(); // 0 is Sunday, 1 is Monday, ..., 6 is Saturday.
+    
+    // Calculate days until previous Monday. Sunday is special case since need to go back 6 days
+    // If current day is Monday, this equals 0 (stay at current monday)
+    let daysUntilMonday = dayOfWeek === 0 ? -6 : -(dayOfWeek - 1);
 
     // Convert UTC time to Eastern time and shift to Monday
     const startDay = new Date(
@@ -282,7 +284,7 @@ const Ramadan = () => {
                     </Typography>
                     <Typography variant="body2" gutterBottom>
                         <strong>Weekly Sign-Up Schedule:</strong> Our sign-up form resets every
-                        Sunday at 12:00 AM Eastern Time. Upon reset, it will allow sign-ups for the
+                        Monday at 12:00 AM Eastern Time. Upon reset, it will allow sign-ups for the
                         upcoming Monday through Sunday.
                     </Typography>
                 </Container>
