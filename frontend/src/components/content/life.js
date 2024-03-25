@@ -29,6 +29,14 @@ export const LIFE_GC = ({ images, ...props }) => {
           description:
             "A prayer room on the east side of MIT's campus - ideal for those who cannot make it back to the Musallah for salah.",
         },
+        {
+          name: "Hayden Library",
+          href: "https://whereis.mit.edu/?go=14",
+          rooms: ["2nd Floor"],
+          picSrc: images("./prayer/oasis.jpeg"),
+          description:
+            "A convienient prayer space in Hayden Library for those who study and would rather stay on campus and perform salah.",
+        },
       ],
     },
 

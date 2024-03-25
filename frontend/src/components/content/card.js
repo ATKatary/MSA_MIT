@@ -9,7 +9,13 @@ import Typography from "@mui/material/Typography";
 export default function MediaCard({ space }) {
   return (
     <Card
-      sx={{ maxWidth: 345, minHeight: 475, margin: 1, position: "relative" }}
+      sx={{
+        maxWidth: 345,
+        minHeight: 450,
+        margin: 1,
+        marginBottom: 5,
+        position: "relative",
+      }}
     >
       <CardMedia
         sx={{ height: 240 }}

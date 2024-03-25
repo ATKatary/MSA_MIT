@@ -1,5 +1,7 @@
 import * as React from "react";
 import "../assets/css/utils.css";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import MediaCard from "../components/content/card";
 import LifeCard from "../components/content/lifecard";
@@ -101,23 +103,45 @@ function Life() {
 
         {/*** Prayer Spaces ***/}
 
-        <Section>
+        <Section className="flex justify-center" contStyle={{ width: "100%" }}>
           <h1 className="text-lg">Prayer Spaces</h1>
-          <Row className="flex justify-center width-100 respond-row-column">
-            {PRAYER_SPACES.cards.map((space, i) => (
-              <MediaCard space={space} key={`prayer-card-${i}`} />
+          <Carousel showThumbs={false} showArrows={true}>
+            {Array.from(
+              { length: Math.ceil(PRAYER_SPACES.cards.length / 3) },
+              (_, i) => i * 3
+            ).map((i) => (
+              <div
+                key={`prayer-card-${i}`}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                {PRAYER_SPACES.cards.slice(i, i + 3).map((space, j) => (
+                  <MediaCard space={space} key={`prayer-card-${i + j}`} />
+                ))}
+              </div>
             ))}
-          </Row>
+          </Carousel>
         </Section>
 
         {/*** Resources ***/}
         <Section className="flex justify-center" contStyle={{ width: "100%" }}>
           <h1 className="text-lg">Off Campus Resources</h1>
-          <Row className="flex justify-center width-100 respond-row-column">
-            {RESOURCES.OFF_CAMPUS.cards.map((resource, i) => (
-              <LifeCard resource={resource} key={`life-card-${i}`} />
+          <Carousel showThumbs={false} showArrows={true}>
+            {Array.from(
+              { length: Math.ceil(RESOURCES.OFF_CAMPUS.cards.length / 3) },
+              (_, i) => i * 3
+            ).map((i) => (
+              <div
+                key={`life-card-${i}`}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                {RESOURCES.OFF_CAMPUS.cards
+                  .slice(i, i + 3)
+                  .map((resource, j) => (
+                    <LifeCard resource={resource} key={`life-card-${i + j}`} />
+                  ))}
+              </div>
             ))}
-          </Row>
+          </Carousel>
         </Section>
       </div>
       <Notification

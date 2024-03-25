@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 export default function LifeCard({ resource }) {
   return (
     <Card
-      sx={{ maxWidth: 345, minHeight: 350, margin: 1, position: "relative" }}
+      sx={{ minWidth: 345, minHeight: 350, margin: 5, position: "relative" }}
     >
       <CardMedia
         sx={{ height: 240 }}
