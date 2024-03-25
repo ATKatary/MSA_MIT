@@ -1,55 +1,24 @@
-import React, { useState, useEffect } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  TextField,
-  DialogActions,
-  Snackbar,
-  Typography,
-} from "@mui/material";
+import * as React from "react";
+import { Button } from "@mui/material";
 
 import "../assets/css/utils.css";
-
 import Nav1 from "../components/nav1";
+import Section from "../components/section";
 import { NAV_GC } from "../components/content/nav";
-import { COLORS, THEME } from "../constants";
-import { getNextPrayer } from "../components/utils";
-
-const getNextSevenDays = () => {
-  const dates = [];
-  for (let i = 0; i < 7; i++) {
-    const date = new Date();
-    date.setDate(date.getDate() + i);
-    const dateString = date.toISOString().split("T")[0]; // Format as 'YYYY-MM-DD'
-    dates.push(dateString);
-  }
-  return dates;
-};
+import { Notification } from "../components/support";
+import { COLORS, THEME, SECTIONS } from "../constants";
+import MailingList from "../components/forms/mailingList";
+import { getNextPrayer, useCustomState } from "../components/utils";
 
 const Contact = () => {
-  const [days, setDays] = useState(getNextSevenDays());
-  const [open, setOpen] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [selectedDate, setSelectedDate] = useState("");
-  const [userEmail, setUserEmail] = useState(""); // If want to use email
-  const [guestName, setGuestName] = useState(""); // If want to use guest Name
-  const [mitID, setMitID] = useState(""); // If want to use ID
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-
   const [openNav, setOpenNav] = React.useState(false);
   const [prayerSet, setPrayerSet] = React.useState(false);
   const [nextPrayer, setNextPrayer] = React.useState(undefined);
   const { NAV_LEFT, NAV_RIGHT } = NAV_GC({ setOpen: setOpenNav });
+  const [notification, setNotification] = useCustomState({
+    value: null,
+    notify: false,
+  });
 
   if (!prayerSet) {
     const { nextPrayer, nextPrayerTime, nextPrayerHour } = getNextPrayer();
@@ -123,9 +92,7 @@ const Contact = () => {
           marginTop: "200px",
         }}
       >
-        <Typography variant="h4" style={{ margin: "20px" }}>
-          Sign up for communication channels
-        </Typography>
+        <h1 className="text-lg">Messenger</h1>
         <Button
           variant="contained"
           color="primary"
@@ -134,9 +101,18 @@ const Contact = () => {
             window.open("https://m.me/j/AbbKiAvMspnlpwK7/", "_blank");
           }}
         >
-          Messenger
+          Join
         </Button>
+
+        <Section title="Join mailing list" id={SECTIONS.MAILING_LIST.TITLE}>
+          <MailingList setNotification={setNotification} />
+        </Section>
       </div>
+      <Notification
+        notification={notification}
+        setNotification={setNotification}
+        duration={6000}
+      />
     </>
   );
 };

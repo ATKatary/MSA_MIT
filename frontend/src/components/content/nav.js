@@ -20,6 +20,9 @@ export const NAV_GC = (props) => {
       name: SECTIONS.LIFE.TITLE,
     },
     {
+      name: SECTIONS.CONTACT.TITLE,
+    },
+    {
       inPage: true,
       name: SECTIONS.MAILING_LIST.TITLE,
     },
