@@ -1,16 +1,16 @@
-import './index.css';
+import "./index.css";
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Life from './pages/life';
-import Landing from './pages/landing';
-import JobPostings from './pages/career/job-postings';
-import ReferralListings from './pages/career/referral-listings';
-import { SECTIONS } from './constants';
-import Ramadan from './pages/ramadan';
+import Life from "./pages/life";
+import Landing from "./pages/landing";
+import JobPostings from "./pages/career/job-postings";
+import ReferralListings from "./pages/career/referral-listings";
+import { SECTIONS } from "./constants";
+import Ramadan from "./pages/ramadan";
 
 const root = ReactDOM.createRoot(document.getElementById("appRoot"));
 

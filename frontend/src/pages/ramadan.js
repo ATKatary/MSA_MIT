@@ -66,6 +66,11 @@ const getMondayToSundayForWeek = () => {
     return dates;
 };
 
+const manuallySetSlots = { // maps dates to available slots
+    "2024-04-04": 10, 
+    "2024-04-07": 12,
+};
+
 const Ramadan = () => {
     const [days, setDays] = useState(getMondayToSundayForWeek());
     const [open, setOpen] = useState(false);
@@ -128,9 +133,16 @@ const Ramadan = () => {
         const dates = getMondayToSundayForWeek();
         const daysDataPromises = dates.map(async (date) => {
             try {
+                let availableSlots;
                 const response = await getSpecificDay(date);
+                const manuallySetSlot = manuallySetSlots[date];
                 const signUpCount = response[date] ? response[date].length : 0;
-                return { date, signUpCount, availableSlots: 50 - signUpCount };
+                if (manuallySetSlot !== undefined) {
+                    availableSlots = manuallySetSlot - signUpCount;
+                } else {
+                    availableSlots = 50 - signUpCount;
+                }
+                return { date, signUpCount, availableSlots};
             } catch (error) {
                 console.error("Failed to fetch sign-ups for day:", date, error);
                 return { date, signUpCount: "Error", availableSlots: "Error" };
@@ -307,7 +319,7 @@ const Ramadan = () => {
                                     {day.availableSlots !== "Error"
                                         ? Math.max(day.availableSlots, 0)
                                         : "Error fetching slots"}
-                                </TableCell> */}
+                                    </TableCell> */}
                                     <TableCell align="right">
                                         <Button
                                             variant="contained"
