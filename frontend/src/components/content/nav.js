@@ -13,10 +13,13 @@ const DEFAULT = SECTIONS.HOME.TITLE;
 export const NAV_GC = (props) => {
   const right = [];
   const sections = [
+    // {
+    //   name: SECTIONS.RAMADAN.TITLE,
+    // },
     {
-      name: SECTIONS.RAMADAN.TITLE,
+        inPage: true,
+        name: SECTIONS.MAILING_LIST.TITLE,
     },
-
     {
       name: SECTIONS.DONATE.TITLE,
       href: "https://giving.mit.edu/form/#/",
@@ -24,10 +27,6 @@ export const NAV_GC = (props) => {
     {
       name: SECTIONS.LIFE.TITLE,
     },
-    // {
-    //     inPage: true,
-    //     name: SECTIONS.MAILING_LIST.TITLE,
-    // },
     // {
     //     name: SECTIONS.CAREER.TITLE,
     //     dropdown: true,

@@ -67,8 +67,11 @@ const getMondayToSundayForWeek = () => {
 };
 
 const manuallySetSlots = { // maps dates to available slots
-    "2024-04-04": 10, 
-    "2024-04-07": 12,
+    "2024-04-10": 0,
+    "2024-04-11": 0,
+    "2024-04-12": 0,
+    "2024-04-13": 0,
+    "2024-04-14": 0
 };
 
 const Ramadan = () => {

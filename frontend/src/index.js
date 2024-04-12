@@ -23,7 +23,7 @@ root.render(
         <Route path={`/${SECTIONS.DONATE.TITLE}`} element={<Landing />} />
         {/* <Route path={`/${SECTIONS.CAREER.TITLE}/job-postings`} element={<JobPostings />} /> */}
         {/* <Route path={`/${SECTIONS.CAREER.TITLE}/referral-listings`} element={<ReferralListings />} /> */}
-        <Route path={`/${SECTIONS.RAMADAN.TITLE}`} element={<Ramadan />} />
+        {/* <Route path={`/${SECTIONS.RAMADAN.TITLE}`} element={<Ramadan />} /> */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
