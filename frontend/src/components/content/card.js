@@ -10,15 +10,16 @@ export default function MediaCard({ space }) {
   return (
     <Card
       sx={{
-        maxWidth: 345,
-        minHeight: 450,
+        maxWidth: 400,
+        minWidth: 300,
+        minHeight: 500,
         margin: 1,
         marginBottom: 5,
         position: "relative",
       }}
     >
       <CardMedia
-        sx={{ height: 240 }}
+        sx={{ height: 250 }}
         image={space.picSrc}
         title="prayer space"
       />

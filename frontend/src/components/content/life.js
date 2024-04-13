@@ -37,6 +37,14 @@ export const LIFE_GC = ({ images, ...props }) => {
           description:
             "A convienient prayer space in Hayden Library for those who study and would rather stay on campus and perform salah.",
         },
+        {
+          name: "Schwarzman College of Computing",
+          href: "https://whereis.mit.edu/?go=45",
+          rooms: ["5th", "6th", "7th Floors"],
+          picSrc: images("./prayer/building_45.jpeg"),
+          description:
+            "A convenient option near Stata; on the right side of the building as you exit the elevators, labeled 'Phone Booth'",
+        },
       ],
     },
 
@@ -46,64 +54,69 @@ export const LIFE_GC = ({ images, ...props }) => {
         cards: [
           {
             name: "Al Bara Market",
-            info: "",
+            info: "One of the closest halal markets to MIT. They have a wide variety of halal meats and groceries.",
             picSrc: images("./off_campus_resources/al_bara.jpeg"),
-            description: "test",
+            description:
+              "One of the closest halal markets to MIT. They have a wide variety of halal meats and groceries.",
             icon: ShoppingCartOutlinedIcon,
             href: "https://www.google.com/maps/dir//al+bara+market/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89e3774cbc96d241:0xa0900dd040979ac5?sa=X&ved=2ahUKEwiZ-66G09OBAxVzlIkEHaOXA-EQ9Rd6BAgsEAA&ved=2ahUKEwiZ-66G09OBAxVzlIkEHaOXA-EQ9Rd6BAg9EAQ",
           },
 
           {
             name: "Cheema Supermarket",
-            info: "",
+            info: "Pakistani & Indian grocery with imported foods & spices, plus a butcher counter for halal meats.",
             icon: ShoppingCartOutlinedIcon,
             picSrc: images("./off_campus_resources/cheemas.jpeg"),
-            description: "test",
+            description:
+              "Pakistani & Indian grocery with imported foods & spices, plus a butcher counter for halal meats.",
             href: "https://www.google.com/maps/dir//Cheema+Supermarket/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89e379cc736a6c81:0x8504e31b803321bc?sa=X&ved=2ahUKEwjeye2H09OBAxWEkYkEHZGIDa4Q9Rd6BAgmEAA&ved=2ahUKEwjeye2H09OBAxWEkYkEHZGIDa4Q9Rd6BAg7EAM",
           },
 
           {
             name: "Foodland",
-            info: "",
+            info: "Small storefront with an Indian & Pakistani market & halal butcher, plus deli items such as samosas.",
             icon: ShoppingCartOutlinedIcon,
             picSrc: images("./off_campus_resources/foodland.jpeg"),
-            description: "test",
+            description:
+              "Small storefront with an Indian & Pakistani market & halal butcher, plus deli items such as samosas.",
             href: "https://www.google.com/maps?s=web&sca_esv=569774734&lqi=CghGb29kbGFuZCIDiAEBSOWAjtaRuICACFoUEAAYACIIZm9vZGxhbmQqBAgCEACSAQpyZXN0YXVyYW50qgE-EAEqDCIIZm9vZGxhbmQoADIeEAEiGmGH9k00K6Hs_ddpixlTItlroKl1xbuv-iUHMgwQAiIIZm9vZGxhbmTgAQA&vet=12ahUKEwi0mv2C0dOBAxWzFlkFHQF2CPEQ1YkKegQIGxAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=us&sa=X&geocode=KXFKQNhAceOJMUYZePeJ9Vin&daddr=13+Highland+Ave,+Malden,+MA+02148",
           },
 
           {
             name: "Garden Halal Meat",
-            info: "",
+            info: "Cavernous, bi-level eatery & market dispensing classic Milddle Eastern chow in modest surrounds.",
             icon: ShoppingCartOutlinedIcon,
             picSrc: images("./off_campus_resources/garden_halal.jpeg"),
-            description: "test",
+            description:
+              "Cavernous, bi-level eatery & market dispensing classic Milddle Eastern chow in modest surrounds.",
             href: "https://www.google.com/maps/dir//Garden+Halal+in+Haymarket:/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89e3708f57c779e1:0xabdcd8c534e5830?sa=X&ved=2ahUKEwjB5rGa09OBAxWgvokEHeN5CkwQ9Rd6BAgjEAA&ved=2ahUKEwjB5rGa09OBAxWgvokEHeN5CkwQ9Rd6BAg6EAM",
           },
 
           {
             name: "Quality Meat Market",
-            info: "",
+            info: "Butcher shop offering high-quality chicken & cut-to-order meats, plus some basic groceries.",
             icon: ShoppingCartOutlinedIcon,
             picSrc: images("./off_campus_resources/quality.jpeg"),
-            description: "test",
+            description:
+              "Butcher shop offering high-quality chicken & cut-to-order meats, plus some basic groceries.",
             href: "https://www.google.com/maps/dir//Quality+Meat+Market/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89e37ecd015dca3d:0x63cc70ea255344a2?sa=X&ved=2ahUKEwja8qWp09OBAxXupIkEHb6wDtkQ9Rd6BAgoEAA&ved=2ahUKEwja8qWp09OBAxXupIkEHb6wDtkQ9Rd6BAg8EAM",
           },
 
           {
             name: "Restaurant Depot",
-            info: "",
+            info: "The one-stop shop for foodservice professionals.",
             icon: ShoppingCartOutlinedIcon,
             picSrc: images("./off_campus_resources/restaurant.jpeg"),
-            description: "test",
+            description: "The one-stop shop for foodservice professionals.",
             href: "https://www.google.com/maps/dir//Restaurant+Depot,+82+Boston+St,+Everett,+MA+02149/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89e371a919f5ec93:0x6c65ec58835fb760?sa=X&ved=2ahUKEwi069Oy09OBAxXQjYkEHRacDYcQ48ADegQIHxAA&ved=2ahUKEwi069Oy09OBAxXQjYkEHRacDYcQ48ADegQIJBAJ",
           },
 
           {
             name: "Sayar Market",
-            info: "",
+            info: "International Halal Food & Butcher Shop",
             icon: ShoppingCartOutlinedIcon,
             picSrc: images("./off_campus_resources/sayar.jpeg"),
-            description: "test",
+            description: "International Halal Food & Butcher Shop",
             href: "https://www.google.com/maps/dir//Sayar+Market+Halal+Food,+3+Everett+St+%233e,+Revere,+MA+02151/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89e3710baf54cdb3:0xc5dde7b2635581a2?sa=X&ved=2ahUKEwj445S709OBAxUZjYkEHVvbBusQ48ADegQIEBAA&ved=2ahUKEwj445S709OBAxUZjYkEHVvbBusQ48ADegQIGxAJ",
           },
         ],
@@ -112,6 +125,63 @@ export const LIFE_GC = ({ images, ...props }) => {
       ON_CAMPUS: {
         title: "On Campus Resources",
         cards: [],
+      },
+
+      EID_2023: {
+        slides: [
+          {
+            src: images("./eid_2023/eid_1.jpg"),
+            alt: "Image 1 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_2.jpg"),
+            alt: "Image 2 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_3.jpg"),
+            alt: "Image 3 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_4.jpg"),
+            alt: "Image 4 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_5.jpg"),
+            alt: "Image 5 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_6.jpg"),
+            alt: "Image 6 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_7.jpg"),
+            alt: "Image 7 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_8.jpg"),
+            alt: "Image 8 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_9.jpg"),
+            alt: "Image 9 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_10.jpg"),
+            alt: "Image 10 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_11.jpg"),
+            alt: "Image 11 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_12.jpg"),
+            alt: "Image 12 for carousel",
+          },
+          {
+            src: images("./eid_2023/eid_13.jpg"),
+            alt: "Image 13 for carousel",
+          },
+        ],
       },
     },
   };

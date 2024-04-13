@@ -5,6 +5,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import MediaCard from "../components/content/card";
 import LifeCard from "../components/content/lifecard";
+import PicCarousel from "../components/piccarousel";
+import CardCarousel from "../components/cardcarousel";
 import Nav1 from "../components/nav1";
 import Header from "../components/header";
 import Section from "../components/section";
@@ -22,7 +24,6 @@ import { Typography } from "@mui/material";
 
 function Life() {
   const images = require.context("../assets/media", true);
-
   const [openNav, setOpenNav] = React.useState(false);
   const { verse, translation, buttons } = HEADER_GC({});
   const [prayerSet, setPrayerSet] = React.useState(false);
@@ -101,47 +102,37 @@ function Life() {
           }}
         />
 
-        {/*** Prayer Spaces ***/}
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          {/*** Prayer Spaces ***/}
+          <div style={{ width: "50%", marginRight: "0%" }}>
+            <h1 className="text-lg flex justify-center mb-5">Prayer Spaces</h1>
+            <Section
+              className="flex justify-center"
+              contStyle={{ width: "100%" }}
+            >
+              <CardCarousel data={PRAYER_SPACES.cards} />
+            </Section>
+          </div>
+
+          {/*** Resources ***/}
+          <div style={{ width: "50%" }}>
+            <h1 className="text-lg flex justify-center mb-5">
+              Off Campus Resources
+            </h1>
+            <Section
+              className="flex justify-center"
+              contStyle={{ width: "100%" }}
+            >
+              <CardCarousel data={RESOURCES.OFF_CAMPUS.cards} />
+            </Section>
+          </div>
+        </div>
+
+        {/*** Eid 2023 ***/}
 
         <Section className="flex justify-center" contStyle={{ width: "100%" }}>
-          <h1 className="text-lg">Prayer Spaces</h1>
-          <Carousel showThumbs={false} showArrows={true}>
-            {Array.from(
-              { length: Math.ceil(PRAYER_SPACES.cards.length / 3) },
-              (_, i) => i * 3
-            ).map((i) => (
-              <div
-                key={`prayer-card-${i}`}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                {PRAYER_SPACES.cards.slice(i, i + 3).map((space, j) => (
-                  <MediaCard space={space} key={`prayer-card-${i + j}`} />
-                ))}
-              </div>
-            ))}
-          </Carousel>
-        </Section>
-
-        {/*** Resources ***/}
-        <Section className="flex justify-center" contStyle={{ width: "100%" }}>
-          <h1 className="text-lg">Off Campus Resources</h1>
-          <Carousel showThumbs={false} showArrows={true}>
-            {Array.from(
-              { length: Math.ceil(RESOURCES.OFF_CAMPUS.cards.length / 3) },
-              (_, i) => i * 3
-            ).map((i) => (
-              <div
-                key={`life-card-${i}`}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                {RESOURCES.OFF_CAMPUS.cards
-                  .slice(i, i + 3)
-                  .map((resource, j) => (
-                    <LifeCard resource={resource} key={`life-card-${i + j}`} />
-                  ))}
-              </div>
-            ))}
-          </Carousel>
+          <h1 className="text-lg">Eid 2023</h1>
+          <PicCarousel data={RESOURCES.EID_2023.slides} />
         </Section>
       </div>
       <Notification
