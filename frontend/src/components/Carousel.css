@@ -12,11 +12,13 @@
 }
 
 .arrow-left {
-    left: 1rem;
+    left: 6rem;
+    top: 85%;
 }
 
 .arrow-right {
-    right: 1rem;
+    right: 6rem;
+    top: 85%;
 }
 .carousel {
     position: relative;

@@ -51,7 +51,9 @@ export const NAV_GC = (props) => {
               borderRadius: "5px",
               margin: "0 20px 0 20px",
             }}
-            className={`${section.name === DEFAULT ? "select-section" : ""}`}
+            className={`${section.name === DEFAULT ? "select-section" : ""} ${
+              window.innerWidth <= 768 ? "mobile-margin" : ""
+            }`}
           >
             {section.icon ? (
               <section.icon style={{ margin: "0 10px 0 0" }} />
@@ -95,7 +97,7 @@ export const NAV_GC = (props) => {
             <img
               src={logo}
               height="50px"
-              className="pointer align-self-center"
+              className="pointer align-self-center logo-mobile"
             />
           ),
         },
@@ -122,7 +124,7 @@ export const NAV_GC = (props) => {
       {
         meta: {
           isIcon: true,
-          style: { margin: "0 0 0 20px", height: "30px" },
+          style: { margin: "0 0 0 5px", height: "30px" },
           iconProps: {
             style: { fontSize: "18px" },
           },

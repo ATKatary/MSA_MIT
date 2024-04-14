@@ -102,9 +102,26 @@ function Life() {
           }}
         />
 
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            "@media (min-width: 768px)": {
+              flexDirection: "row",
+            },
+          }}
+        >
           {/*** Prayer Spaces ***/}
-          <div style={{ width: "50%", marginRight: "0%" }}>
+          <div
+            style={{
+              width: "100%",
+              marginRight: "0%",
+              "@media (min-width: 768px)": {
+                width: "50%",
+              },
+            }}
+          >
             <h1 className="text-lg flex justify-center mb-5">Prayer Spaces</h1>
             <Section
               className="flex justify-center"
@@ -115,7 +132,14 @@ function Life() {
           </div>
 
           {/*** Resources ***/}
-          <div style={{ width: "50%" }}>
+          <div
+            style={{
+              width: "100%",
+              "@media (min-width: 768px)": {
+                width: "50%",
+              },
+            }}
+          >
             <h1 className="text-lg flex justify-center mb-5">
               Off Campus Resources
             </h1>
@@ -128,11 +152,11 @@ function Life() {
           </div>
         </div>
 
-        {/*** Eid 2023 ***/}
+        {/*** Eid 2024 ***/}
 
         <Section className="flex justify-center" contStyle={{ width: "100%" }}>
-          <h1 className="text-lg">Eid 2023</h1>
-          <PicCarousel data={RESOURCES.EID_2023.slides} />
+          <h1 className="text-lg">Eid 2024</h1>
+          <PicCarousel data={RESOURCES.EID_2024.slides} />
         </Section>
       </div>
       <Notification

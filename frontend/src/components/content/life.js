@@ -183,6 +183,90 @@ export const LIFE_GC = ({ images, ...props }) => {
           },
         ],
       },
+      EID_2024: {
+        slides: [
+          {
+            src: images("./eid_2024/2.jpg"),
+            alt: "Image 2 for carousel",
+          },
+          {
+            src: images("./eid_2024/3.jpg"),
+            alt: "Image 3 for carousel",
+          },
+          {
+            src: images("./eid_2024/4.jpg"),
+            alt: "Image 4 for carousel",
+          },
+          {
+            src: images("./eid_2024/5.jpg"),
+            alt: "Image 5 for carousel",
+          },
+          {
+            src: images("./eid_2024/6.jpg"),
+            alt: "Image 6 for carousel",
+          },
+          {
+            src: images("./eid_2024/7.jpg"),
+            alt: "Image 7 for carousel",
+          },
+          {
+            src: images("./eid_2024/8.jpg"),
+            alt: "Image 8 for carousel",
+          },
+          {
+            src: images("./eid_2024/9.jpg"),
+            alt: "Image 9 for carousel",
+          },
+          {
+            src: images("./eid_2024/10.jpg"),
+            alt: "Image 10 for carousel",
+          },
+          {
+            src: images("./eid_2024/11.jpg"),
+            alt: "Image 11 for carousel",
+          },
+          {
+            src: images("./eid_2024/12.jpg"),
+            alt: "Image 12 for carousel",
+          },
+          {
+            src: images("./eid_2024/13.jpg"),
+            alt: "Image 13 for carousel",
+          },
+          {
+            src: images("./eid_2024/14.jpg"),
+            alt: "Image 14 for carousel",
+          },
+          {
+            src: images("./eid_2024/15.jpg"),
+            alt: "Image 15 for carousel",
+          },
+          {
+            src: images("./eid_2024/16.jpg"),
+            alt: "Image 16 for carousel",
+          },
+          {
+            src: images("./eid_2024/17.jpg"),
+            alt: "Image 17 for carousel",
+          },
+          {
+            src: images("./eid_2024/18.jpg"),
+            alt: "Image 18 for carousel",
+          },
+          {
+            src: images("./eid_2024/19.jpg"),
+            alt: "Image 19 for carousel",
+          },
+          {
+            src: images("./eid_2024/20.jpg"),
+            alt: "Image 20 for carousel",
+          },
+          {
+            src: images("./eid_2024/21.jpg"),
+            alt: "Image 21 for carousel",
+          },
+        ],
+      },
     },
   };
 };
