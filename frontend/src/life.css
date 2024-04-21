@@ -1,0 +1,9 @@
+.h1-mobile {
+    margin-bottom: 150px;
+  }
+  
+  @media (min-width: 768px) {
+    .h1-mobile {
+      margin-bottom: 30px;
+    }
+  }

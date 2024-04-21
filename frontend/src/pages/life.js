@@ -1,5 +1,6 @@
 import * as React from "react";
 import "../assets/css/utils.css";
+import "../life.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -118,14 +119,22 @@ function Life() {
               width: "100%",
               marginRight: "0%",
               "@media (min-width: 768px)": {
+                marginTop: "10%",
+                marginBottom: "10%",
                 width: "50%",
               },
             }}
           >
-            <h1 className="text-lg flex justify-center mb-5">Prayer Spaces</h1>
+            <h1 className="text-lg flex justify-center h1-mobile">
+              Prayer Spaces
+            </h1>
             <Section
               className="flex justify-center"
-              contStyle={{ width: "100%" }}
+              style={{
+                backgroundColor: COLORS.WHITE,
+                color: COLORS.WHITE,
+                width: "100%",
+              }}
             >
               <CardCarousel data={PRAYER_SPACES.cards} />
             </Section>
@@ -136,11 +145,12 @@ function Life() {
             style={{
               width: "100%",
               "@media (min-width: 768px)": {
+                marginTop: "10%",
                 width: "50%",
               },
             }}
           >
-            <h1 className="text-lg flex justify-center mb-5">
+            <h1 className="text-lg flex justify-center h1-mobile">
               Off Campus Resources
             </h1>
             <Section
@@ -154,7 +164,10 @@ function Life() {
 
         {/*** Eid 2024 ***/}
 
-        <Section className="flex justify-center" contStyle={{ width: "100%" }}>
+        <Section
+          className="flex justify-center"
+          contStyle={{ width: "100%", marginTop: "10px" }}
+        >
           <h1 className="text-lg">Eid 2024</h1>
           <PicCarousel data={RESOURCES.EID_2024.slides} />
         </Section>
