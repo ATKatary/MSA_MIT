@@ -22,10 +22,10 @@ export const NAV_GC = (props) => {
     {
       name: SECTIONS.CONTACT.TITLE,
     },
-    {
-      inPage: true,
-      name: SECTIONS.MAILING_LIST.TITLE,
-    },
+    // {
+    //   inPage: true,
+    //   name: SECTIONS.MAILING_LIST.TITLE,
+    // },
     // {
     //     name: SECTIONS.PROGRAMS.TITLE,
     //     dropdown: true,

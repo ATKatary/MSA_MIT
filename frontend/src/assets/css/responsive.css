@@ -20,14 +20,14 @@
 
 @media (max-width: 768px) {
     .mobile-margin {
-      margin: 0 5px 0 5px !important;
-      font-size: 8px !important;
+      margin: 0 8px 0 8px !important;
+      font-size: 10px !important;
     }
   }
 
   @media only screen and (max-width: 600px) {
     .logo-mobile {
-      height: 20px !important;
+      height: 30px !important;
     }
   }
 
