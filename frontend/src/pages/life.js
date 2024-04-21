@@ -119,8 +119,7 @@ function Life() {
               width: "100%",
               marginRight: "0%",
               "@media (min-width: 768px)": {
-                marginTop: "10%",
-                marginBottom: "10%",
+                marginBottom: "15%",
                 width: "50%",
               },
             }}
@@ -128,14 +127,7 @@ function Life() {
             <h1 className="text-lg flex justify-center h1-mobile">
               Prayer Spaces
             </h1>
-            <Section
-              className="flex justify-center"
-              style={{
-                backgroundColor: COLORS.WHITE,
-                color: COLORS.WHITE,
-                width: "100%",
-              }}
-            >
+            <Section className="flex justify-center section-mobile">
               <CardCarousel data={PRAYER_SPACES.cards} />
             </Section>
           </div>
@@ -145,7 +137,7 @@ function Life() {
             style={{
               width: "100%",
               "@media (min-width: 768px)": {
-                marginTop: "10%",
+                marginTop: "20%",
                 width: "50%",
               },
             }}
