@@ -19,6 +19,20 @@ import { COLORS, SECTIONS, THEME } from "../constants";
 import { PrayerCard, ResourceCard } from "../components/card";
 import { HEADER_GC } from "../components/content/headers/life";
 import { getNextPrayer, useCustomState } from "../components/utils";
+import data from "../assets/js/schedule";
+
+import {
+  Inject,
+  ScheduleComponent,
+  Day,
+  Week,
+  WorkWeek,
+  Month,
+  Agenda,
+  ViewDirective,
+  ViewsDirective,
+} from "@syncfusion/ej2-react-schedule";
+import { registerLicense } from "@syncfusion/ej2-base";
 
 import { Row } from "reactstrap";
 import { Typography } from "@mui/material";
@@ -39,6 +53,9 @@ function Life() {
     value: null,
     notify: false,
   });
+  // get license from env file
+  const license = process.env.REACT_APP_SYNCFUSION_LICENSE;
+  registerLicense(license);
 
   if (!prayerSet) {
     const { nextPrayer, nextPrayerTime, nextPrayerHour } = getNextPrayer();
@@ -103,6 +120,26 @@ function Life() {
           }}
         />
 
+        <Section
+          className="flex justify-center"
+          contStyle={{ width: "100%", marginTop: "10px" }}
+        >
+          <ScheduleComponent
+            eventSettings={{ dataSource: data }}
+            currentView="Month"
+            readonly={true}
+          >
+            <ViewsDirective>
+              <ViewDirective option="Day" />
+              <ViewDirective option="Week" />
+              <ViewDirective option="Month" />
+            </ViewsDirective>
+
+            <Inject services={[Day, Week, Month]} />
+          </ScheduleComponent>
+        </Section>
+
+        {/*** Life Cards ***/}
         <div
           style={{
             display: "flex",
