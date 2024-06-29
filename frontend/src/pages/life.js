@@ -120,14 +120,17 @@ function Life() {
           }}
         />
 
-        <Section
-          className="flex justify-center"
-          contStyle={{ width: "100%", marginTop: "10px" }}
-        >
+        <h1 className="text-lg flex justify-center h1-mobile">
+          Upcoming Events
+        </h1>
+        {/*** Activities Calendar ***/}
+        <Section className="flex justify-center" contStyle={{ width: "100%" }}>
           <ScheduleComponent
             eventSettings={{ dataSource: data }}
-            currentView="Month"
+            currentView="Week"
             readonly={true}
+            startHour="10:00"
+            endHour="18:00"
           >
             <ViewsDirective>
               <ViewDirective option="Day" />
