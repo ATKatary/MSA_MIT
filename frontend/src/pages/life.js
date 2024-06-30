@@ -1,4 +1,5 @@
 import * as React from "react";
+import styled from "styled-components";
 import "../assets/css/utils.css";
 import "../life.css";
 import { Carousel } from "react-responsive-carousel";
@@ -77,6 +78,33 @@ function Life() {
     setPrayerSet(true);
   }
 
+  const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (min-width: 800px) {
+      flex-direction: row;
+    }
+  `;
+
+  const Item = styled.div`
+    width: 100%;
+    margin-right: 0%;
+
+    @media (min-width: 800px) {
+      margin-bottom: 5%; /* Adjust margin bottom to reduce spacing */
+      margin-right: 2%; /* Add a small right margin */
+      width: 49%; /* Adjust width to make room for the right margin */
+    }
+
+    &:nth-child(2) {
+      @media (min-width: 800px) {
+        margin-top: 0; /* Remove top margin */
+      }
+    }
+  `;
+
   return (
     <>
       <Nav1
@@ -142,64 +170,29 @@ function Life() {
           </ScheduleComponent>
         </Section>
 
-        {/*** Life Cards ***/}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            "@media (min-width: 768px)": {
-              flexDirection: "row",
-            },
-          }}
-        >
-          {/*** Prayer Spaces ***/}
-          <div
-            style={{
-              width: "100%",
-              marginRight: "0%",
-              "@media (min-width: 768px)": {
-                marginBottom: "15%",
-                width: "50%",
-              },
-            }}
-          >
+        <Container>
+          <Item>
             <h1 className="text-lg flex justify-center h1-mobile">
               Prayer Spaces
             </h1>
             <Section className="flex justify-center section-mobile">
               <CardCarousel data={PRAYER_SPACES.cards} />
             </Section>
-          </div>
+          </Item>
 
-          {/*** Resources ***/}
-          <div
-            style={{
-              width: "100%",
-              "@media (min-width: 768px)": {
-                marginTop: "20%",
-                width: "50%",
-              },
-            }}
-          >
+          <Item>
             <h1 className="text-lg flex justify-center h1-mobile">
               Off Campus Resources
             </h1>
-            <Section
-              className="flex justify-center"
-              contStyle={{ width: "100%" }}
-            >
+            <Section className="flex justify-center section-mobile">
               <CardCarousel data={RESOURCES.OFF_CAMPUS.cards} />
             </Section>
-          </div>
-        </div>
+          </Item>
+        </Container>
 
         {/*** Eid 2024 ***/}
 
-        <Section
-          className="flex justify-center"
-          contStyle={{ width: "100%", marginTop: "10px" }}
-        >
+        <Section className="flex justify-center" contStyle={{ width: "100%" }}>
           <h1 className="text-lg">Eid 2024</h1>
           <PicCarousel data={RESOURCES.EID_2024.slides} />
         </Section>
