@@ -51,9 +51,7 @@ export const NAV_GC = (props) => {
               borderRadius: "5px",
               margin: "0 20px 0 20px",
             }}
-            className={`${section.name === DEFAULT ? "select-section" : ""} ${
-              window.innerWidth <= 768 ? "mobile-margin" : ""
-            }`}
+            className={"select-section mobile-margin"}
           >
             {section.icon ? (
               <section.icon style={{ margin: "0 10px 0 0" }} />
