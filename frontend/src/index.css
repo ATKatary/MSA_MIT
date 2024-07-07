@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden
+    overflow: scroll
   }
 
   code {
@@ -23,7 +23,7 @@
     height: -webkit-fill-available;
     font-family: "Montserrat", "Helvetica", Arial, sans-serif;
     /* background-color: #161616; */
-    overflow: hidden;
+    overflow: scroll;
   }
 
   #appRoot {
