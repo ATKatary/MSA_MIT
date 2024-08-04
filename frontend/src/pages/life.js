@@ -44,7 +44,7 @@ function Life() {
   const { verse, translation, buttons } = HEADER_GC({});
   const [prayerSet, setPrayerSet] = React.useState(false);
   const [nextPrayer, setNextPrayer] = React.useState(undefined);
-  const { PRAYER_SPACES, RESOURCES, ...LIFE_REST } = LIFE_GC({
+  const { PRAYER_SPACES, MOSQUES, RESOURCES, ...LIFE_REST } = LIFE_GC({
     images: images,
   });
   const { NAV_LEFT, NAV_RIGHT, ...NAV_GC_REST } = NAV_GC({
@@ -186,6 +186,15 @@ function Life() {
             </h1>
             <Section className="flex justify-center section-mobile">
               <CardCarousel data={RESOURCES.OFF_CAMPUS.cards} />
+            </Section>
+          </Item>
+        </Container>
+
+        <Container>
+          <Item>
+            <h1 className="text-lg flex justify-center h1-mobile">Mosques</h1>
+            <Section className="flex justify-center section-mobile">
+              <CardCarousel data={MOSQUES.cards} />
             </Section>
           </Item>
         </Container>

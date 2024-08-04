@@ -48,6 +48,55 @@ export const LIFE_GC = ({ images, ...props }) => {
       ],
     },
 
+    MOSQUES: {
+      title: "Mosques",
+      cards: [
+        {
+          name: "ISB Islamic Society of Boston",
+          href: "https://isbcc.org/",
+          address: "204 Prospect Street, Cambridge, MA",
+          picSrc: images("./mosques/ISB.jpg"),
+          description:
+            "The closest mosque to MIT, located up Massachussetts Avenue.",
+        },
+        {
+          name: "ICB Islamic Center of Boston, Wayland",
+          href: "https://icbwayland.org/",
+          address: "126 Boston Post Road, Wayland, MA",
+          picSrc: images("./mosques/wayland_mosque.jpg"),
+          description: "",
+        },
+        {
+          name: "ISBCC Islamic Society of Boston Cultural Center",
+          href: "https://isbcc.org/",
+          address: "100 Malcolm X Blvd, Roxbury, MA",
+          picSrc: images("./mosques/roxbury_mosque.jpeg"),
+          description: "",
+        },
+        {
+          name: "Masjid Al-Quran",
+          href: "https://www.masjidalquran.org/",
+          address: "35 Intervale St, Boston, MA",
+          picSrc: images("./mosques/al-quran_mosque.jpeg"),
+          description: "",
+        },
+        {
+          name: "Mosque for Praising Allah",
+          href: "https://mosquepraiseallah.org/",
+          address: "724 Shawmut Ave, Boston, MA",
+          picSrc: images("./mosques/praising_allah_mosque.jpg"),
+          description: "",
+        },
+        {
+          name: "Yusuf Mosque",
+          href: "https://www.yusufmosque.com/",
+          address: "186 Chestnut Hill Ave, Brighton, MA",
+          picSrc: images("./mosques/yusuf_mosque.jpg"),
+          description: "",
+        },
+      ],
+    },
+
     RESOURCES: {
       OFF_CAMPUS: {
         title: "Off Campus Resources",

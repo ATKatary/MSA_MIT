@@ -32,10 +32,15 @@ export default function MediaCard({ space }) {
         <Typography variant="body2" color="text.secondary">
           {space.description}
         </Typography>
+        {space.address && (
+          <Typography variant="body2" color="text.secondary">
+            {space.address}
+          </Typography>
+        )}
       </CardContent>
       <CardActions style={{ position: "absolute", bottom: 0 }}>
         <Button size="small" href={space.href} target="_blank">
-          Directions
+          See More
         </Button>
       </CardActions>
     </Card>
