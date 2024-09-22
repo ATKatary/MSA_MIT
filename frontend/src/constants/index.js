@@ -36,8 +36,13 @@ export const SECTIONS = {
   MAILING_LIST: {
     TITLE: "mailing-list",
   },
+
   CONTACT: {
     TITLE: "contact",
+  },
+
+  INFO: {
+    TITLE: "info",
   },
 };
 

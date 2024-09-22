@@ -1,5 +1,4 @@
 import "./index.css";
-import "./index.css";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -9,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contact from "./pages/contact";
 import Life from "./pages/life";
 import Landing from "./pages/landing";
+import Info from "./pages/info";
 import { SECTIONS } from "./constants";
 
 const root = ReactDOM.createRoot(document.getElementById("appRoot"));
@@ -21,6 +21,7 @@ root.render(
         <Route path={`/${SECTIONS.LIFE.TITLE}`} element={<Life />} />
         <Route path={`/${SECTIONS.DONATE.TITLE}`} element={<Landing />} />
         <Route path={`/${SECTIONS.CONTACT.TITLE}`} element={<Contact />} />
+        <Route path={`/${SECTIONS.INFO.TITLE}`} element={<Info />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

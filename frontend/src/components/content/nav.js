@@ -23,6 +23,9 @@ export const NAV_GC = (props) => {
     {
       name: SECTIONS.CONTACT.TITLE,
     },
+    {
+      name: SECTIONS.INFO.TITLE,
+    }
     // {
     //   inPage: true,
     //   name: SECTIONS.MAILING_LIST.TITLE,
