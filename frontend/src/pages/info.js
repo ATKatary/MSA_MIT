@@ -52,7 +52,6 @@ const masjids = [
     { name: "Mosque for the Praising of Allah", address: "722 Shawmut Avenue, Roxbury" },
     { name: "Yusuf Mosque", address: "186 Chestnut Hill Avenue, Brighton" },
 ];
-
 const resources = [
     {
         category: "Muslim Mental Health Resources",
@@ -63,14 +62,14 @@ const resources = [
         ],
     },
     {
-        category: "Qur'an Resources",
+        category: "Qur’an Resources",
         items: [
             { name: "Quran.com", link: "https://quran.com/" },
             { name: "Tanzeel.com", link: "https://www.tanzeel.com/" },
         ],
     },
     {
-        category: "Qur'an Exegesis Resources",
+        category: "Qur’an Exegesis Resources",
         items: [
             {
                 name: "Ibn Katheer (audio)",
@@ -78,12 +77,143 @@ const resources = [
             },
             { name: "Al-Mawdudi", link: "http://www.englishtafsir.com/" },
             {
-                name: "In the Shade of the Qur'an",
+                name: "In the Shade of the Qur’an",
                 link: "https://alhamdolillah.com/book/in-the-shade-of-the-quran-english-sayyid-qutb-shaheed/",
             },
         ],
     },
-    // Include additional resource categories as needed
+    {
+        category: "Hadith Resources",
+        items: [
+            { name: "Sunnah.com", link: "https://sunnah.com/" },
+            {
+                name: "Forty Hadith Nawawi",
+                link: "https://d1.islamhouse.com/data/en/ih_books/single2/en-hadith-nawawy-sahih.pdf",
+            },
+        ],
+    },
+    {
+        category: "Seerah / Life Story of Prophet Muhammad",
+        items: [
+            {
+                name: "Meeting Muhammad (videos)",
+                link: "https://www.youtube.com/playlist?app=desktop&amp;list=PLQ02IYL5pmhHvZ02LKQVeey8H-2XBKMGb",
+            },
+            {
+                name: "Seerah by Yasir Qadhi (videos)",
+                link: "https://www.youtube.com/watch?v=95K8HQbbeS0&amp;list=PLAEA99D24CA2F9A8F",
+            },
+            {
+                name: "Men and Women Around the Messenger",
+                link: "https://www.kalamullah.com/Books/Men%20And%20Women%20Around%20the%20Messenger.pdf",
+            },
+        ],
+    },
+    {
+        category: "Theology",
+        items: [
+            {
+                name: "Al-Sanusi",
+                link: "https://sunnianswers.files.wordpress.com/2011/08/sanusicreed-abuadam.pdf",
+            },
+            {
+                name: "Al-Hanbali’s The Keys to Paradise",
+                link: "https://maktabahassunnahblog.files.wordpress.com/2015/10/the-key-to-paradise.pdf",
+            },
+            {
+                name: "Dehlevi’s Perfection of Faith",
+                link: "https://archive.org/details/PerfectionOfFaith/page/n15/mode/2up",
+            },
+        ],
+    },
+    {
+        category: "Women",
+        items: [
+            {
+                name: "Female Scholars",
+                link: "https://muslimmatters.org/2021/03/15/two-questions-about-the-dictionary-of-female-scholars/",
+            },
+            {
+                name: "Upheld by Allah (videos)",
+                link: "https://yaqeeninstitute.org/yaqeen-institute/trailer-upheld-by-allah-women-in-the-quran",
+            },
+            {
+                name: "Yasmin Mogahed (video)",
+                link: "https://www.youtube.com/watch?v=m5Wt_h7_WPQ",
+            },
+            {
+                name: "Female Companions",
+                link: "https://ayeina.com/stories-of-sahabiyat/",
+            },
+            {
+                name: "Islamic Ruling on Hijab",
+                link: "https://yaqeeninstitute.org/read/paper/is-hijab-religious-or-cultural-how-islamic-rulings-are-formed",
+            },
+        ],
+    },
+    {
+        category: "Purification",
+        items: [
+            {
+                name: "Purification of the Heart",
+                link: "https://data.nur.nu/Kutub/English/Hamza-Yusuf_Purification-of-the-Heart.pdf",
+            },
+            {
+                name: "Heart Therapy by Albarghouthi",
+                link: "http://www.kalamullah.com/Books/Heart%20Therapy.pdf",
+            },
+        ],
+    },
+    {
+        category: "General Topics",
+        items: [
+            { name: "About Islam", link: "https://aboutislam.net/" },
+            { name: "Yaqeen Institute", link: "https://yaqeeninstitute.org/" },
+            { name: "Muslim Matters", link: "http://muslimmatters.org/" },
+        ],
+    },
+    {
+        category: "Questions about Islam and Muslims",
+        items: [
+            {
+                name: "ING - Answers to FAQs about Islam and Muslims",
+                link: "https://ing.org/resources/for-all-groups/answers-to-frequently-asked-questions/answers-to-frequently-asked-questions-about-islam-and-muslims/",
+            },
+            {
+                name: "Towards Eternity (videos)",
+                link: "https://www.youtube.com/@TowardsEternity/videos",
+            },
+            {
+                name: "Institute of Social Policy and Understanding",
+                link: "https://www.ispu.org/",
+            },
+            {
+                name: "American Muslims: Facts vs. Fiction",
+                link: "https://www.upf.tv/films/american-muslim-facts/",
+            },
+        ],
+    },
+    {
+        category: "Ramadan and Eid",
+        items: [
+            { name: "Ramadan", link: "https://www.whyislam.org/ramadan/" },
+            { name: "Eid-al-Adha", link: "https://www.whyislam.org/eidaladha/" },
+        ],
+    },
+    {
+        category: "Just for Fun",
+        items: [
+            {
+                name: "Fit for Allah",
+                link: "https://www.instagram.com/zainab_fitforallah/?hl=en",
+            },
+            { name: "Aida Azlin", link: "https://www.aidaazlin.com/" },
+            {
+                name: "Deen and Chai",
+                link: "https://www.youtube.com/channel/UCiTGEEhMAaBu6LPuPXsDYYQ/featured",
+            },
+        ],
+    },
 ];
 
 const Info = () => {
