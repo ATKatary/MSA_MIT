@@ -26,9 +26,10 @@ function Landing() {
   const { NAV_LEFT, NAV_RIGHT, ...NAV_GC_REST } = NAV_GC({
     setOpen: setOpenNav,
   });
-  const { MISSION, TEAM, SISTER_NADA, ...LANDING_REST } = LANDING_GC({
-    images: images,
-  });
+  const { MISSION, TEAM, SISTER_NADA, SISTER_ZEHRA, ...LANDING_REST } =
+    LANDING_GC({
+      images: images,
+    });
   const [notification, setNotification] = useCustomState({
     value: null,
     notify: false,
@@ -132,14 +133,24 @@ function Landing() {
           </Row>
         </Section>
 
-        {/* Sister Nada */}
+        {/* Sister Nada + Sister Zehra */}
         <Section
-          title="Chaplain"
+          title="Chaplains"
           style={{ backgroundColor: COLORS.BLACK, color: COLORS.WHITE }}
         >
           <Row className="width-100 flex justify-center align-center">
             <PersonCard
               {...SISTER_NADA.card}
+              className="text-center"
+              style={{
+                color: COLORS.WHITE,
+                height: "300px",
+                maxWidth: "350px",
+                margin: "auto",
+              }}
+            />
+            <PersonCard
+              {...SISTER_ZEHRA.card}
               className="text-center"
               style={{
                 color: COLORS.WHITE,

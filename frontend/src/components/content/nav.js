@@ -1,7 +1,5 @@
-import logo from "../../assets/media/MSA_skyline_logo.png";
+import logo from "../../assets/media/alchemist_final.png";
 
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
@@ -97,7 +95,7 @@ export const NAV_GC = (props) => {
           title: (
             <img
               src={logo}
-              height="50px"
+              height="100px"
               className="pointer align-self-center logo-mobile"
             />
           ),
