@@ -20,6 +20,7 @@ import { COLORS, SECTIONS, THEME } from "../constants";
 import { PrayerCard, ResourceCard } from "../components/card";
 import { HEADER_GC } from "../components/content/headers/life";
 import { getNextPrayer, useCustomState } from "../components/utils";
+import ScheduleWithDownload from "../components/calendar";
 import data from "../assets/js/schedule";
 
 import {
@@ -44,9 +45,10 @@ function Life() {
   const { verse, translation, buttons } = HEADER_GC({});
   const [prayerSet, setPrayerSet] = React.useState(false);
   const [nextPrayer, setNextPrayer] = React.useState(undefined);
-  const { PRAYER_SPACES, MOSQUES, RESOURCES, ...LIFE_REST } = LIFE_GC({
-    images: images,
-  });
+  const { PRAYER_SPACES, MOSQUES, RESTAURANTS, RESOURCES, ...LIFE_REST } =
+    LIFE_GC({
+      images: images,
+    });
   const { NAV_LEFT, NAV_RIGHT, ...NAV_GC_REST } = NAV_GC({
     setOpen: setOpenNav,
   });
@@ -156,36 +158,15 @@ function Life() {
           height: "max-content",
         }}
       >
-        <Header
-          verse={verse}
-          buttons={buttons}
-          translation={translation}
-          style={{
-            height: `calc(100vh - ${THEME.NAV.HEIGHT}px)`,
-            marginTop: `${THEME.NAV.HEIGHT}px`,
-          }}
-        />
-
-        <h1 className="text-lg flex justify-center h1-mobile">
+        <h1
+          className="text-lg flex justify-center h1-mobile"
+          style={{ marginTop: "15rem" }}
+        >
           Upcoming Events
         </h1>
         {/*** Activities Calendar ***/}
         <Section className="flex justify-center" contStyle={{ width: "100%" }}>
-          <ScheduleComponent
-            eventSettings={{ dataSource: data }}
-            currentView="Week"
-            readonly={true}
-            startHour="10:00"
-            endHour="18:00"
-          >
-            <ViewsDirective>
-              <ViewDirective option="Day" />
-              <ViewDirective option="Week" />
-              <ViewDirective option="Month" />
-            </ViewsDirective>
-
-            <Inject services={[Day, Week, Month]} />
-          </ScheduleComponent>
+          <ScheduleWithDownload data={data} />
         </Section>
 
         <Container>
@@ -213,6 +194,15 @@ function Life() {
             <h1 className="text-lg flex justify-center h1-mobile">Mosques</h1>
             <Section className="flex justify-center section-mobile">
               <CardCarousel data={MOSQUES.cards} />
+            </Section>
+          </Item>
+
+          <Item>
+            <h1 className="text-lg flex justify-center h1-mobile">
+              Restaurants
+            </h1>
+            <Section className="flex justify-center section-mobile">
+              <CardCarousel data={RESTAURANTS.cards} />
             </Section>
           </Item>
         </Container>

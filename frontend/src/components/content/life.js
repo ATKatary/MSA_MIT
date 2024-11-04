@@ -97,6 +97,68 @@ export const LIFE_GC = ({ images, ...props }) => {
       ],
     },
 
+    RESTAURANTS: {
+      title: "Restaurants",
+      cards: [
+        {
+          name: "Shah's Halal Food",
+          href: "https://www.shahshalalfood.com/boston/",
+          address: "1124 Boylston St, Boston, MA 02115",
+          picSrc: images("./restaurants/shahs.jpg"),
+          description:
+            "Classic halal cart-style food, with a variety of options from chicken over rice, gyros, and even Philly cheesesteaks!",
+        },
+        {
+          name: "Dave's Hot Chicken",
+          href: "https://daveshotchicken.com/",
+          address: "123 Stuart St, Boston, MA 02116",
+          picSrc: images("./restaurants/daves.jpeg"),
+          description:
+            "Fried chicken tenders and sliders with a variety of spice levels.",
+        },
+        {
+          name: "Food Land Market",
+          href: "https://www.google.com/search?q=foodland&sca_esv=4bbd28f93242c723&biw=1512&bih=823&sxsrf=ADLYWIKXw3uLAupyeEcIi04zPQnvB0thmw%3A1729256892336&ei=vF0SZ_2GFMWqptQPwK2I4Qs&ved=0ahUKEwj91Kv2_5eJAxVFlYkEHcAWIrwQ4dUDCA8&uact=5&oq=foodland&gs_lp=Egxnd3Mtd2l6LXNlcnAiCGZvb2RsYW5kMhEQLhiABBiSAxjHARiOBRivATIOEC4YgAQYxwEYjgUYrwEyFBAuGIAEGJECGMcBGIoFGI4FGK8BMg4QLhiABBjHARiOBRivATITEC4YgAQYsQMY0QMYQxjHARiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyEBAAGIAEGLEDGEMYyQMYigUyIBAuGIAEGJIDGMcBGI4FGK8BGJcFGNwEGN4EGOAE2AEBSM0NUKwEWOkMcAN4AJABAJgBtAGgAaMGqgEDNC40uAEDyAEA-AEBmAIKoALzBcICChAAGLADGNYEGEfCAg0QABiwAxjWBBhHGMkDwgIOEAAYgAQYsAMYkgMYigXCAgoQIxiABBgnGIoFwgIEECMYJ8ICDRAAGIAEGLEDGEMYigXCAhEQLhiABBixAxjRAxiDARjHAcICCxAuGIAEGNEDGMcBwgIFEAAYgATCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGMcDwgIOEAAYgAQYsQMYgwEYigXCAhAQLhiABBjRAxhDGMcBGIoFwgILEAAYgAQYkgMYigXCAgsQABiABBixAxiDAcICERAuGIAEGJECGNEDGMcBGIoFwgIOEC4YgAQYsQMY0QMYxwHCAiAQLhiABBiRAhjRAxjHARiKBRiXBRjcBBjeBBjgBNgBAZgDAOIDBRIBMSBAiAYBkAYKugYGCAEQARgUkgcDNi40oAe1dg&sclient=gws-wiz-serp&lqi=Cghmb29kbGFuZCIDiAEBSOWAjtaRuICACFoUEAAYACIIZm9vZGxhbmQqBAgCEACSAQpyZXN0YXVyYW50qgE-EAEqDCIIZm9vZGxhbmQoADIeEAEiGmGH9k00K6Hs_ddpixlTItlroKl1xbuv-iUHMgwQAiIIZm9vZGxhbmTgAQA#rlimm=12058657975195670854",
+          address: "13 Highland Ave, Malden, MA 02148",
+          picSrc: images("./restaurants/foodland.jpeg"),
+          description:
+            "Diverse grocery store offering halal meat, produce and pantry staples, plus prepared takeout food.",
+        },
+        {
+          name: "Black Seed Halal Grill",
+          href: "https://www.orderblackseedboston.com/",
+          address: "140 Tremont St, Boston, MA 02111",
+          picSrc: images("./restaurants/blackseed.jpg"),
+          description:
+            "Casual choice providing Middle Eastern eats like kabobs & falafel wraps, plus pancakes & omelets.",
+        },
+        {
+          name: "Sofra Bakery & Cafe",
+          href: "https://www.sofrabakery.com/",
+          address: "1 Belmont St, Cambridge, MA 02138",
+          picSrc: images("./restaurants/sofra.jpg"),
+          description:
+            "Compact, modest bakery for Middle Eastern sweets & savory bites, plus a small patio.",
+        },
+        {
+          name: "FIYA Chicken",
+          href: "https://www.fiyachicken.com/",
+          address: "1024 Commonwealth Ave, Boston, MA 02215",
+          picSrc: images("./restaurants/fiya.jpg"),
+          description:
+            "Double-fried Korean fried chicken in a variety of flavors, plus corn dogs, with halal options.",
+        },
+        {
+          name: "The Halal Guys",
+          href: "https://thehalalguys.com/locations/137-stuart-street-boston/",
+          address: "137 Stuart St, Boston, MA 02116",
+          picSrc: images("./restaurants/halalguys.jpeg"),
+          description:
+            "Halal cart-style food with a variety of protein options, served over rice or in a wrap.",
+        },
+      ],
+    },
+
     RESOURCES: {
       OFF_CAMPUS: {
         title: "Off Campus Resources",
@@ -167,6 +229,16 @@ export const LIFE_GC = ({ images, ...props }) => {
             picSrc: images("./off_campus_resources/sayar.jpeg"),
             description: "International Halal Food & Butcher Shop",
             href: "https://www.google.com/maps/dir//Sayar+Market+Halal+Food,+3+Everett+St+%233e,+Revere,+MA+02151/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89e3710baf54cdb3:0xc5dde7b2635581a2?sa=X&ved=2ahUKEwj445S709OBAxUZjYkEHVvbBusQ48ADegQIEBAA&ved=2ahUKEwj445S709OBAxUZjYkEHVvbBusQ48ADegQIGxAJ",
+          },
+
+          {
+            name: "Vanak Food",
+            info: "Authentic Persian grocery store - offers vegan and vegetarian options.",
+            icon: ShoppingCartOutlinedIcon,
+            picSrc: images("./off_campus_resources/vanak.jpg"),
+            description:
+              "Authentic Persian grocery store - offers vegan and vegetarian options.",
+            href: "https://www.google.com/maps/dir/MIT,+Massachusetts+Avenue,+Cambridge,+MA/super+vanak+address/@42.3652841,-71.1450755,5804m/data=!3m2!1e3!4b1!4m13!4m12!1m5!1m1!1s0x89e370aaf51a6a87:0xd0e08ea5b308203c!2m2!1d-71.09416!2d42.360091!1m5!1m1!1s0x89e3777fad06384f:0xfe26d5597867acfe!2m2!1d-71.1629518!2d42.3769826?entry=ttu&g_ep=EgoyMDI0MTAxNS4wIKXMDSoASAFQAw%3D%3D",
           },
         ],
       },

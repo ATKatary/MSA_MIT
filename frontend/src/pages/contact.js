@@ -92,11 +92,17 @@ const Contact = () => {
           marginTop: "200px",
         }}
       >
-        <h1 className="text-lg">Messenger</h1>
+        <h1 className="text-lg" style={{ marginTop: "2rem" }}>
+          Messenger
+        </h1>
+        <p className="text-md">
+          Join our casual Messenger group to stay updated with the latest events
+          and news.
+        </p>
         <Button
           variant="contained"
           color="primary"
-          style={{ margin: "20px" }}
+          style={{ margin: "5px" }}
           onClick={() => {
             window.open("https://m.me/j/AbbKiAvMspnlpwK7/", "_blank");
           }}
@@ -105,6 +111,10 @@ const Contact = () => {
         </Button>
 
         <Section title="Join mailing list" id={SECTIONS.MAILING_LIST.TITLE}>
+          <p>
+            Join our mailing list to receive formal updates and announcements on
+            events, programs, and other important information.
+          </p>
           <MailingList setNotification={setNotification} />
         </Section>
       </div>

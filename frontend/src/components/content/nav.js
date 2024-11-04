@@ -1,4 +1,4 @@
-import logo from "../../assets/media/MSA_skyline_logo.png";
+import logo from "../../assets/media/alchemist_final.png";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -11,134 +11,138 @@ import { SECTIONS, THEME } from "../../constants";
 const DEFAULT = SECTIONS.HOME.TITLE;
 
 export const NAV_GC = (props) => {
-    const right = [];
-    const sections = [
-        {
-            name: SECTIONS.DONATE.TITLE,
-            href: "https://giving.mit.edu/form/#/",
-        },
-        {
-            name: SECTIONS.LIFE.TITLE,
-        },
-        {
-            name: SECTIONS.CONTACT.TITLE,
-        },
-        // {
-        //     name: SECTIONS.INFO.TITLE,
-        // },
-        // {
-        //   inPage: true,
-        //   name: SECTIONS.MAILING_LIST.TITLE,
-        // },
-        // {
-        //     name: SECTIONS.PROGRAMS.TITLE,
-        //     dropdown: true,
-        // },
-        {
-            name: SECTIONS.TEAM.TITLE,
-        },
-        {
-            name: SECTIONS.RESOURCES.TITLE,
-        },
-    ];
+  const right = [];
+  const sections = [
+    {
+      name: SECTIONS.DONATE.TITLE,
+      href: "https://giving.mit.edu/form/#/",
+    },
+    {
+      name: SECTIONS.LIFE.TITLE,
+    },
+    {
+      name: SECTIONS.CONTACT.TITLE,
+    },
+    // {
+    //     name: SECTIONS.INFO.TITLE,
+    // },
+    // {
+    //   inPage: true,
+    //   name: SECTIONS.MAILING_LIST.TITLE,
+    // },
+    // {
+    //     name: SECTIONS.PROGRAMS.TITLE,
+    //     dropdown: true,
+    // },
+    {
+      name: SECTIONS.TEAM.TITLE,
+    },
+    {
+      name: SECTIONS.RESOURCES.TITLE,
+    },
+  ];
+  for (const section of sections) {
+    right.push({
+      meta: {
+        className: `public-sans`,
+      },
+      content: {
+        title: (
+          <Link
+            href={
+              section.href
+                ? section.href
+                : `/${section.inPage ? "#" : ""}${section.name}`
+            }
+            id={`nav-${section.name}`}
+            style={{
+              ...THEME.NAV.STYLE.BTN,
+              color: THEME.SECONDARY,
+              borderRadius: "5px",
+              margin: "0 20px 0 20px",
+            }}
+            className={"select-section mobile-margin"}
+          >
+            {section.icon ? (
+              <section.icon style={{ margin: "0 10px 0 0" }} />
+            ) : (
+              <></>
+            )}{" "}
+            {section.name.toUpperCase().replace("-", " ")}
+          </Link>
+        ),
+      },
+    });
+  }
+
+  const select = (section) => {
     for (const section of sections) {
-        right.push({
-            meta: {
-                className: `public-sans`,
-            },
-            content: {
-                title: (
-                    <Link
-                        href={
-                            section.href
-                                ? section.href
-                                : `/${section.inPage ? "#" : ""}${section.name}`
-                        }
-                        id={`nav-${section.name}`}
-                        style={{
-                            ...THEME.NAV.STYLE.BTN,
-                            color: THEME.SECONDARY,
-                            borderRadius: "5px",
-                            margin: "0 20px 0 20px",
-                        }}
-                        className={"select-section mobile-margin"}
-                    >
-                        {section.icon ? <section.icon style={{ margin: "0 10px 0 0" }} /> : <></>}{" "}
-                        {section.name.toUpperCase().replace("-", " ")}
-                    </Link>
-                ),
-            },
-        });
+      const sectionBtn = document.getElementById(`nav-${section.name}`);
+      if (sectionBtn) sectionBtn.classList.remove("select-section");
     }
 
-    const select = (section) => {
-        for (const section of sections) {
-            const sectionBtn = document.getElementById(`nav-${section.name}`);
-            if (sectionBtn) sectionBtn.classList.remove("select-section");
-        }
+    const sectionBtn = document.getElementById(section.id);
+    if (sectionBtn) {
+      props.setOpen(false);
+      props.setSelected(section.name);
+      sectionBtn.classList.add("select-section");
+    }
+  };
+  return {
+    NAV_LEFT: [
+      {
+        meta: {
+          href: "/",
+          id: `nav-${SECTIONS.HOME.TITLE}`,
+          style: {
+            margin: "0 0 10px 0",
+            display: "flex",
+            flexDirection: "column",
+          },
+        },
+        content: {
+          title: (
+            <img
+              src={logo}
+              height="100px"
+              className="pointer align-self-center logo-mobile"
+            />
+          ),
+        },
+      },
+    ],
 
-        const sectionBtn = document.getElementById(section.id);
-        if (sectionBtn) {
-            props.setOpen(false);
-            props.setSelected(section.name);
-            sectionBtn.classList.add("select-section");
-        }
-    };
-    return {
-        NAV_LEFT: [
-            {
-                meta: {
-                    href: "/",
-                    id: `nav-${SECTIONS.HOME.TITLE}`,
-                    style: {
-                        margin: "0 0 10px 0",
-                        display: "flex",
-                        flexDirection: "column",
-                    },
-                },
-                content: {
-                    title: (
-                        <img
-                            src={logo}
-                            height="50px"
-                            className="pointer align-self-center logo-mobile"
-                        />
-                    ),
-                },
-            },
-        ],
+    NAV_RIGHT: [
+      ...right,
+      {
+        meta: {
+          isIcon: true,
+          style: { margin: "0 10px 0 0px", height: "30px" },
+          iconProps: {
+            style: { fontSize: "18px" },
+          },
+          href: "https://www.instagram.com/mitmsa/",
+          target: "_blank",
+        },
+        content: {
+          icon: InstagramIcon,
+        },
+      },
 
-        NAV_RIGHT: [
-            ...right,
-            {
-                meta: {
-                    isIcon: true,
-                    style: { margin: "0 10px 0 0px", height: "30px" },
-                    iconProps: {
-                        style: { fontSize: "18px" },
-                    },
-                    href: "https://www.instagram.com/mitmsa/",
-                    target: "_blank",
-                },
-                content: {
-                    icon: InstagramIcon,
-                },
-            },
-
-            {
-                meta: {
-                    isIcon: true,
-                    style: { margin: "0 0 0 5px", height: "30px" },
-                    iconProps: {
-                        style: { fontSize: "18px" },
-                    },
-                    href: "https://www.facebook.com/mitmsa",
-                    target: "_blank",
-                },
-                content: {
-                    icon: FacebookIcon,
-                },
-            },
-        ],
-    };
+      {
+        meta: {
+          isIcon: true,
+          style: { margin: "0 0 0 5px", height: "30px" },
+          iconProps: {
+            style: { fontSize: "18px" },
+          },
+          href: "https://www.facebook.com/mitmsa",
+          target: "_blank",
+        },
+        content: {
+          icon: FacebookIcon,
+        },
+      },
+    ],
+  };
 };
