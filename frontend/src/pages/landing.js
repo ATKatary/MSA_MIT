@@ -84,6 +84,7 @@ function Landing() {
         itemsRight={NAV_RIGHT}
         nextPrayer={nextPrayer}
         setNextPrayer={setNextPrayer}
+        showPrayer={true}
         style={{
           width: "100vw",
           zIndex: "111",

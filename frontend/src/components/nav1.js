@@ -19,6 +19,7 @@ function Nav1({ setNextPrayer, nextPrayer, ...props }) {
     itemsRight,
     collapsed,
     windowWidth,
+    showPrayer = false,
     ...other
   } = props;
 
@@ -61,7 +62,7 @@ function Nav1({ setNextPrayer, nextPrayer, ...props }) {
                   : fillNav(itemsRight)}
               </section>
             </div>
-            <Alert
+            {showPrayer && <Alert
               icon={<MosqueIcon />}
               color="info"
               variant="filled"
@@ -75,7 +76,7 @@ function Nav1({ setNextPrayer, nextPrayer, ...props }) {
               <Container style={{ fontWeight: "bold" }}>
                 <span>{nextPrayer}</span>
               </Container>
-            </Alert>
+            </Alert>}
           </Container>
         )}
       </ResponsiveNav>
