@@ -14,12 +14,23 @@ import {
     CardContent,
 } from "@mui/material";
 
+import styled from "styled-components";
 import "../assets/css/utils.css";
 
 import Nav1 from "../components/nav1";
 import { NAV_GC } from "../components/content/nav";
 import { COLORS, THEME, resources } from "../constants";
 import { getNextPrayer } from "../components/utils";
+
+const ContentWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: ${THEME.NAV.HEIGHT}px;
+`;
 
 const ResourcesPage = () => {
     const [openNav, setOpenNav] = React.useState(false);
@@ -35,7 +46,8 @@ const ResourcesPage = () => {
 
         const nextPrayerFormattedTime = `${
             nextPrayerHour > 12
-                ? nextPrayerHour - 12 +
+                ? nextPrayerHour -
+                  12 +
                   ":" +
                   (nextPrayerTime.getMinutes() >= 10
                       ? nextPrayerTime.getMinutes()
@@ -66,7 +78,7 @@ const ResourcesPage = () => {
             <Grid container spacing={3}>
                 {resources.map((resource, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
-                        <Card elevation={3} style={{ height: '100%' }}>
+                        <Card elevation={3} style={{ height: "100%" }}>
                             <CardContent>
                                 <Typography variant="h6" gutterBottom>
                                     {resource.category}
@@ -113,22 +125,23 @@ const ResourcesPage = () => {
             <div
                 className="flex column width-100 justify-content-center align-items-center"
                 style={{
-                    minHeight: "100vh",
-                    paddingTop: "600px",
+                    height: "max-content",
                 }}
             >
-                <Container maxWidth="lg">
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <Paper style={{ padding: "20px", backgroundColor: COLORS.WHITE }}>
-                                <Typography variant="h4" gutterBottom>
-                                    Resources
-                                </Typography>
-                                {renderResources()}
-                            </Paper>
+                <ContentWrapper>
+                    <Container maxWidth="lg">
+                        <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <Paper style={{ padding: "20px", backgroundColor: COLORS.WHITE }}>
+                                    <Typography variant="h4" gutterBottom>
+                                        Resources
+                                    </Typography>
+                                    {renderResources()}
+                                </Paper>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </Container>
+                    </Container>
+                </ContentWrapper>
             </div>
         </>
     );

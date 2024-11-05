@@ -1,11 +1,6 @@
 import React from "react";
-import {
-    Typography,
-    Container,
-    Paper,
-    Grid,
-} from "@mui/material";
-
+import { Typography, Container, Paper, Grid } from "@mui/material";
+import styled from "styled-components";
 import "../assets/css/utils.css";
 
 import Nav1 from "../components/nav1";
@@ -13,6 +8,16 @@ import { NAV_GC } from "../components/content/nav";
 import { COLORS, THEME } from "../constants";
 import { getNextPrayer } from "../components/utils";
 import ChaplainInfo from "../components/chaplainInfo";
+
+const ContentWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: ${THEME.NAV.HEIGHT}px;
+`;
 
 const Team = () => {
     const [openNav, setOpenNav] = React.useState(false);
@@ -28,7 +33,8 @@ const Team = () => {
 
         const nextPrayerFormattedTime = `${
             nextPrayerHour > 12
-                ? nextPrayerHour - 12 +
+                ? nextPrayerHour -
+                  12 +
                   ":" +
                   (nextPrayerTime.getMinutes() >= 10
                       ? nextPrayerTime.getMinutes()
@@ -76,23 +82,24 @@ const Team = () => {
                 openedStyle={{ height: `${THEME.NAV.HEIGHT}px` }}
                 closedStyle={{ width: "50px", color: COLORS.BLACK, right: "calc(0% + 50px)" }}
             />
+
             <div
                 className="flex column width-100 justify-content-center align-items-center"
                 style={{
-                    minHeight: "100vh",
-                    height: `calc(100vh - ${THEME.NAV.HEIGHT}px)`,
-                    paddingTop: "600px",
+                    height: "max-content",
                 }}
             >
-                <Container maxWidth="lg">
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <Paper style={{ padding: "20px", backgroundColor: COLORS.WHITE }}>
-                                <ChaplainInfo />
-                            </Paper>
+                <ContentWrapper>
+                    <Container maxWidth="lg">
+                        <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <Paper style={{ padding: "20px", backgroundColor: COLORS.WHITE }}>
+                                    <ChaplainInfo />
+                                </Paper>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </Container>
+                    </Container>
+                </ContentWrapper>
             </div>
         </>
     );
