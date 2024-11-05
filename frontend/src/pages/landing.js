@@ -135,7 +135,7 @@ function Landing() {
         </Section>
 
         {/* Sister Nada + Sister Zehra */}
-        <Section
+        {/* <Section
           title="Chaplains"
           style={{ backgroundColor: COLORS.BLACK, color: COLORS.WHITE }}
         >
@@ -161,7 +161,7 @@ function Landing() {
               }}
             />
           </Row>
-        </Section>
+        </Section> */}
 
         {/*** Mailing List ***/}
         <Section title="Join mailing list" id={SECTIONS.MAILING_LIST.TITLE}>
