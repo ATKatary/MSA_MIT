@@ -99,7 +99,7 @@ function JobPostings() {
       <div className="flex column width-100" style={{ height: "max-content" }}>
         {localStorage.getItem("memberAuthenticated") === "true" ? (
           <div style={{ paddingTop: THEME.NAV.HEIGHT }}>
-            <CAREER_GC.JOB_POSTS.component />
+            <CAREER_GC.JOB_POSTS.Component />
           </div>
         ) : (
           <div

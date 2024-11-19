@@ -17,20 +17,30 @@ export default function ReferralListings() {
         {headerName: 'Company Name', field: 'Company Name', flex: 1, filter: true, floatingFilter: true}
     ]
 
-    useEffect(() => { //prevents infinite loop of refreshes and firebase fetches
-        const referralDB = ref(db);
+    useEffect(() => { //prevents infinite loop of refreshes and firebase fetches. also caches fetched listings for session
+        const cachedListings = sessionStorage.getItem("referralListings");
+
+        if (cachedListings){
+          setRowData(JSON.parse(cachedListings));
+          return () => {};
+        } else {
+          const referralDB = ref(db);
     
-        const handleSnapshot = (snapshot) => {
-          var data = snapshot.val();
-          data = data.filter(elements => (elements !== null));
-          setRowData(data);
-        };
-    
-        const unsubscribe = onValue(referralDB, handleSnapshot);
-    
-        return () => {
-          unsubscribe();
-        };
+          const handleSnapshot = (snapshot) => {
+            var data = snapshot.val();
+            data = data.filter(elements => (elements !== null));
+            setRowData(data);
+
+            sessionStorage.setItem("referralListings", JSON.stringify(data));
+          };
+      
+          const unsubscribe = onValue(referralDB, handleSnapshot);
+      
+          return () => {
+            unsubscribe();
+          };
+        }
+
       }, []);
 
       const handleRowSelected = (event) => {

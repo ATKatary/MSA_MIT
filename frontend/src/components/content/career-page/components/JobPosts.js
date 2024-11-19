@@ -20,9 +20,16 @@ const JobPosting = (row, constraints) => {
         row["Sponsorship"]
     ];
 
-    const tags = new Set([loc, type, sponsorship])
-    const constraintsArray = Array.from(constraints)
-    if (!constraintsArray.every(element => tags.has(element))){
+    const tags = new Set([loc, type, sponsorship]);
+    const constraintsArray = Array.from(constraints.values());
+    console.log(constraintsArray);
+    let isFiltered = true;
+
+    if (!constraintsArray.every((
+        constraintsByGroup => constraintsByGroup.size === 0 || Array.from(constraintsByGroup).some(
+            (element) => tags.has(element)
+        )
+    ))){
         return null
     }
 
@@ -65,12 +72,18 @@ function getRequirementsList(reqs) {
 const FilterGroups = (constraints, setConstraints) => {
     const handleCheck = (e) => { // filtering logic
         
-        const val = e.target.value
-        const newConstraints = new Set(constraints)
-        if (newConstraints.has(val)) {
-            newConstraints.delete(val)
+        const filterName = e.target.value;
+        const filterGroupName = e.target.name;
+        const newConstraints = new Map(constraints)
+        if (newConstraints.has(filterGroupName) && newConstraints.get(filterGroupName).has(filterName)) {
+            newConstraints.get(filterGroupName).delete(filterName);
         } else {
-            newConstraints.add(val)
+            if (!newConstraints.has(filterGroupName))
+            {
+                newConstraints.set(filterGroupName, new Set())
+            }
+            const constraintsForGroup = newConstraints.get(filterGroupName);
+            constraintsForGroup.add(filterName)
         }
         setConstraints(newConstraints)
     };
@@ -92,14 +105,14 @@ const FilterGroups = (constraints, setConstraints) => {
         <div className="filter-group">
             <h2 className="filter-name">Location</h2>
             <label>
-                <input type="checkbox" className="filter-box" name="remote" value="Remote" onChange={handleCheck}/> Remote
+                <input type="checkbox" className="filter-box" name="location" value="Remote" onChange={handleCheck}/> Remote
             </label>
         </div>
 
         <div className="filter-group">
             <h2 className="filter-name">Sponsorship</h2>
             <label>
-                <input type="checkbox" className="filter-box" name="remote" value="Can Sponsor" onChange={handleCheck}/> Can sponsor international students
+                <input type="checkbox" className="filter-box" name="sponsorship" value="Can Sponsor" onChange={handleCheck}/> Can sponsor international students
             </label>
         </div>
         </div>
@@ -109,22 +122,30 @@ const FilterGroups = (constraints, setConstraints) => {
 
 export default function JobPosts() {
     const [jobPostings, setJobPostings] = useState([]);
-    const [constraints, setConstraints] = useState(new Set()); //constrains displayed job postings
+    const [constraints, setConstraints] = useState(new Map()); //constrains displayed job postings. maps from filter type to a set of the filters under that type
 
-    useEffect(() => { //prevents infinite loop of refreshes and firebase fetches
-        const jobDB = ref(db);
+    useEffect(() => { //prevents infinite loop of refreshes and firebase fetches. also caches fetched postings for session
+        const cachedPostings = sessionStorage.getItem("jobPostings");
+
+        if (cachedPostings){
+            setJobPostings(JSON.parse(cachedPostings));
+            return () => {};
+        } else {
+            const jobDB = ref(db);
     
-        const handleSnapshot = (snapshot) => {
-          var data = snapshot.val();
-          data = data.filter(elements => (elements !== null));
-          setJobPostings(data);
-        };
+            const handleSnapshot = (snapshot) => {
+              var data = snapshot.val();
+              data = data.filter(elements => (elements !== null));
+              setJobPostings(data);
+
+              sessionStorage.setItem('jobPostings', JSON.stringify(data));
+            };
+            const unsubscribe = onValue(jobDB, handleSnapshot);
     
-        const unsubscribe = onValue(jobDB, handleSnapshot);
-    
-        return () => {
-          unsubscribe();
-        };
+            return () => {
+              unsubscribe();
+            };
+        }
       }, []);
 
     return (<div className='posting-page'>

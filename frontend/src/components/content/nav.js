@@ -3,8 +3,6 @@ import logo from "../../assets/media/alchemist_final.png";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-import { Link } from "@mui/material";
-import { Dropdown } from "bootstrap";
 import { Link, Menu, MenuItem } from "@mui/material";
 import { SECTIONS, THEME } from "../../constants";
 import { useState } from "react";
@@ -74,30 +72,27 @@ export const NAV_GC = (props) => {
                 "aria-labelledby": `nav-${section.name}`,
               }}
             >
-              {section.subSections.map((subsection, index) => (
-                <MenuItem key={index} onClick={(e) => setAnchorEl(null)}>
-                  <Link
-                    href={
-                      subsection.href || `/${section.name}/${subsection.title}`
-                    }
-                    style={{
-                      ...THEME.NAV.STYLE.BTN,
-                      width: "auto",
-                      color: THEME.SECONDARY,
-                      borderRadius: "5px",
-                      margin: "0 20px 0 20px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {subsection.title
-                      .split("-")
-                      .map(
-                        (word) => word.charAt(0).toUpperCase() + word.slice(1)
-                      )
-                      .join(" ")}
-                  </Link>
-                </MenuItem>
-              ))}
+            {section.subSections.map((subsection, index) => (
+              <MenuItem 
+                key={index} 
+                onClick={(e) => setAnchorEl(null)}
+                component="a"
+                href={subsection.href ? subsection.href : `/${section.name}/${subsection.title}`}
+                style={{
+                  ...THEME.NAV.STYLE.BTN,
+                  width: "auto",
+                  color: THEME.SECONDARY,
+                  borderRadius: "5px",
+                  margin: "0 20px 0 20px",
+                  cursor: 'pointer',
+                }}
+              
+              >
+                {subsection.title.split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ')}
+              </MenuItem>
+            ))}
             </Menu>
           </div>
         ) : (
