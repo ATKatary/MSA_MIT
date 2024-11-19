@@ -1,11 +1,13 @@
-import logo from "../../assets/svg/logo_dark.svg";
+import logo from "../../assets/media/alchemist_final.png";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 import { Link } from "@mui/material";
 import { Dropdown } from "bootstrap";
+import { Link, Menu, MenuItem } from "@mui/material";
 import { SECTIONS, THEME } from "../../constants";
+import { useState } from "react";
 
 /*** Global Constants ***/
 const DEFAULT = SECTIONS.HOME.TITLE;
@@ -21,8 +23,13 @@ export const NAV_GC = (props) => {
       name: SECTIONS.LIFE.TITLE,
     },
     {
-      inPage: true,
-      name: SECTIONS.MAILING_LIST.TITLE,
+      name: SECTIONS.CONTACT.TITLE,
+    },
+    {
+      name: SECTIONS.TEAM.TITLE,
+    },
+    {
+      name: SECTIONS.RESOURCES.TITLE,
     },
     {
       name: SECTIONS.CAREER.TITLE,
@@ -33,6 +40,9 @@ export const NAV_GC = (props) => {
       name: SECTIONS.SIGN_IN.TITLE,
     },
   ];
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
   for (const section of sections) {
     right.push({
       meta: {
@@ -40,53 +50,55 @@ export const NAV_GC = (props) => {
       },
       content: {
         title: section.dropdown ? (
-          <div class="dropdown">
-            <a
-              class="dropdown-toggle"
-              href="#"
+          <div>
+            <Link
+              onClick={(e) => setAnchorEl(e.currentTarget)}
               id={`nav-${section.name}`}
-              data-bs-toggle="dropdown"
               style={{
                 ...THEME.NAV.STYLE.BTN,
                 color: THEME.SECONDARY,
                 borderRadius: "5px",
                 margin: "0 20px 0 20px",
+                cursor: "pointer",
               }}
+              className={"select-section mobile-margin"}
             >
               {section.name.toUpperCase().replace("-", " ")}
-            </a>
-
-            <ul class="dropdown-menu">
-              {section.subSections.map((subsection) => {
-                return (
-                  <li>
-                    <Link
-                      href={
-                        subsection.href
-                          ? subsection.href
-                          : `/${section.name}/${subsection.title}`
-                      }
-                      id={`nav-${section.name}`}
-                      style={{
-                        ...THEME.NAV.STYLE.BTN,
-                        color: THEME.SECONDARY,
-                        borderRadius: "5px",
-                        margin: "0 20px 0 20px",
-                        width: "auto",
-                      }}
-                      className="dropdown-item"
-                    >
-                      {subsection.title
-                        .split("-")
-                        .map(
-                          (word) => word.charAt(0).toUpperCase() + word.slice(1)
-                        )
-                        .join(" ")}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            </Link>
+            <Menu
+              anchorEl={anchorEl}
+              open={open}
+              onClose={() => setAnchorEl(null)}
+              MenuListProps={{
+                autoFocusItem: false,
+                "aria-labelledby": `nav-${section.name}`,
+              }}
+            >
+              {section.subSections.map((subsection, index) => (
+                <MenuItem key={index} onClick={(e) => setAnchorEl(null)}>
+                  <Link
+                    href={
+                      subsection.href || `/${section.name}/${subsection.title}`
+                    }
+                    style={{
+                      ...THEME.NAV.STYLE.BTN,
+                      width: "auto",
+                      color: THEME.SECONDARY,
+                      borderRadius: "5px",
+                      margin: "0 20px 0 20px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {subsection.title
+                      .split("-")
+                      .map(
+                        (word) => word.charAt(0).toUpperCase() + word.slice(1)
+                      )
+                      .join(" ")}
+                  </Link>
+                </MenuItem>
+              ))}
+            </Menu>
           </div>
         ) : (
           <Link
@@ -102,7 +114,7 @@ export const NAV_GC = (props) => {
               borderRadius: "5px",
               margin: "0 20px 0 20px",
             }}
-            className={`${section.name === DEFAULT ? "select-section" : ""}`}
+            className={"select-section mobile-margin"}
           >
             {section.icon ? (
               <section.icon style={{ margin: "0 10px 0 0" }} />
@@ -145,8 +157,8 @@ export const NAV_GC = (props) => {
           title: (
             <img
               src={logo}
-              height="50px"
-              className="pointer align-self-center"
+              height="100px"
+              className="pointer align-self-center logo-mobile"
             />
           ),
         },
@@ -163,6 +175,7 @@ export const NAV_GC = (props) => {
             style: { fontSize: "18px" },
           },
           href: "https://www.instagram.com/mitmsa/",
+          target: "_blank",
         },
         content: {
           icon: InstagramIcon,
@@ -172,11 +185,12 @@ export const NAV_GC = (props) => {
       {
         meta: {
           isIcon: true,
-          style: { margin: "0 0 0 20px", height: "30px" },
+          style: { margin: "0 0 0 5px", height: "30px" },
           iconProps: {
             style: { fontSize: "18px" },
           },
           href: "https://www.facebook.com/mitmsa",
+          target: "_blank",
         },
         content: {
           icon: FacebookIcon,

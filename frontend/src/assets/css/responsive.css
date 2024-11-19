@@ -18,6 +18,19 @@
     }
 }
 
+@media (max-width: 600px) {
+    .mobile-margin {
+      margin: 0 8px 0 8px !important;
+      font-size: 10px !important;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .logo-mobile {
+      height: 30px !important;
+    }
+  }
+
 /***** <= 1000px *****/
 @media (min-width: 1400px) {
     .container {

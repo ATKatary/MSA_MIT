@@ -5,9 +5,13 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Contact from "./pages/contact";
 import Life from "./pages/life";
 import Landing from "./pages/landing";
 import JobPostings from "./pages/career/job-postings";
+import Info from "./pages/info";
+import Team from "./pages/team";
+import Resources from "./pages/resources";
 import SignIn from "./pages/sign_in";
 import ReferralListings from "./pages/career/referral-listings";
 import { SECTIONS } from "./constants";
@@ -21,6 +25,10 @@ root.render(
         <Route path="/" element={<Landing />} />
         <Route path={`/${SECTIONS.LIFE.TITLE}`} element={<Life />} />
         <Route path={`/${SECTIONS.DONATE.TITLE}`} element={<Landing />} />
+        <Route path={`/${SECTIONS.CONTACT.TITLE}`} element={<Contact />} />
+        {/* <Route path={`/${SECTIONS.INFO.TITLE}`} element={<Info />} /> */}
+        <Route path={`/${SECTIONS.TEAM.TITLE}`} element={<Team />} />
+        <Route path={`/${SECTIONS.RESOURCES.TITLE}`} element={<Resources />} />
         <Route
           path={`/${SECTIONS.CAREER.TITLE}/job-postings`}
           element={<JobPostings />}
