@@ -93,18 +93,21 @@ const Contact = () => {
         }}
       >
         <h1 className="text-lg" style={{ marginTop: "2rem" }}>
-          Messenger
+          WhatsApp Community
         </h1>
         <p className="text-md">
-          Join our casual Messenger group to stay updated with the latest events
-          and news.
+          Join our casual WhatsApp Community to stay updated with the latest
+          events and news.
         </p>
         <Button
           variant="contained"
           color="primary"
           style={{ margin: "5px" }}
           onClick={() => {
-            window.open("https://m.me/j/AbbKiAvMspnlpwK7/", "_blank");
+            window.open(
+              "https://chat.whatsapp.com/Bkhld46U3BH1mO3K1Om1nJ",
+              "_blank"
+            );
           }}
         >
           Join

@@ -18,16 +18,23 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     .mobile-margin {
-      margin: 0 8px 0 8px !important;
-      font-size: 10px !important;
+      margin: 0 3px 0 3px !important;
+      font-size: 8px !important;
     }
   }
 
   @media only screen and (max-width: 600px) {
     .logo-mobile {
       height: 30px !important;
+    }
+  }
+
+  @media (max-width: 325px) {
+    .mobile-margin {
+      margin: 0 1px 0 1px !important;
+      font-size: 7.5px !important;
     }
   }
 

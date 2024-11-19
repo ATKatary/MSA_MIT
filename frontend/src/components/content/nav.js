@@ -72,27 +72,31 @@ export const NAV_GC = (props) => {
                 "aria-labelledby": `nav-${section.name}`,
               }}
             >
-            {section.subSections.map((subsection, index) => (
-              <MenuItem 
-                key={index} 
-                onClick={(e) => setAnchorEl(null)}
-                component="a"
-                href={subsection.href ? subsection.href : `/${section.name}/${subsection.title}`}
-                style={{
-                  ...THEME.NAV.STYLE.BTN,
-                  width: "auto",
-                  color: THEME.SECONDARY,
-                  borderRadius: "5px",
-                  margin: "0 20px 0 20px",
-                  cursor: 'pointer',
-                }}
-              
-              >
-                {subsection.title.split('-')
-                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(' ')}
-              </MenuItem>
-            ))}
+              {section.subSections.map((subsection, index) => (
+                <MenuItem
+                  key={index}
+                  onClick={(e) => setAnchorEl(null)}
+                  component="a"
+                  href={
+                    subsection.href
+                      ? subsection.href
+                      : `/${section.name}/${subsection.title}`
+                  }
+                  style={{
+                    ...THEME.NAV.STYLE.BTN,
+                    width: "auto",
+                    color: THEME.SECONDARY,
+                    borderRadius: "5px",
+                    margin: "0 20px 0 20px",
+                    cursor: "pointer",
+                  }}
+                >
+                  {subsection.title
+                    .split("-")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ")}
+                </MenuItem>
+              ))}
             </Menu>
           </div>
         ) : (
@@ -165,9 +169,9 @@ export const NAV_GC = (props) => {
       {
         meta: {
           isIcon: true,
-          style: { margin: "0 10px 0 0px", height: "30px" },
+          style: { margin: "0 3px 0 0px", height: "20px" },
           iconProps: {
-            style: { fontSize: "18px" },
+            fontSize: "18px",
           },
           href: "https://www.instagram.com/mitmsa/",
           target: "_blank",
@@ -180,9 +184,9 @@ export const NAV_GC = (props) => {
       {
         meta: {
           isIcon: true,
-          style: { margin: "0 0 0 5px", height: "30px" },
+          style: { margin: "0 0 0 0px", height: "20px" },
           iconProps: {
-            style: { fontSize: "18px" },
+            fontSize: "18px",
           },
           href: "https://www.facebook.com/mitmsa",
           target: "_blank",
