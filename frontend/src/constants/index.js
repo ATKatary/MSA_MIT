@@ -52,6 +52,15 @@ export const SECTIONS = {
     RESOURCES: {
         TITLE: "resources",
     },
+
+    CAREER: {
+        TITLE: "career",
+        SUB_SECTIONS: [
+            {title: "referral-listings", component: "ReferralListings"}, 
+            {title: "job-postings", component: "JobPosts"}, 
+            {title: "resume-book", href: "https://forms.gle/11Dxz3mB3U3CiRPC6"}
+        ],
+    },
 };
 
 export const THEME = {

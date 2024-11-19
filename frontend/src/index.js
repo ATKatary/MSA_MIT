@@ -11,6 +11,8 @@ import Landing from "./pages/landing";
 import Info from "./pages/info";
 import Team from "./pages/team";
 import Resources from "./pages/resources";
+import JobPostings from './pages/career/job-postings';
+import ReferralListings from './pages/career/referral-listings';
 import { SECTIONS } from "./constants";
 
 const root = ReactDOM.createRoot(document.getElementById("appRoot"));
@@ -26,6 +28,8 @@ root.render(
         {/* <Route path={`/${SECTIONS.INFO.TITLE}`} element={<Info />} /> */}
         <Route path={`/${SECTIONS.TEAM.TITLE}`} element={<Team />} />
         <Route path={`/${SECTIONS.RESOURCES.TITLE}`} element={<Resources />} />
+        <Route path={`/${SECTIONS.CAREER.TITLE}/job-postings`} element={<JobPostings />} />
+        <Route path={`/${SECTIONS.CAREER.TITLE}/referral-listings`} element={<ReferralListings />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

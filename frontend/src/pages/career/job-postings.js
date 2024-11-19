@@ -74,7 +74,7 @@ function JobPostings() {
             <div 
                 style={{paddingTop: THEME.NAV.HEIGHT}}
             >
-                <CAREER_GC.JOB_POSTS.component />
+                <CAREER_GC.JOB_POSTS.Component />
             </div>
         </div>
         </>

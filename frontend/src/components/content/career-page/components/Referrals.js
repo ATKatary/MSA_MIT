@@ -50,7 +50,7 @@ export default function ReferralListings() {
             <>
               <h1>{selectedRow["Company Name"]} - {selectedRow["Name"]}</h1>
               {Object.entries(selectedRow).map(([key, value]) => { //populating screen with more information about the referral posting
-                if (value !== null && key == "Email") { 
+                if (value !== null && key === "Email") { 
                     return <p key={key}><strong>{key}:</strong> {<a href={"mailto:" + value}> {value} </a> }</p>;
                 }else if (value !== null && !["Name", "Company Name", "Timestamp"].includes(key)) {
                     return <p key={key}><strong>{key}:</strong> {value}</p>;

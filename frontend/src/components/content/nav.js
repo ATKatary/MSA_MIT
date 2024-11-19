@@ -3,9 +3,9 @@ import logo from "../../assets/media/alchemist_final.png";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-import { Link } from "@mui/material";
-import { Dropdown } from "bootstrap";
+import { Link, Menu, MenuItem } from "@mui/material";
 import { SECTIONS, THEME } from "../../constants";
+import { useState } from "react";
 
 /*** Global Constants ***/
 const DEFAULT = SECTIONS.HOME.TITLE;
@@ -40,14 +40,68 @@ export const NAV_GC = (props) => {
     {
       name: SECTIONS.RESOURCES.TITLE,
     },
+    {
+      name: SECTIONS.CAREER.TITLE,
+      dropdown: true,
+      subSections: SECTIONS.CAREER.SUB_SECTIONS,
+    },
   ];
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
   for (const section of sections) {
     right.push({
       meta: {
         className: `public-sans`,
       },
       content: {
-        title: (
+        title: section.dropdown ? (
+          <div>
+            <Link
+              onClick={(e) => setAnchorEl(e.currentTarget)}
+              id={`nav-${section.name}`}
+              style={{
+                ...THEME.NAV.STYLE.BTN,
+                color: THEME.SECONDARY,
+                borderRadius: "5px",
+                margin: "0 20px 0 20px",
+                cursor: 'pointer',
+              }}
+              className={"select-section mobile-margin"}
+            >
+            {section.name.toUpperCase().replace("-", " ")}
+            </Link>
+            <Menu
+              anchorEl={anchorEl}
+              open={open}
+              onClose={() => setAnchorEl(null)}
+              MenuListProps={{
+                autoFocusItem: false,
+                'aria-labelledby': `nav-${section.name}`,
+              }}            
+            >
+            {section.subSections.map((subsection, index) => (
+              <MenuItem key={index} onClick={(e) => setAnchorEl(null)}>
+                <Link
+                  href={subsection.href || `/${section.name}/${subsection.title}`}
+                  style={{
+                    ...THEME.NAV.STYLE.BTN,
+                    width: "auto",
+                    color: THEME.SECONDARY,
+                    borderRadius: "5px",
+                    margin: "0 20px 0 20px",
+                    cursor: 'pointer',
+                  }}
+                >
+                {subsection.title.split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ')}
+                </Link>
+              </MenuItem>
+            ))}
+            </Menu>
+          </div>
+          ):(
           <Link
             href={
               section.href

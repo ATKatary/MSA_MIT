@@ -74,7 +74,7 @@ function ReferralListings() {
             <Section 
                 style={{paddingTop: THEME.NAV.HEIGHT}}
             >
-                <CAREER_GC.REFERRAL_LISTINGS.component />
+                <CAREER_GC.REFERRAL_LISTINGS.Component />
             </Section>
         </div>
         </>
