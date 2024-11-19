@@ -1,67 +1,109 @@
-import * as React from 'react';
+import * as React from "react";
 import "../../assets/css/utils.css";
+import {
+  Typography,
+  Container,
+  Paper,
+  Grid,
+  TextField,
+  Button,
+  Box,
+  Alert,
+} from "@mui/material";
 
-import Nav1 from '../../components/nav1';
-import Section from '../../components/section';
-import { NAV_GC } from '../../components/content/nav';
-import { COLORS, SECTIONS, THEME } from '../../constants';
-import {CAREER_GC} from '../../components/content/career-page/career'
-import { getNextPrayer, useCustomState } from '../../components/utils';
+import Nav1 from "../../components/nav1";
+import Section from "../../components/section";
+import { NAV_GC } from "../../components/content/nav";
+import { COLORS, SECTIONS, THEME } from "../../constants";
+import { CAREER_GC } from "../../components/content/career-page/career";
+import { getNextPrayer, useCustomState } from "../../components/utils";
 
 function ReferralListings() {
-    
-    const [openNav, setOpenNav] = React.useState(false);
-    const [prayerSet, setPrayerSet] = React.useState(false);
-    const [nextPrayer, setNextPrayer] = React.useState(undefined);
-    const {NAV_LEFT, NAV_RIGHT, ...NAV_GC_REST} = NAV_GC({setOpen: setOpenNav,});
-    const [notification, setNotification] = useCustomState({value: null, notify: false});
+  const [openNav, setOpenNav] = React.useState(false);
+  const [prayerSet, setPrayerSet] = React.useState(false);
+  const [nextPrayer, setNextPrayer] = React.useState(undefined);
+  const { NAV_LEFT, NAV_RIGHT, ...NAV_GC_REST } = NAV_GC({
+    setOpen: setOpenNav,
+  });
+  const [notification, setNotification] = useCustomState({
+    value: null,
+    notify: false,
+  });
 
-    if (!prayerSet) {
-        const {nextPrayer, nextPrayerTime, nextPrayerHour} = getNextPrayer();
-        setNextPrayer(`Next prayer is ${nextPrayer.charAt(0).toUpperCase() + nextPrayer.slice(1)} at ${nextPrayerHour > 12 ? (nextPrayerHour - 12) + ":" + (nextPrayerTime.getMinutes() >= 10 ? nextPrayerTime.getMinutes() : "0" + nextPrayerTime.getMinutes()) + "pm" : nextPrayerHour + ":" + nextPrayerTime.getMinutes() + "am"} (${Math.round(Math.abs(new Date() - nextPrayerTime) / 60000)} min)`);
-        setPrayerSet(true)
-    }
+  if (!prayerSet) {
+    const { nextPrayer, nextPrayerTime, nextPrayerHour } = getNextPrayer();
+    setNextPrayer(
+      `Next prayer is ${
+        nextPrayer.charAt(0).toUpperCase() + nextPrayer.slice(1)
+      } at ${
+        nextPrayerHour > 12
+          ? nextPrayerHour -
+            12 +
+            ":" +
+            (nextPrayerTime.getMinutes() >= 10
+              ? nextPrayerTime.getMinutes()
+              : "0" + nextPrayerTime.getMinutes()) +
+            "pm"
+          : nextPrayerHour + ":" + nextPrayerTime.getMinutes() + "am"
+      } (${Math.round(Math.abs(new Date() - nextPrayerTime) / 60000)} min)`
+    );
+    setPrayerSet(true);
+  }
 
-    return (
-        <>
-        <Nav1 
-            open={openNav}
-            vertical={false}
-            collapsed={false}
-            itemsLeft={NAV_LEFT} 
-            setOpen={setOpenNav}
-            itemsRight={NAV_RIGHT}
-            nextPrayer={nextPrayer}
-            setNextPrayer={setNextPrayer}
-            
+  return (
+    <>
+      <Nav1
+        open={openNav}
+        vertical={false}
+        collapsed={false}
+        itemsLeft={NAV_LEFT}
+        setOpen={setOpenNav}
+        itemsRight={NAV_RIGHT}
+        nextPrayer={nextPrayer}
+        setNextPrayer={setNextPrayer}
+        style={{
+          width: "100vw",
+          zIndex: "111",
+          position: "fixed",
+          paddingTop: "20px",
+          backgroundColor: COLORS.WHITE,
+          justifyContent: "space-between",
+          // boxShadow: "4px 4px 4px #00000022",
+        }}
+        openedStyle={{ height: `${THEME.NAV.HEIGHT}px` }}
+        closedStyle={{
+          width: "50px",
+          color: COLORS.BLACK,
+          right: "calc(0% + 50px)",
+        }}
+      />
+      <div
+        className="flex column width-100"
+        style={{
+          height: "max-content",
+        }}
+      >
+        {localStorage.getItem("memberAuthenticated") === "true" ? (
+          <Section style={{ paddingTop: THEME.NAV.HEIGHT }}>
+            <CAREER_GC.REFERRAL_LISTINGS.component />
+          </Section>
+        ) : (
+          <div
             style={{
-                width: "100vw",
-                zIndex: "111", 
-                position: "fixed",
-                paddingTop: "20px",
-                backgroundColor: COLORS.WHITE, 
-                justifyContent: "space-between",
-                // boxShadow: "4px 4px 4px #00000022",
+              paddingTop: THEME.NAV.HEIGHT,
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
             }}
-
-            openedStyle={{height: `${THEME.NAV.HEIGHT}px`}}
-            closedStyle={{width: "50px", color: COLORS.BLACK, right: "calc(0% + 50px)"}}
-        />
-        <div 
-            className="flex column width-100"
-            style={{
-                height: "max-content"
-            }}
-        >
-            {/*** Referrals ***/}
-            <Section 
-                style={{paddingTop: THEME.NAV.HEIGHT}}
-            >
-                <CAREER_GC.REFERRAL_LISTINGS.component />
-            </Section>
-        </div>
-        </>
-    )
+          >
+            <Container maxWidth="sm">
+              <Alert severity="warning">Please Sign In to View This Page</Alert>
+            </Container>
+          </div>
+        )}
+      </div>
+    </>
+  );
 }
 
 export default ReferralListings;

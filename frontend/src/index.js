@@ -1,15 +1,16 @@
-import './index.css';
+import "./index.css";
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Life from './pages/life';
-import Landing from './pages/landing';
-import JobPostings from './pages/career/job-postings';
-import ReferralListings from './pages/career/referral-listings';
-import { SECTIONS } from './constants';
+import Life from "./pages/life";
+import Landing from "./pages/landing";
+import JobPostings from "./pages/career/job-postings";
+import SignIn from "./pages/sign_in";
+import ReferralListings from "./pages/career/referral-listings";
+import { SECTIONS } from "./constants";
 
 const root = ReactDOM.createRoot(document.getElementById("appRoot"));
 
@@ -20,8 +21,15 @@ root.render(
         <Route path="/" element={<Landing />} />
         <Route path={`/${SECTIONS.LIFE.TITLE}`} element={<Life />} />
         <Route path={`/${SECTIONS.DONATE.TITLE}`} element={<Landing />} />
-        <Route path={`/${SECTIONS.CAREER.TITLE}/job-postings`} element={<JobPostings />} />
-        <Route path={`/${SECTIONS.CAREER.TITLE}/referral-listings`} element={<ReferralListings />} />
+        <Route
+          path={`/${SECTIONS.CAREER.TITLE}/job-postings`}
+          element={<JobPostings />}
+        />
+        <Route
+          path={`/${SECTIONS.CAREER.TITLE}/referral-listings`}
+          element={<ReferralListings />}
+        />
+        <Route path={`/${SECTIONS.SIGN_IN.TITLE}`} element={<SignIn />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
